@@ -1,0 +1,1718 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f9f58bb7d36, pid=782542, tid=140321941821184
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_79-b15) (build 1.7.0_79-b15)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.79-b02 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libc.so.6+0xbbd36]  memcpy+0x246
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f9f51011000):  JavaThread "default-invoker-Thread-10" [_thread_in_native, id=782575, stack(0x00007f9f3f6f1000,0x00007f9f3f7f2000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=2 (SEGV_ACCERR), si_addr=0x00007f9f44777000
+
+Registers:
+RAX=0x00007f9ed0029730, RBX=0x0000000000006169, RCX=0x00007f9ed002f889, RDX=0x0000000000004259
+RSP=0x00007f9f3f7ecdc8, RBP=0x00007f9f3f7ece20, RSI=0x00007f9f44776fec, RDI=0x00007f9ed002b640
+R8 =0xfffffffffffffff0, R9 =0x000000000002a000, R10=0x00007f9ed002a000, R11=0x00007f9ed0029730
+R12=0x00007f9f44768add, R13=0x00007f9ed001b890, R14=0x0000000000007265, R15=0x00007f9f50737310
+RIP=0x00007f9f58bb7d36, EFLAGS=0x0000000000010202, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f9f3f7ecdc8)
+0x00007f9f3f7ecdc8:   00007f9f573b1bce 0000000760000c90
+0x00007f9f3f7ecdd8:   6169659f00000000 000000000000536c
+0x00007f9f3f7ecde8:   0000000073616c63 00007f9ed001b890
+0x00007f9f3f7ecdf8:   00007f9f507381b0 00007f9f50737310
+0x00007f9f3f7ece08:   00007f9ee0004bc0 000000000d462fb6
+0x00007f9f3f7ece18:   00007f9f3f7ece80 00007f9f3f7ece60
+0x00007f9f3f7ece28:   00007f9f573b20b0 0000002e3f7ece60
+0x00007f9f3f7ece38:   00007f9f3f7ece80 000000000000002e
+0x00007f9f3f7ece48:   00007f9f510111e8 00007f9f3f7ece80
+0x00007f9f3f7ece58:   00007f9f3f7ed2d8 00007f9f3f7ed2c0
+0x00007f9f3f7ece68:   00007f9f573b0eed 01007f9f543e5720
+0x00007f9f3f7ece78:   00007f9f50737310 6962666f2f67726f
+0x00007f9f3f7ece88:   797469746e652f7a 696c61697265732f
+0x00007f9f3f7ece98:   65536c6d582f657a 72657a696c616972
+0x00007f9f3f7ecea8:   00007373616c632e 0000000000000000
+0x00007f9f3f7eceb8:   00007f9f3f7ed150 00007f9f51011000
+0x00007f9f3f7ecec8:   00007f9f50f33190 00007f9f51011c30
+0x00007f9f3f7eced8:   00007f9f51011d68 00007f9f51012018
+0x00007f9f3f7ecee8:   00000000000003d8 00007f9f3f7ed580
+0x00007f9f3f7ecef8:   00007f9f3f7ed060 00007f9f3f7ed0e0
+0x00007f9f3f7ecf08:   00007f9f3f7ed150 00007f9f50f33160
+0x00007f9f3f7ecf18:   00007f9f51011d60 0000000760003680
+0x00007f9f3f7ecf28:   00007f9f3f7ed150 00007f9f50f33160
+0x00007f9f3f7ecf38:   00007f9f51011d60 0000000760003680
+0x00007f9f3f7ecf48:   00007f9f3f7ecfb0 00007f9f3f7ed0a0
+0x00007f9f3f7ecf58:   00007f9f582ba767 00007f9f0000000b
+0x00007f9f3f7ecf68:   00007f9f3f7ed0d0 00007f9f3f7ed150
+0x00007f9f3f7ecf78:   00007f9f510111e8 00007f9f582d8d30
+0x00007f9f3f7ecf88:   00007f9f51011840 00007f9f51011850
+0x00007f9f3f7ecf98:   00007f9f51011c28 00000000000003d8
+0x00007f9f3f7ecfa8:   00007f9f51011d58 00007f9f51011d00
+0x00007f9f3f7ecfb8:   00000007f5b11c50 00000007a2069600 
+
+Instructions: (pc=0x00007f9f58bb7d36)
+0x00007f9f58bb7d16:   83 e0 0f 49 83 e8 10 4c 29 c6 4c 29 c7 4c 01 c2
+0x00007f9f58bb7d26:   48 3b 15 8b 57 13 00 0f 87 cc 00 00 00 0f 10 06
+0x00007f9f58bb7d36:   0f 10 4e 10 0f 10 56 20 0f 10 5e 30 48 83 c6 40
+0x00007f9f58bb7d46:   48 83 ea 40 0f 29 07 0f 29 4f 10 0f 29 57 20 0f 
+
+Register to memory mapping:
+
+RAX=0x00007f9ed0029730 is an unknown value
+RBX=0x0000000000006169 is an unknown value
+RCX=0x00007f9ed002f889 is an unknown value
+RDX=0x0000000000004259 is an unknown value
+RSP=0x00007f9f3f7ecdc8 is pointing into the stack for thread: 0x00007f9f51011000
+RBP=0x00007f9f3f7ece20 is pointing into the stack for thread: 0x00007f9f51011000
+RSI=0x00007f9f44776fec is an unknown value
+RDI=0x00007f9ed002b640 is an unknown value
+R8 =0xfffffffffffffff0 is an unknown value
+R9 =0x000000000002a000 is an unknown value
+R10=0x00007f9ed002a000 is an unknown value
+R11=0x00007f9ed0029730 is an unknown value
+R12=0x00007f9f44768add is an unknown value
+R13=0x00007f9ed001b890 is an unknown value
+R14=0x0000000000007265 is an unknown value
+R15=0x00007f9f50737310 is an unknown value
+
+
+Stack: [0x00007f9f3f6f1000,0x00007f9f3f7f2000],  sp=0x00007f9f3f7ecdc8,  free space=1007k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libc.so.6+0xbbd36]  memcpy+0x246
+C  [libzip.so+0x50b0]  ZIP_GetEntry+0xd0
+C  [libzip.so+0x3eed]  Java_java_util_zip_ZipFile_getEntry+0xad
+J 43  java.util.zip.ZipFile.getEntry(J[BZ)J (0 bytes) @ 0x00007f9f5441fcae [0x00007f9f5441fbe0+0xce]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 43  java.util.zip.ZipFile.getEntry(J[BZ)J (0 bytes) @ 0x00007f9f5441fc38 [0x00007f9f5441fbe0+0x58]
+J 46 C2 java.util.zip.ZipFile.getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry; (86 bytes) @ 0x00007f9f54428408 [0x00007f9f54428340+0xc8]
+J 265 C2 sun.misc.URLClassPath$JarLoader.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; (91 bytes) @ 0x00007f9f544c6920 [0x00007f9f544c68a0+0x80]
+J 270 C2 sun.misc.URLClassPath.getResource(Ljava/lang/String;Z)Lsun/misc/Resource; (74 bytes) @ 0x00007f9f544ded30 [0x00007f9f544deba0+0x190]
+J 1375 C2 java.net.URLClassLoader$1.run()Ljava/lang/Object; (5 bytes) @ 0x00007f9f54473efc [0x00007f9f54473d20+0x1dc]
+v  ~StubRoutines::call_stub
+J 1373  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; (0 bytes) @ 0x00007f9f544a8883 [0x00007f9f544a8820+0x63]
+j  java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class;+13
+J 1672 C2 java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; (122 bytes) @ 0x00007f9f54916c80 [0x00007f9f54916820+0x460]
+J 1234 C2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; (7 bytes) @ 0x00007f9f545a91a0 [0x00007f9f545a9160+0x40]
+v  ~StubRoutines::call_stub
+j  org.ofbiz.entity.GenericDelegator.saveEntitySyncRemoveInfo(Lorg/ofbiz/entity/GenericEntity;)V+29
+j  org.ofbiz.entity.GenericDelegator.removeByPrimaryKey(Lorg/ofbiz/entity/GenericPK;Z)I+134
+j  org.ofbiz.entity.GenericDelegator.removeAll(Ljava/util/List;Z)I+58
+j  org.ofbiz.entity.GenericDelegator.removeAll(Ljava/util/List;)I+3
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+J 3189 C2 sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x00007f9f54deb6a8 [0x00007f9f54deb660+0x48]
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+57
+j  bsh.Reflect.invokeMethod(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+109
+j  bsh.Reflect.invokeObjectMethod(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;Lbsh/Interpreter;Lbsh/CallStack;Lbsh/SimpleNode;)Ljava/lang/Object;+67
+j  bsh.Name.invokeMethod(Lbsh/Interpreter;[Ljava/lang/Object;Lbsh/CallStack;Lbsh/SimpleNode;)Ljava/lang/Object;+267
+j  bsh.BSHMethodInvocation.eval(Lbsh/CallStack;Lbsh/Interpreter;)Ljava/lang/Object;+84
+j  bsh.BSHPrimaryExpression.eval(ZLbsh/CallStack;Lbsh/Interpreter;)Ljava/lang/Object;+121
+j  bsh.BSHPrimaryExpression.eval(Lbsh/CallStack;Lbsh/Interpreter;)Ljava/lang/Object;+4
+j  bsh.BSHBlock.evalBlock(Lbsh/CallStack;Lbsh/Interpreter;ZLbsh/BSHBlock$NodeFilter;)Ljava/lang/Object;+177
+j  bsh.BSHBlock.eval(Lbsh/CallStack;Lbsh/Interpreter;Z)Ljava/lang/Object;+71
+j  bsh.BSHBlock.eval(Lbsh/CallStack;Lbsh/Interpreter;)Ljava/lang/Object;+4
+j  bsh.BSHWhileStatement.eval(Lbsh/CallStack;Lbsh/Interpreter;)Ljava/lang/Object;+96
+j  bsh.BSHBlock.evalBlock(Lbsh/CallStack;Lbsh/Interpreter;ZLbsh/BSHBlock$NodeFilter;)Ljava/lang/Object;+177
+j  bsh.BSHBlock.eval(Lbsh/CallStack;Lbsh/Interpreter;Z)Ljava/lang/Object;+71
+j  bsh.BSHBlock.eval(Lbsh/CallStack;Lbsh/Interpreter;)Ljava/lang/Object;+4
+j  bsh.BSHIfStatement.eval(Lbsh/CallStack;Lbsh/Interpreter;)Ljava/lang/Object;+28
+j  bsh.Interpreter.evalParsedScript(Lbsh/Interpreter$ParsedScript;Lbsh/NameSpace;)Ljava/lang/Object;+70
+j  bsh.Interpreter.evalParsedScript(Lbsh/Interpreter$ParsedScript;)Ljava/lang/Object;+6
+j  org.ofbiz.base.util.BshUtil.runBshAtLocation(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;+165
+j  org.ofbiz.service.engine.BeanShellEngine.serviceInvoker(Ljava/lang/String;Lorg/ofbiz/service/ModelService;Ljava/util/Map;)Ljava/util/Map;+47
+j  org.ofbiz.service.engine.BeanShellEngine.runSync(Ljava/lang/String;Lorg/ofbiz/service/ModelService;Ljava/util/Map;)Ljava/util/Map;+4
+j  org.ofbiz.service.ModelServiceReader$GenericInvokerImpl.runSync(Ljava/lang/String;Lorg/ofbiz/service/engine/GenericEngine;Ljava/util/Map;)Ljava/util/Map;+7
+j  _$gen.file_58$.home.yashwant.opentaps.opentaps_45$1_46$5_46$0.opentaps.warehouse.servicedef.services_95$facility_46$xml_35$populateWarehouseSummaryData.runSync(Ljava/lang/String;Lorg/ofbiz/service/engine/GenericEngine;Ljava/util/Map;)Ljava/util/Map;+7
+j  org.ofbiz.service.ServiceDispatcher.runSync(Ljava/lang/String;Lorg/ofbiz/service/ModelService;Ljava/util/Map;Z)Ljava/util/Map;+744
+j  org.ofbiz.service.ServiceDispatcher.runSync(Ljava/lang/String;Lorg/ofbiz/service/ModelService;Ljava/util/Map;)Ljava/util/Map;+5
+j  org.ofbiz.service.GenericDispatcher.runSync(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Map;+19
+j  org.ofbiz.service.job.GenericServiceJob.exec()V+21
+j  org.ofbiz.service.job.JobInvoker.run()V+181
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f9e542d4800 JavaThread "pool-6-thread-1" [_thread_blocked, id=783275, stack(0x00007f9f2bdfe000,0x00007f9f2beff000)]
+  0x00007f9e5421f800 JavaThread "pool-4-thread-1" [_thread_blocked, id=783274, stack(0x00007f9f398ef000,0x00007f9f399f0000)]
+  0x00007f9f50009800 JavaThread "DestroyJavaVM" [_thread_blocked, id=782544, stack(0x00007f9f57a31000,0x00007f9f57b31000)]
+  0x00007f9f51eae800 JavaThread "Store org.hibernate.cache.StandardQueryCache Expiry Thread" daemon [_thread_blocked, id=782777, stack(0x00007f9f2beff000,0x00007f9f2c000000)]
+  0x00007f9f51f48000 JavaThread "Store org.hibernate.cache.StandardQueryCache Spool Thread" daemon [_thread_blocked, id=782776, stack(0x00007f9f30dce000,0x00007f9f30ecf000)]
+  0x00007f9f522bc800 JavaThread "Store org.hibernate.cache.UpdateTimestampsCache Expiry Thread" daemon [_thread_blocked, id=782775, stack(0x00007f9f30ccd000,0x00007f9f30dce000)]
+  0x00007f9f52342800 JavaThread "Store org.hibernate.cache.UpdateTimestampsCache Spool Thread" daemon [_thread_blocked, id=782774, stack(0x00007f9f312d3000,0x00007f9f313d4000)]
+  0x00007f9e58057000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=782769, stack(0x00007f9f319da000,0x00007f9f31adb000)]
+  0x00007f9ed0010000 JavaThread "http-0.0.0.0-8443-7" daemon [_thread_blocked, id=782719, stack(0x00007f9f30ecf000,0x00007f9f30fd0000)]
+  0x00007f9ed000e800 JavaThread "http-0.0.0.0-8443-6" daemon [_thread_blocked, id=782718, stack(0x00007f9f30fd0000,0x00007f9f310d1000)]
+  0x00007f9ed000c800 JavaThread "http-0.0.0.0-8443-5" daemon [_thread_blocked, id=782717, stack(0x00007f9f310d1000,0x00007f9f311d2000)]
+  0x00007f9ed0009000 JavaThread "http-0.0.0.0-8443-4" daemon [_thread_blocked, id=782716, stack(0x00007f9f311d2000,0x00007f9f312d3000)]
+  0x00007f9ed000b800 JavaThread "http-0.0.0.0-8443-3" daemon [_thread_blocked, id=782715, stack(0x00007f9f3f15e000,0x00007f9f3f25f000)]
+  0x00007f9ed0007800 JavaThread "http-0.0.0.0-8443-2" daemon [_thread_blocked, id=782691, stack(0x00007f9f313d4000,0x00007f9f314d5000)]
+  0x00007f9ed000a800 JavaThread "http-0.0.0.0-8443-1" daemon [_thread_blocked, id=782674, stack(0x00007f9f314d5000,0x00007f9f315d6000)]
+  0x00007f9f5170e800 JavaThread "Thread-76" [_thread_in_native, id=782662, stack(0x00007f9f315d6000,0x00007f9f316d7000)]
+  0x00007f9f51715800 JavaThread "Thread-74" [_thread_in_native, id=782661, stack(0x00007f9f316d7000,0x00007f9f317d8000)]
+  0x00007f9f516bb000 JavaThread "Start Level Event Dispatcher" daemon [_thread_blocked, id=782657, stack(0x00007f9f317d8000,0x00007f9f318d9000)]
+  0x00007f9f516ba800 JavaThread "Framework Event Dispatcher" daemon [_thread_blocked, id=782656, stack(0x00007f9f318d9000,0x00007f9f319da000)]
+  0x00007f9f50ef2000 JavaThread "http-0.0.0.0-8443-Acceptor-0" daemon [_thread_in_native, id=782654, stack(0x00007f9f31adb000,0x00007f9f31bdc000)]
+  0x00007f9f50ef1000 JavaThread "http-0.0.0.0-8080-Acceptor-0" daemon [_thread_in_native, id=782653, stack(0x00007f9f31bdc000,0x00007f9f31cdd000)]
+  0x00007f9f50eff000 JavaThread "TP-Monitor" daemon [_thread_blocked, id=782652, stack(0x00007f9f31cdd000,0x00007f9f31dde000)]
+  0x00007f9f50efd000 JavaThread "TP-Processor4" daemon [_thread_in_native, id=782651, stack(0x00007f9f31dde000,0x00007f9f31edf000)]
+  0x00007f9f50efc000 JavaThread "TP-Processor3" daemon [_thread_blocked, id=782650, stack(0x00007f9f31edf000,0x00007f9f31fe0000)]
+  0x00007f9f50efb800 JavaThread "TP-Processor2" daemon [_thread_blocked, id=782649, stack(0x00007f9f31fe0000,0x00007f9f320e1000)]
+  0x00007f9f5101c800 JavaThread "TP-Processor1" daemon [_thread_blocked, id=782648, stack(0x00007f9f38be2000,0x00007f9f38ce3000)]
+  0x00007f9f50f3a800 JavaThread "ContainerBackgroundProcessor[StandardEngine[default-server]]" daemon [_thread_blocked, id=782647, stack(0x00007f9f382d9000,0x00007f9f383da000)]
+  0x00007f9f50cd0800 JavaThread "TTLObject(async-update)-15" daemon [_thread_blocked, id=782645, stack(0x00007f9f320e1000,0x00007f9f321e2000)]
+  0x00007f9f50cce800 JavaThread "TTLObject(async-update)-14" daemon [_thread_blocked, id=782644, stack(0x00007f9f321e2000,0x00007f9f322e3000)]
+  0x00007f9f50ccc800 JavaThread "TTLObject(async-update)-13" daemon [_thread_blocked, id=782643, stack(0x00007f9f322e3000,0x00007f9f323e4000)]
+  0x00007f9f50f7e000 JavaThread "TTLObject(async-update)-12" daemon [_thread_blocked, id=782642, stack(0x00007f9f323e4000,0x00007f9f324e5000)]
+  0x00007f9f50f7c000 JavaThread "TTLObject(async-update)-11" daemon [_thread_blocked, id=782641, stack(0x00007f9f324e5000,0x00007f9f325e6000)]
+  0x00007f9f50f7a000 JavaThread "TTLObject(async-update)-10" daemon [_thread_blocked, id=782640, stack(0x00007f9f325e6000,0x00007f9f326e7000)]
+  0x00007f9f50f78000 JavaThread "TTLObject(async-update)-9" daemon [_thread_blocked, id=782639, stack(0x00007f9f326e7000,0x00007f9f327e8000)]
+  0x00007f9f510d1800 JavaThread "TTLObject(async-update)-8" daemon [_thread_blocked, id=782638, stack(0x00007f9f327e8000,0x00007f9f328e9000)]
+  0x00007f9f510cf800 JavaThread "TTLObject(async-update)-7" daemon [_thread_blocked, id=782637, stack(0x00007f9f328e9000,0x00007f9f329ea000)]
+  0x00007f9f510cd800 JavaThread "TTLObject(async-update)-6" daemon [_thread_blocked, id=782636, stack(0x00007f9f329ea000,0x00007f9f32aeb000)]
+  0x00007f9f510cb800 JavaThread "TTLObject(async-update)-5" daemon [_thread_blocked, id=782635, stack(0x00007f9f32aeb000,0x00007f9f32bec000)]
+  0x00007f9f51559000 JavaThread "TTLObject(async-update)-4" daemon [_thread_blocked, id=782634, stack(0x00007f9f32bec000,0x00007f9f32ced000)]
+  0x00007f9f51557000 JavaThread "TTLObject(async-update)-3" daemon [_thread_blocked, id=782633, stack(0x00007f9f32ced000,0x00007f9f32dee000)]
+  0x00007f9f51555000 JavaThread "TTLObject(async-update)-2" daemon [_thread_blocked, id=782632, stack(0x00007f9f32dee000,0x00007f9f32eef000)]
+  0x00007f9f51553000 JavaThread "TTLObject(async-update)-1" daemon [_thread_blocked, id=782631, stack(0x00007f9f32eef000,0x00007f9f32ff0000)]
+  0x00007f9f50d7f000 JavaThread "TTLObject(async-update)-0" daemon [_thread_blocked, id=782630, stack(0x00007f9f32ff0000,0x00007f9f330f1000)]
+  0x00007f9e3c024000 JavaThread "ThreadPool-15" daemon [_thread_blocked, id=782629, stack(0x00007f9f330f1000,0x00007f9f331f2000)]
+  0x00007f9e3c022000 JavaThread "ThreadPool-14" daemon [_thread_blocked, id=782628, stack(0x00007f9f331f2000,0x00007f9f332f3000)]
+  0x00007f9e3c020000 JavaThread "ThreadPool-13" daemon [_thread_blocked, id=782627, stack(0x00007f9f332f3000,0x00007f9f333f4000)]
+  0x00007f9e3c01e000 JavaThread "ThreadPool-12" daemon [_thread_blocked, id=782626, stack(0x00007f9f333f4000,0x00007f9f334f5000)]
+  0x00007f9e3c01c000 JavaThread "ThreadPool-11" daemon [_thread_blocked, id=782625, stack(0x00007f9f334f5000,0x00007f9f335f6000)]
+  0x00007f9e3c019800 JavaThread "ThreadPool-10" daemon [_thread_blocked, id=782624, stack(0x00007f9f335f6000,0x00007f9f336f7000)]
+  0x00007f9e3c017800 JavaThread "ThreadPool-9" daemon [_thread_blocked, id=782623, stack(0x00007f9f336f7000,0x00007f9f337f8000)]
+  0x00007f9e3c015800 JavaThread "ThreadPool-8" daemon [_thread_blocked, id=782622, stack(0x00007f9f337f8000,0x00007f9f338f9000)]
+  0x00007f9e3c013000 JavaThread "ThreadPool-7" daemon [_thread_blocked, id=782621, stack(0x00007f9f338f9000,0x00007f9f339fa000)]
+  0x00007f9e3c011000 JavaThread "ThreadPool-6" daemon [_thread_blocked, id=782620, stack(0x00007f9f339fa000,0x00007f9f33afb000)]
+  0x00007f9e3c00f000 JavaThread "ThreadPool-5" daemon [_thread_blocked, id=782619, stack(0x00007f9f33afb000,0x00007f9f33bfc000)]
+  0x00007f9e3c00d000 JavaThread "ThreadPool-4" daemon [_thread_blocked, id=782618, stack(0x00007f9f33bfc000,0x00007f9f33cfd000)]
+  0x00007f9e3c00b000 JavaThread "ThreadPool-3" daemon [_thread_blocked, id=782617, stack(0x00007f9f33cfd000,0x00007f9f33dfe000)]
+  0x00007f9e3c009000 JavaThread "ThreadPool-2" daemon [_thread_blocked, id=782616, stack(0x00007f9f33dfe000,0x00007f9f33eff000)]
+  0x00007f9e3c007000 JavaThread "ThreadPool-1" daemon [_thread_blocked, id=782615, stack(0x00007f9f33eff000,0x00007f9f34000000)]
+  0x00007f9e3c006000 JavaThread "ThreadPool-0" daemon [_thread_blocked, id=782614, stack(0x00007f9f380d7000,0x00007f9f381d8000)]
+  0x00007f9e3c002000 JavaThread "ReferenceCleaner" daemon [_thread_blocked, id=782613, stack(0x00007f9f381d8000,0x00007f9f382d9000)]
+  0x00007f9e6800e800 JavaThread "TTLObject(7) pulse" daemon [_thread_blocked, id=782611, stack(0x00007f9f383da000,0x00007f9f384db000)]
+  0x00007f9e6800c800 JavaThread "TTLObject(6) pulse" daemon [_thread_blocked, id=782610, stack(0x00007f9f384db000,0x00007f9f385dc000)]
+  0x00007f9e6800a800 JavaThread "TTLObject(5) pulse" daemon [_thread_blocked, id=782609, stack(0x00007f9f385dc000,0x00007f9f386dd000)]
+  0x00007f9e68008800 JavaThread "TTLObject(4) pulse" daemon [_thread_blocked, id=782608, stack(0x00007f9f386dd000,0x00007f9f387de000)]
+  0x00007f9e68007000 JavaThread "TTLObject(3) pulse" daemon [_thread_blocked, id=782607, stack(0x00007f9f387de000,0x00007f9f388df000)]
+  0x00007f9e68005000 JavaThread "TTLObject(2) pulse" daemon [_thread_blocked, id=782606, stack(0x00007f9f388df000,0x00007f9f389e0000)]
+  0x00007f9e68003800 JavaThread "TTLObject(1) pulse" daemon [_thread_blocked, id=782605, stack(0x00007f9f389e0000,0x00007f9f38ae1000)]
+  0x00007f9e68001800 JavaThread "TTLObject(0) pulse" daemon [_thread_blocked, id=782604, stack(0x00007f9f38ae1000,0x00007f9f38be2000)]
+  0x00007f9ea8010000 JavaThread "RMI RenewClean-[127.0.1.1:33723]" daemon [_thread_blocked, id=782601, stack(0x00007f9f38de4000,0x00007f9f38ee5000)]
+  0x00007f9f515b4000 JavaThread "RMI TCP Accept-0" daemon [_thread_in_native, id=782600, stack(0x00007f9f38ee5000,0x00007f9f38fe6000)]
+  0x00007f9f50ee5000 JavaThread "ExecutionPoolPulseWorker(7)" daemon [_thread_blocked, id=782597, stack(0x00007f9f38fe6000,0x00007f9f390e7000)]
+  0x00007f9f50ee3000 JavaThread "ExecutionPoolPulseWorker(6)" daemon [_thread_blocked, id=782596, stack(0x00007f9f390e7000,0x00007f9f391e8000)]
+  0x00007f9f50f54800 JavaThread "ExecutionPoolPulseWorker(5)" daemon [_thread_blocked, id=782595, stack(0x00007f9f391e8000,0x00007f9f392e9000)]
+  0x00007f9f50f52800 JavaThread "ExecutionPoolPulseWorker(4)" daemon [_thread_blocked, id=782594, stack(0x00007f9f392e9000,0x00007f9f393ea000)]
+  0x00007f9f50f50800 JavaThread "ExecutionPoolPulseWorker(3)" daemon [_thread_blocked, id=782593, stack(0x00007f9f393ea000,0x00007f9f394eb000)]
+  0x00007f9f50f4e800 JavaThread "ExecutionPoolPulseWorker(2)" daemon [_thread_blocked, id=782592, stack(0x00007f9f394eb000,0x00007f9f395ec000)]
+  0x00007f9f50fe9800 JavaThread "ExecutionPoolPulseWorker(1)" daemon [_thread_blocked, id=782591, stack(0x00007f9f395ec000,0x00007f9f396ed000)]
+  0x00007f9f50fe8000 JavaThread "ExecutionPoolPulseWorker(0)" daemon [_thread_blocked, id=782590, stack(0x00007f9f396ed000,0x00007f9f397ee000)]
+  0x00007f9f50cd4800 JavaThread "ReferenceCleaner" daemon [_thread_blocked, id=782589, stack(0x00007f9f397ee000,0x00007f9f398ef000)]
+  0x00007f9ea8004000 JavaThread "RMI RenewClean-[127.0.1.1:37977,org.ofbiz.service.rmi.socket.ssl.SSLClientSocketFactory@2b385e6d]" daemon [_thread_blocked, id=782586, stack(0x00007f9f399f0000,0x00007f9f39af1000)]
+  0x00007f9f51548000 JavaThread "RMI Scheduler(0)" daemon [_thread_blocked, id=782585, stack(0x00007f9f39af1000,0x00007f9f39bf2000)]
+  0x00007f9f51547800 JavaThread "GC Daemon" daemon [_thread_blocked, id=782583, stack(0x00007f9f39cf3000,0x00007f9f39df4000)]
+  0x00007f9f51542800 JavaThread "RMI Reaper" [_thread_blocked, id=782582, stack(0x00007f9f39df4000,0x00007f9f39ef5000)]
+  0x00007f9f5154a000 JavaThread "RMI TCP Accept-0" daemon [_thread_in_native, id=782581, stack(0x00007f9f39ef5000,0x00007f9f39ff6000)]
+  0x00007f9f5150e000 JavaThread "RMI TCP Accept-1099" daemon [_thread_in_native, id=782580, stack(0x00007f9f39ff6000,0x00007f9f3a0f7000)]
+  0x00007f9f51495800 JavaThread "org.apache.commons.vfs.cache.SoftRefFilesCache$SoftRefReleaseThread" daemon [_thread_blocked, id=782579, stack(0x00007f9f3f2a8000,0x00007f9f3f3a9000)]
+  0x00007f9f51034000 JavaThread "org.ofbiz.service.job.JobPoller@6ff154c9" [_thread_blocked, id=782577, stack(0x00007f9f3f5f0000,0x00007f9f3f6f1000)]
+=>0x00007f9f51011000 JavaThread "default-invoker-Thread-10" [_thread_in_native, id=782575, stack(0x00007f9f3f6f1000,0x00007f9f3f7f2000)]
+  0x00007f9f50f31800 JavaThread "default-invoker-Thread-9" [_thread_blocked, id=782574, stack(0x00007f9f3f7f2000,0x00007f9f3f8f3000)]
+  0x00007f9f50f2f800 JavaThread "default-invoker-Thread-8" [_thread_blocked, id=782573, stack(0x00007f9f3f8f3000,0x00007f9f3f9f4000)]
+  0x00007f9f50f59000 JavaThread "default-invoker-Thread-7" [_thread_blocked, id=782572, stack(0x00007f9f3f9f4000,0x00007f9f3faf5000)]
+  0x00007f9f50f58800 JavaThread "default-invoker-Thread-6" [_thread_blocked, id=782571, stack(0x00007f9f3faf5000,0x00007f9f3fbf6000)]
+  0x00007f9f50e9e800 JavaThread "Thread-4" daemon [_thread_blocked, id=782569, stack(0x00007f9f3fbf6000,0x00007f9f3fcf7000)]
+  0x00007f9f50d64000 JavaThread "Timer-0" daemon [_thread_blocked, id=782564, stack(0x00007f9f3feff000,0x00007f9f40000000)]
+  0x00007f9f50503800 JavaThread "Dispatcher-Thread-1" daemon [_thread_blocked, id=782563, stack(0x00007f9f44777000,0x00007f9f44878000)]
+  0x00007f9f50239000 JavaThread "org.ofbiz.base.start.Start@486c8255" [_thread_in_native, id=782561, stack(0x00007f9f4c38c000,0x00007f9f4c48d000)]
+  0x00007f9f501e7800 JavaThread "Service Thread" daemon [_thread_blocked, id=782559, stack(0x00007f9f4c7a5000,0x00007f9f4c8a6000)]
+  0x00007f9f501e5800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=782558, stack(0x00007f9f4c8a7000,0x00007f9f4c9a7000)]
+  0x00007f9f501da800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=782557, stack(0x00007f9f4c9a8000,0x00007f9f4caa8000)]
+  0x00007f9f501d8000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=782556, stack(0x00007f9f4caa8000,0x00007f9f4cba9000)]
+  0x00007f9f501bf000 JavaThread "Finalizer" daemon [_thread_blocked, id=782555, stack(0x00007f9f4d119000,0x00007f9f4d21a000)]
+  0x00007f9f501bd000 JavaThread "Reference Handler" daemon [_thread_blocked, id=782554, stack(0x00007f9f4d21a000,0x00007f9f4d31b000)]
+
+Other Threads:
+  0x00007f9f501b9000 VMThread [stack: 0x00007f9f4d31c000,0x00007f9f4d41c000] [id=782553]
+  0x00007f9f501f2000 WatcherThread [stack: 0x00007f9f4c6a5000,0x00007f9f4c7a5000] [id=782560]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 447488K, used 397943K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 370688K, 96% used [0x00000007e0000000,0x00000007f5bbc8f0,0x00000007f6a00000)
+  from space 76800K, 54% used [0x00000007f6a00000,0x00000007f92e13f0,0x00000007fb500000)
+  to   space 74752K, 0% used [0x00000007fb700000,0x00000007fb700000,0x0000000800000000)
+ ParOldGen       total 848896K, used 688979K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 81% used [0x00000007a0000000,0x00000007ca0d4c60,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 228315K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 53% used [0x0000000760000000,0x000000076def6f50,0x000000077a300000)
+
+Card table byte_map: [0x00007f9f4faff000,0x00007f9f50000000] byte_map_base: 0x00007f9f4bfff000
+
+Polling page: 0x00007f9f58f6d000
+
+Code Cache  [0x00007f9f543ad000, 0x00007f9f54fbd000, 0x00007f9f573ad000)
+ total_blobs=3960 nmethods=3036 adapters=876 free_code_cache=37221Kb largest_free_block=37720448
+
+Compilation events (10 events):
+Event: 2260.402 Thread 0x00007f9f501da800 nmethod 3487 0x00007f9f54acaa90 code [0x00007f9f54acac40, 0x00007f9f54acb040]
+Event: 2260.404 Thread 0x00007f9f501e5800 nmethod 3482 0x00007f9f54764510 code [0x00007f9f54764880, 0x00007f9f54765700]
+Event: 2260.691 Thread 0x00007f9f501da800 3488             org.apache.xerces.impl.xs.opti.SchemaDOM::startAnnotation (320 bytes)
+Event: 2260.692 Thread 0x00007f9f501e5800 3489             org.apache.xerces.util.NamespaceSupport::getAllPrefixes (125 bytes)
+Event: 2260.698 Thread 0x00007f9f501e5800 nmethod 3489 0x00007f9f548ea050 code [0x00007f9f548ea1c0, 0x00007f9f548ea558]
+Event: 2260.704 Thread 0x00007f9f501e5800 3490             org.apache.xerces.dom.CoreDocumentImpl::setUserData (175 bytes)
+Event: 2260.713 Thread 0x00007f9f501e5800 nmethod 3490 0x00007f9f54ac9b50 code [0x00007f9f54ac9d40, 0x00007f9f54aca4f0]
+Event: 2260.714 Thread 0x00007f9f501e5800 3491             org.apache.xerces.dom.NodeImpl::setUserData (12 bytes)
+Event: 2260.715 Thread 0x00007f9f501e5800 nmethod 3491 0x00007f9f54790090 code [0x00007f9f547901e0, 0x00007f9f547902a8]
+Event: 2260.732 Thread 0x00007f9f501da800 nmethod 3488 0x00007f9f54e76210 code [0x00007f9f54e76520, 0x00007f9f54e777c0]
+
+GC Heap History (10 events):
+Event: 64.423 GC heap before
+{Heap before GC invocations=40 (full 3):
+ PSYoungGen      total 456704K, used 456683K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 403456K, 100% used [0x00000007e0000000,0x00000007f8a00000,0x00000007f8a00000)
+  from space 53248K, 99% used [0x00000007fcc00000,0x00000007ffffadb0,0x0000000800000000)
+  to   space 60416K, 0% used [0x00000007f8a00000,0x00000007f8a00000,0x00000007fc500000)
+ ParOldGen       total 848896K, used 574014K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 67% used [0x00000007a0000000,0x00000007c308faf8,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 216043K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 50% used [0x0000000760000000,0x000000076d2fad90,0x000000077a300000)
+Event: 64.508 GC heap after
+Heap after GC invocations=40 (full 3):
+ PSYoungGen      total 463872K, used 27654K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 403456K, 0% used [0x00000007e0000000,0x00000007e0000000,0x00000007f8a00000)
+  from space 60416K, 45% used [0x00000007f8a00000,0x00000007fa501958,0x00000007fc500000)
+  to   space 58368K, 0% used [0x00000007fc700000,0x00000007fc700000,0x0000000800000000)
+ ParOldGen       total 848896K, used 627319K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 73% used [0x00000007a0000000,0x00000007c649dcb0,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 216043K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 50% used [0x0000000760000000,0x000000076d2fad90,0x000000077a300000)
+}
+Event: 64.999 GC heap before
+{Heap before GC invocations=41 (full 3):
+ PSYoungGen      total 463872K, used 431110K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 403456K, 100% used [0x00000007e0000000,0x00000007f8a00000,0x00000007f8a00000)
+  from space 60416K, 45% used [0x00000007f8a00000,0x00000007fa501958,0x00000007fc500000)
+  to   space 58368K, 0% used [0x00000007fc700000,0x00000007fc700000,0x0000000800000000)
+ ParOldGen       total 848896K, used 627319K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 73% used [0x00000007a0000000,0x00000007c649dcb0,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 216065K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 50% used [0x0000000760000000,0x000000076d300568,0x000000077a300000)
+Event: 65.053 GC heap after
+Heap after GC invocations=41 (full 3):
+ PSYoungGen      total 453632K, used 54979K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 395264K, 0% used [0x00000007e0000000,0x00000007e0000000,0x00000007f8200000)
+  from space 58368K, 94% used [0x00000007fc700000,0x00000007ffcb0db8,0x0000000800000000)
+  to   space 64512K, 0% used [0x00000007f8200000,0x00000007f8200000,0x00000007fc100000)
+ ParOldGen       total 848896K, used 627319K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 73% used [0x00000007a0000000,0x00000007c649dcb0,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 216065K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 50% used [0x0000000760000000,0x000000076d300568,0x000000077a300000)
+}
+Event: 75.716 GC heap before
+{Heap before GC invocations=42 (full 3):
+ PSYoungGen      total 453632K, used 450243K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 395264K, 100% used [0x00000007e0000000,0x00000007f8200000,0x00000007f8200000)
+  from space 58368K, 94% used [0x00000007fc700000,0x00000007ffcb0db8,0x0000000800000000)
+  to   space 64512K, 0% used [0x00000007f8200000,0x00000007f8200000,0x00000007fc100000)
+ ParOldGen       total 848896K, used 627319K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 73% used [0x00000007a0000000,0x00000007c649dcb0,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 217980K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 50% used [0x0000000760000000,0x000000076d4df378,0x000000077a300000)
+Event: 75.793 GC heap after
+Heap after GC invocations=42 (full 3):
+ PSYoungGen      total 459776K, used 64484K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 395264K, 0% used [0x00000007e0000000,0x00000007e0000000,0x00000007f8200000)
+  from space 64512K, 99% used [0x00000007f8200000,0x00000007fc0f9378,0x00000007fc100000)
+  to   space 64512K, 0% used [0x00000007fc100000,0x00000007fc100000,0x0000000800000000)
+ ParOldGen       total 848896K, used 640569K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 75% used [0x00000007a0000000,0x00000007c718e7f8,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 217980K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 50% used [0x0000000760000000,0x000000076d4df378,0x000000077a300000)
+}
+Event: 83.290 GC heap before
+{Heap before GC invocations=43 (full 3):
+ PSYoungGen      total 459776K, used 459748K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 395264K, 100% used [0x00000007e0000000,0x00000007f8200000,0x00000007f8200000)
+  from space 64512K, 99% used [0x00000007f8200000,0x00000007fc0f9378,0x00000007fc100000)
+  to   space 64512K, 0% used [0x00000007fc100000,0x00000007fc100000,0x0000000800000000)
+ ParOldGen       total 848896K, used 640569K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 75% used [0x00000007a0000000,0x00000007c718e7f8,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 220151K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 51% used [0x0000000760000000,0x000000076d6fddd0,0x000000077a300000)
+Event: 83.372 GC heap after
+Heap after GC invocations=43 (full 3):
+ PSYoungGen      total 435200K, used 21095K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 370688K, 0% used [0x00000007e0000000,0x00000007e0000000,0x00000007f6a00000)
+  from space 64512K, 32% used [0x00000007fc100000,0x00000007fd599cd0,0x0000000800000000)
+  to   space 76800K, 0% used [0x00000007f6a00000,0x00000007f6a00000,0x00000007fb500000)
+ ParOldGen       total 848896K, used 688979K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 81% used [0x00000007a0000000,0x00000007ca0d4c60,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 220151K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 51% used [0x0000000760000000,0x000000076d6fddd0,0x000000077a300000)
+}
+Event: 89.926 GC heap before
+{Heap before GC invocations=44 (full 3):
+ PSYoungGen      total 435200K, used 391783K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 370688K, 100% used [0x00000007e0000000,0x00000007f6a00000,0x00000007f6a00000)
+  from space 64512K, 32% used [0x00000007fc100000,0x00000007fd599cd0,0x0000000800000000)
+  to   space 76800K, 0% used [0x00000007f6a00000,0x00000007f6a00000,0x00000007fb500000)
+ ParOldGen       total 848896K, used 688979K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 81% used [0x00000007a0000000,0x00000007ca0d4c60,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 226688K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 52% used [0x0000000760000000,0x000000076dd601b8,0x000000077a300000)
+Event: 89.976 GC heap after
+Heap after GC invocations=44 (full 3):
+ PSYoungGen      total 447488K, used 41860K [0x00000007e0000000, 0x0000000800000000, 0x0000000800000000)
+  eden space 370688K, 0% used [0x00000007e0000000,0x00000007e0000000,0x00000007f6a00000)
+  from space 76800K, 54% used [0x00000007f6a00000,0x00000007f92e13f0,0x00000007fb500000)
+  to   space 74752K, 0% used [0x00000007fb700000,0x00000007fb700000,0x0000000800000000)
+ ParOldGen       total 848896K, used 688979K [0x00000007a0000000, 0x00000007d3d00000, 0x00000007e0000000)
+  object space 848896K, 81% used [0x00000007a0000000,0x00000007ca0d4c60,0x00000007d3d00000)
+ PSPermGen       total 429056K, used 226688K [0x0000000760000000, 0x000000077a300000, 0x00000007a0000000)
+  object space 429056K, 52% used [0x0000000760000000,0x000000076dd601b8,0x000000077a300000)
+}
+
+Deoptimization events (10 events):
+Event: 314.891 Thread 0x00007f9ea8004000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f9f5493c284 method=java.io.DataOutputStream.write(I)V @ 5
+Event: 319.003 Thread 0x00007f9ea8010000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f9f54c56ad4 method=java.io.DataOutputStream.writeInt(I)V @ 12
+Event: 319.004 Thread 0x00007f9ea8010000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f9f5493c284 method=java.io.DataOutputStream.write(I)V @ 5
+Event: 539.668 Thread 0x00007f9f50f58800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f9f5474f080 method=org.apache.xerces.impl.xs.models.XSCMBinOp.isNullable()Z @ 13
+Event: 539.748 Thread 0x00007f9f50f58800 Uncommon trap: reason=unreached action=reinterpret pc=0x00007f9f54773d9c method=org.objectweb.asm.ClassWriter.a(Ljava/lang/String;Ljava/lang/String;)Lorg/objectweb/asm/Item; @ 22
+Event: 614.881 Thread 0x00007f9ea8004000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f9f54c56ad4 method=java.io.DataOutputStream.writeInt(I)V @ 12
+Event: 614.883 Thread 0x00007f9ea8004000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f9f5493c284 method=java.io.DataOutputStream.write(I)V @ 5
+Event: 619.005 Thread 0x00007f9ea8010000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007f9f54c56ad4 method=java.io.DataOutputStream.writeInt(I)V @ 12
+Event: 619.007 Thread 0x00007f9ea8010000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f9f5493c284 method=java.io.DataOutputStream.write(I)V @ 5
+Event: 2260.678 Thread 0x00007f9f51011000 Uncommon trap: reason=unreached action=reinterpret pc=0x00007f9f54d41b48 method=java.util.AbstractMap.toString()Ljava/lang/String; @ 16
+
+Internal exceptions (10 events):
+Event: 2260.876 Thread 0x00007f9f51011000 Threw 0x00000007f4d64f68 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/interpreter/interpreterRuntime.cpp:362
+Event: 2260.876 Thread 0x00007f9f51011000 Threw 0x00000007f4d65360 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/interpreter/interpreterRuntime.cpp:362
+Event: 2260.880 Thread 0x00007f9f51011000 Threw 0x00000007f4dc6018 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/interpreter/interpreterRuntime.cpp:362
+Event: 2260.880 Thread 0x00007f9f51011000 Threw 0x00000007f4dc6410 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/interpreter/interpreterRuntime.cpp:362
+Event: 2260.891 Thread 0x00007f9f51011000 Threw 0x00000007f4dec3a0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/interpreter/interpreterRuntime.cpp:362
+Event: 2260.891 Thread 0x00007f9f51011000 Threw 0x00000007f4dec798 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/interpreter/interpreterRuntime.cpp:362
+Event: 2260.891 Thread 0x00007f9f51011000 Threw 0x00000007f4decb90 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/interpreter/interpreterRuntime.cpp:362
+Event: 2260.961 Thread 0x00007f9f51011000 Threw 0x00000007f5afa590 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/prims/jvm.cpp:1304
+Event: 2260.961 Thread 0x00007f9f51011000 Threw 0x00000007f5afac48 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/prims/jvm.cpp:1304
+Event: 2260.961 Thread 0x00007f9f51011000 Threw 0x00000007f5b057b0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u79/2331/hotspot/src/share/vm/prims/jvm.cpp:1304
+
+Events (10 events):
+Event: 2260.678 Thread 0x00007f9f51011000 DEOPT PACKING pc=0x00007f9f54d41b48 sp=0x00007f9f3f7eeef0
+Event: 2260.678 Thread 0x00007f9f51011000 DEOPT UNPACKING pc=0x00007f9f543e6445 sp=0x00007f9f3f7eeec8 mode 2
+Event: 2260.713 loading class 0x00007f9e5c05cbe0
+Event: 2260.713 loading class 0x00007f9e5c05cbe0 done
+Event: 2260.726 loading class 0x00007f9f5059b9c0
+Event: 2260.726 loading class 0x00007f9f5059b9c0 done
+Event: 2260.756 loading class 0x00007f9ed0019fc0
+Event: 2260.756 loading class 0x00007f9ed0019fc0 done
+Event: 2260.961 loading class 0x00007f9f50b99170
+Event: 2260.961 loading class 0x00007f9f50b99170 done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 103:03 1081040                           /opt/jdk1.7.0_79/bin/java
+00600000-00601000 rw-p 00000000 103:03 1081040                           /opt/jdk1.7.0_79/bin/java
+015a2000-015c3000 rw-p 00000000 00:00 0                                  [heap]
+760000000-77a300000 rw-p 00000000 00:00 0 
+77a300000-7a0000000 rw-p 00000000 00:00 0 
+7a0000000-7d3d00000 rw-p 00000000 00:00 0 
+7d3d00000-7e0000000 rw-p 00000000 00:00 0 
+7e0000000-800000000 rw-p 00000000 00:00 0 
+7f9e2c000000-7f9e2c021000 rw-p 00000000 00:00 0 
+7f9e2c021000-7f9e30000000 ---p 00000000 00:00 0 
+7f9e34000000-7f9e34021000 rw-p 00000000 00:00 0 
+7f9e34021000-7f9e38000000 ---p 00000000 00:00 0 
+7f9e38000000-7f9e38021000 rw-p 00000000 00:00 0 
+7f9e38021000-7f9e3c000000 ---p 00000000 00:00 0 
+7f9e3c000000-7f9e3c026000 rw-p 00000000 00:00 0 
+7f9e3c026000-7f9e40000000 ---p 00000000 00:00 0 
+7f9e40000000-7f9e40021000 rw-p 00000000 00:00 0 
+7f9e40021000-7f9e44000000 ---p 00000000 00:00 0 
+7f9e44000000-7f9e44021000 rw-p 00000000 00:00 0 
+7f9e44021000-7f9e48000000 ---p 00000000 00:00 0 
+7f9e48000000-7f9e48021000 rw-p 00000000 00:00 0 
+7f9e48021000-7f9e4c000000 ---p 00000000 00:00 0 
+7f9e4c000000-7f9e4c021000 rw-p 00000000 00:00 0 
+7f9e4c021000-7f9e50000000 ---p 00000000 00:00 0 
+7f9e50000000-7f9e50021000 rw-p 00000000 00:00 0 
+7f9e50021000-7f9e54000000 ---p 00000000 00:00 0 
+7f9e54000000-7f9e54da4000 rw-p 00000000 00:00 0 
+7f9e54da4000-7f9e58000000 ---p 00000000 00:00 0 
+7f9e58000000-7f9e581b8000 rw-p 00000000 00:00 0 
+7f9e581b8000-7f9e5c000000 ---p 00000000 00:00 0 
+7f9e5c000000-7f9e5c145000 rw-p 00000000 00:00 0 
+7f9e5c145000-7f9e60000000 ---p 00000000 00:00 0 
+7f9e60000000-7f9e60021000 rw-p 00000000 00:00 0 
+7f9e60021000-7f9e64000000 ---p 00000000 00:00 0 
+7f9e64000000-7f9e64021000 rw-p 00000000 00:00 0 
+7f9e64021000-7f9e68000000 ---p 00000000 00:00 0 
+7f9e68000000-7f9e68021000 rw-p 00000000 00:00 0 
+7f9e68021000-7f9e6c000000 ---p 00000000 00:00 0 
+7f9e6c000000-7f9e6c021000 rw-p 00000000 00:00 0 
+7f9e6c021000-7f9e70000000 ---p 00000000 00:00 0 
+7f9e70000000-7f9e70021000 rw-p 00000000 00:00 0 
+7f9e70021000-7f9e74000000 ---p 00000000 00:00 0 
+7f9e74000000-7f9e74021000 rw-p 00000000 00:00 0 
+7f9e74021000-7f9e78000000 ---p 00000000 00:00 0 
+7f9e78000000-7f9e78021000 rw-p 00000000 00:00 0 
+7f9e78021000-7f9e7c000000 ---p 00000000 00:00 0 
+7f9e7c000000-7f9e7c021000 rw-p 00000000 00:00 0 
+7f9e7c021000-7f9e80000000 ---p 00000000 00:00 0 
+7f9e80000000-7f9e80021000 rw-p 00000000 00:00 0 
+7f9e80021000-7f9e84000000 ---p 00000000 00:00 0 
+7f9e84000000-7f9e84021000 rw-p 00000000 00:00 0 
+7f9e84021000-7f9e88000000 ---p 00000000 00:00 0 
+7f9e88000000-7f9e88021000 rw-p 00000000 00:00 0 
+7f9e88021000-7f9e8c000000 ---p 00000000 00:00 0 
+7f9e8c000000-7f9e8c021000 rw-p 00000000 00:00 0 
+7f9e8c021000-7f9e90000000 ---p 00000000 00:00 0 
+7f9e90000000-7f9e90021000 rw-p 00000000 00:00 0 
+7f9e90021000-7f9e94000000 ---p 00000000 00:00 0 
+7f9e94000000-7f9e94021000 rw-p 00000000 00:00 0 
+7f9e94021000-7f9e98000000 ---p 00000000 00:00 0 
+7f9e98000000-7f9e98021000 rw-p 00000000 00:00 0 
+7f9e98021000-7f9e9c000000 ---p 00000000 00:00 0 
+7f9e9c000000-7f9e9c021000 rw-p 00000000 00:00 0 
+7f9e9c021000-7f9ea0000000 ---p 00000000 00:00 0 
+7f9ea0000000-7f9ea0021000 rw-p 00000000 00:00 0 
+7f9ea0021000-7f9ea4000000 ---p 00000000 00:00 0 
+7f9ea4000000-7f9ea4021000 rw-p 00000000 00:00 0 
+7f9ea4021000-7f9ea8000000 ---p 00000000 00:00 0 
+7f9ea8000000-7f9ea8021000 rw-p 00000000 00:00 0 
+7f9ea8021000-7f9eac000000 ---p 00000000 00:00 0 
+7f9eac000000-7f9eac021000 rw-p 00000000 00:00 0 
+7f9eac021000-7f9eb0000000 ---p 00000000 00:00 0 
+7f9eb0000000-7f9eb0021000 rw-p 00000000 00:00 0 
+7f9eb0021000-7f9eb4000000 ---p 00000000 00:00 0 
+7f9eb4000000-7f9eb402b000 rw-p 00000000 00:00 0 
+7f9eb402b000-7f9eb8000000 ---p 00000000 00:00 0 
+7f9eb8000000-7f9eb8021000 rw-p 00000000 00:00 0 
+7f9eb8021000-7f9ebc000000 ---p 00000000 00:00 0 
+7f9ebc000000-7f9ebfff9000 rw-p 00000000 00:00 0 
+7f9ebfff9000-7f9ec0000000 ---p 00000000 00:00 0 
+7f9ec0000000-7f9ec1e00000 rw-p 00000000 00:00 0 
+7f9ec1e00000-7f9ec4000000 ---p 00000000 00:00 0 
+7f9ec4000000-7f9ec4021000 rw-p 00000000 00:00 0 
+7f9ec4021000-7f9ec8000000 ---p 00000000 00:00 0 
+7f9ec8000000-7f9ec8021000 rw-p 00000000 00:00 0 
+7f9ec8021000-7f9ecc000000 ---p 00000000 00:00 0 
+7f9ecc000000-7f9ecc2a2000 rw-p 00000000 00:00 0 
+7f9ecc2a2000-7f9ed0000000 ---p 00000000 00:00 0 
+7f9ed0000000-7f9ed0045000 rw-p 00000000 00:00 0 
+7f9ed0045000-7f9ed4000000 ---p 00000000 00:00 0 
+7f9ed4000000-7f9ed437d000 rw-p 00000000 00:00 0 
+7f9ed437d000-7f9ed8000000 ---p 00000000 00:00 0 
+7f9ed8000000-7f9ed8028000 rw-p 00000000 00:00 0 
+7f9ed8028000-7f9edc000000 ---p 00000000 00:00 0 
+7f9edc000000-7f9edc021000 rw-p 00000000 00:00 0 
+7f9edc021000-7f9ee0000000 ---p 00000000 00:00 0 
+7f9ee0000000-7f9ee004e000 rw-p 00000000 00:00 0 
+7f9ee004e000-7f9ee4000000 ---p 00000000 00:00 0 
+7f9ee4000000-7f9ee4021000 rw-p 00000000 00:00 0 
+7f9ee4021000-7f9ee8000000 ---p 00000000 00:00 0 
+7f9ee8000000-7f9ee8021000 rw-p 00000000 00:00 0 
+7f9ee8021000-7f9eec000000 ---p 00000000 00:00 0 
+7f9eec000000-7f9eec021000 rw-p 00000000 00:00 0 
+7f9eec021000-7f9ef0000000 ---p 00000000 00:00 0 
+7f9ef0000000-7f9ef0021000 rw-p 00000000 00:00 0 
+7f9ef0021000-7f9ef4000000 ---p 00000000 00:00 0 
+7f9ef4000000-7f9ef68af000 rw-p 00000000 00:00 0 
+7f9ef68af000-7f9ef8000000 ---p 00000000 00:00 0 
+7f9ef8000000-7f9ef8486000 rw-p 00000000 00:00 0 
+7f9ef8486000-7f9efc000000 ---p 00000000 00:00 0 
+7f9efc000000-7f9efc021000 rw-p 00000000 00:00 0 
+7f9efc021000-7f9f00000000 ---p 00000000 00:00 0 
+7f9f00000000-7f9f03ffc000 rw-p 00000000 00:00 0 
+7f9f03ffc000-7f9f04000000 ---p 00000000 00:00 0 
+7f9f04000000-7f9f04021000 rw-p 00000000 00:00 0 
+7f9f04021000-7f9f08000000 ---p 00000000 00:00 0 
+7f9f08000000-7f9f08021000 rw-p 00000000 00:00 0 
+7f9f08021000-7f9f0c000000 ---p 00000000 00:00 0 
+7f9f0c000000-7f9f0c021000 rw-p 00000000 00:00 0 
+7f9f0c021000-7f9f10000000 ---p 00000000 00:00 0 
+7f9f10000000-7f9f1023a000 rw-p 00000000 00:00 0 
+7f9f1023a000-7f9f14000000 ---p 00000000 00:00 0 
+7f9f14000000-7f9f14022000 rw-p 00000000 00:00 0 
+7f9f14022000-7f9f18000000 ---p 00000000 00:00 0 
+7f9f1c000000-7f9f1c021000 rw-p 00000000 00:00 0 
+7f9f1c021000-7f9f20000000 ---p 00000000 00:00 0 
+7f9f24000000-7f9f24021000 rw-p 00000000 00:00 0 
+7f9f24021000-7f9f28000000 ---p 00000000 00:00 0 
+7f9f2bafb000-7f9f2bafe000 ---p 00000000 00:00 0 
+7f9f2bafe000-7f9f2bbfc000 rw-p 00000000 00:00 0 
+7f9f2bbfc000-7f9f2bbff000 ---p 00000000 00:00 0 
+7f9f2bbff000-7f9f2bcfd000 rw-p 00000000 00:00 0 
+7f9f2bcfd000-7f9f2bd00000 ---p 00000000 00:00 0 
+7f9f2bd00000-7f9f2bdfe000 rw-p 00000000 00:00 0 
+7f9f2bdfe000-7f9f2be01000 ---p 00000000 00:00 0 
+7f9f2be01000-7f9f2beff000 rw-p 00000000 00:00 0 
+7f9f2beff000-7f9f2bf02000 ---p 00000000 00:00 0 
+7f9f2bf02000-7f9f2c000000 rw-p 00000000 00:00 0 
+7f9f2c000000-7f9f2c021000 rw-p 00000000 00:00 0 
+7f9f2c021000-7f9f30000000 ---p 00000000 00:00 0 
+7f9f300cf000-7f9f300f9000 r-xp 00000000 103:03 1347818                   /opt/jdk1.7.0_79/jre/lib/amd64/libdcpr.so
+7f9f300f9000-7f9f302f9000 ---p 0002a000 103:03 1347818                   /opt/jdk1.7.0_79/jre/lib/amd64/libdcpr.so
+7f9f302f9000-7f9f302fc000 rw-p 0002a000 103:03 1347818                   /opt/jdk1.7.0_79/jre/lib/amd64/libdcpr.so
+7f9f302fc000-7f9f30365000 r-xp 00000000 103:03 1347861                   /opt/jdk1.7.0_79/jre/lib/amd64/libt2k.so
+7f9f30365000-7f9f30564000 ---p 00069000 103:03 1347861                   /opt/jdk1.7.0_79/jre/lib/amd64/libt2k.so
+7f9f30564000-7f9f3056b000 rw-p 00068000 103:03 1347861                   /opt/jdk1.7.0_79/jre/lib/amd64/libt2k.so
+7f9f3056b000-7f9f3057b000 rw-p 00000000 00:00 0 
+7f9f3057b000-7f9f305e0000 r-xp 00000000 103:03 1347820                   /opt/jdk1.7.0_79/jre/lib/amd64/libfontmanager.so
+7f9f305e0000-7f9f307df000 ---p 00065000 103:03 1347820                   /opt/jdk1.7.0_79/jre/lib/amd64/libfontmanager.so
+7f9f307df000-7f9f307e4000 rw-p 00064000 103:03 1347820                   /opt/jdk1.7.0_79/jre/lib/amd64/libfontmanager.so
+7f9f307e4000-7f9f307f4000 rw-p 00000000 00:00 0 
+7f9f307f4000-7f9f307fa000 r-xp 00000000 103:03 2135143                   /opt/jdk1.7.0_79/jre/lib/amd64/headless/libmawt.so
+7f9f307fa000-7f9f309fa000 ---p 00006000 103:03 2135143                   /opt/jdk1.7.0_79/jre/lib/amd64/headless/libmawt.so
+7f9f309fa000-7f9f309fb000 rw-p 00006000 103:03 2135143                   /opt/jdk1.7.0_79/jre/lib/amd64/headless/libmawt.so
+7f9f309fb000-7f9f30a9d000 r-xp 00000000 103:03 1347855                   /opt/jdk1.7.0_79/jre/lib/amd64/libawt.so
+7f9f30a9d000-7f9f30c9d000 ---p 000a2000 103:03 1347855                   /opt/jdk1.7.0_79/jre/lib/amd64/libawt.so
+7f9f30c9d000-7f9f30ca9000 rw-p 000a2000 103:03 1347855                   /opt/jdk1.7.0_79/jre/lib/amd64/libawt.so
+7f9f30ca9000-7f9f30ccd000 rw-p 00000000 00:00 0 
+7f9f30ccd000-7f9f30cd0000 ---p 00000000 00:00 0 
+7f9f30cd0000-7f9f30dce000 rw-p 00000000 00:00 0 
+7f9f30dce000-7f9f30dd1000 ---p 00000000 00:00 0 
+7f9f30dd1000-7f9f30ecf000 rw-p 00000000 00:00 0 
+7f9f30ecf000-7f9f30ed2000 ---p 00000000 00:00 0 
+7f9f30ed2000-7f9f30fd0000 rw-p 00000000 00:00 0 
+7f9f30fd0000-7f9f30fd3000 ---p 00000000 00:00 0 
+7f9f30fd3000-7f9f310d1000 rw-p 00000000 00:00 0 
+7f9f310d1000-7f9f310d4000 ---p 00000000 00:00 0 
+7f9f310d4000-7f9f311d2000 rw-p 00000000 00:00 0 
+7f9f311d2000-7f9f311d5000 ---p 00000000 00:00 0 
+7f9f311d5000-7f9f312d3000 rw-p 00000000 00:00 0 
+7f9f312d3000-7f9f312d6000 ---p 00000000 00:00 0 
+7f9f312d6000-7f9f313d4000 rw-p 00000000 00:00 0 
+7f9f313d4000-7f9f313d7000 ---p 00000000 00:00 0 
+7f9f313d7000-7f9f314d5000 rw-p 00000000 00:00 0 
+7f9f314d5000-7f9f314d8000 ---p 00000000 00:00 0 
+7f9f314d8000-7f9f315d6000 rw-p 00000000 00:00 0 
+7f9f315d6000-7f9f315d9000 ---p 00000000 00:00 0 
+7f9f315d9000-7f9f316d7000 rw-p 00000000 00:00 0 
+7f9f316d7000-7f9f316da000 ---p 00000000 00:00 0 
+7f9f316da000-7f9f317d8000 rw-p 00000000 00:00 0 
+7f9f317d8000-7f9f317db000 ---p 00000000 00:00 0 
+7f9f317db000-7f9f318d9000 rw-p 00000000 00:00 0 
+7f9f318d9000-7f9f318dc000 ---p 00000000 00:00 0 
+7f9f318dc000-7f9f319da000 rw-p 00000000 00:00 0 
+7f9f319da000-7f9f319dd000 ---p 00000000 00:00 0 
+7f9f319dd000-7f9f31adb000 rw-p 00000000 00:00 0 
+7f9f31adb000-7f9f31ade000 ---p 00000000 00:00 0 
+7f9f31ade000-7f9f31bdc000 rw-p 00000000 00:00 0 
+7f9f31bdc000-7f9f31bdf000 ---p 00000000 00:00 0 
+7f9f31bdf000-7f9f31cdd000 rw-p 00000000 00:00 0 
+7f9f31cdd000-7f9f31ce0000 ---p 00000000 00:00 0 
+7f9f31ce0000-7f9f31dde000 rw-p 00000000 00:00 0 
+7f9f31dde000-7f9f31de1000 ---p 00000000 00:00 0 
+7f9f31de1000-7f9f31edf000 rw-p 00000000 00:00 0 
+7f9f31edf000-7f9f31ee2000 ---p 00000000 00:00 0 
+7f9f31ee2000-7f9f31fe0000 rw-p 00000000 00:00 0 
+7f9f31fe0000-7f9f31fe3000 ---p 00000000 00:00 0 
+7f9f31fe3000-7f9f320e1000 rw-p 00000000 00:00 0 
+7f9f320e1000-7f9f320e4000 ---p 00000000 00:00 0 
+7f9f320e4000-7f9f321e2000 rw-p 00000000 00:00 0 
+7f9f321e2000-7f9f321e5000 ---p 00000000 00:00 0 
+7f9f321e5000-7f9f322e3000 rw-p 00000000 00:00 0 
+7f9f322e3000-7f9f322e6000 ---p 00000000 00:00 0 
+7f9f322e6000-7f9f323e4000 rw-p 00000000 00:00 0 
+7f9f323e4000-7f9f323e7000 ---p 00000000 00:00 0 
+7f9f323e7000-7f9f324e5000 rw-p 00000000 00:00 0 
+7f9f324e5000-7f9f324e8000 ---p 00000000 00:00 0 
+7f9f324e8000-7f9f325e6000 rw-p 00000000 00:00 0 
+7f9f325e6000-7f9f325e9000 ---p 00000000 00:00 0 
+7f9f325e9000-7f9f326e7000 rw-p 00000000 00:00 0 
+7f9f326e7000-7f9f326ea000 ---p 00000000 00:00 0 
+7f9f326ea000-7f9f327e8000 rw-p 00000000 00:00 0 
+7f9f327e8000-7f9f327eb000 ---p 00000000 00:00 0 
+7f9f327eb000-7f9f328e9000 rw-p 00000000 00:00 0 
+7f9f328e9000-7f9f328ec000 ---p 00000000 00:00 0 
+7f9f328ec000-7f9f329ea000 rw-p 00000000 00:00 0 
+7f9f329ea000-7f9f329ed000 ---p 00000000 00:00 0 
+7f9f329ed000-7f9f32aeb000 rw-p 00000000 00:00 0 
+7f9f32aeb000-7f9f32aee000 ---p 00000000 00:00 0 
+7f9f32aee000-7f9f32bec000 rw-p 00000000 00:00 0 
+7f9f32bec000-7f9f32bef000 ---p 00000000 00:00 0 
+7f9f32bef000-7f9f32ced000 rw-p 00000000 00:00 0 
+7f9f32ced000-7f9f32cf0000 ---p 00000000 00:00 0 
+7f9f32cf0000-7f9f32dee000 rw-p 00000000 00:00 0 
+7f9f32dee000-7f9f32df1000 ---p 00000000 00:00 0 
+7f9f32df1000-7f9f32eef000 rw-p 00000000 00:00 0 
+7f9f32eef000-7f9f32ef2000 ---p 00000000 00:00 0 
+7f9f32ef2000-7f9f32ff0000 rw-p 00000000 00:00 0 
+7f9f32ff0000-7f9f32ff3000 ---p 00000000 00:00 0 
+7f9f32ff3000-7f9f330f1000 rw-p 00000000 00:00 0 
+7f9f330f1000-7f9f330f4000 ---p 00000000 00:00 0 
+7f9f330f4000-7f9f331f2000 rw-p 00000000 00:00 0 
+7f9f331f2000-7f9f331f5000 ---p 00000000 00:00 0 
+7f9f331f5000-7f9f332f3000 rw-p 00000000 00:00 0 
+7f9f332f3000-7f9f332f6000 ---p 00000000 00:00 0 
+7f9f332f6000-7f9f333f4000 rw-p 00000000 00:00 0 
+7f9f333f4000-7f9f333f7000 ---p 00000000 00:00 0 
+7f9f333f7000-7f9f334f5000 rw-p 00000000 00:00 0 
+7f9f334f5000-7f9f334f8000 ---p 00000000 00:00 0 
+7f9f334f8000-7f9f335f6000 rw-p 00000000 00:00 0 
+7f9f335f6000-7f9f335f9000 ---p 00000000 00:00 0 
+7f9f335f9000-7f9f336f7000 rw-p 00000000 00:00 0 
+7f9f336f7000-7f9f336fa000 ---p 00000000 00:00 0 
+7f9f336fa000-7f9f337f8000 rw-p 00000000 00:00 0 
+7f9f337f8000-7f9f337fb000 ---p 00000000 00:00 0 
+7f9f337fb000-7f9f338f9000 rw-p 00000000 00:00 0 
+7f9f338f9000-7f9f338fc000 ---p 00000000 00:00 0 
+7f9f338fc000-7f9f339fa000 rw-p 00000000 00:00 0 
+7f9f339fa000-7f9f339fd000 ---p 00000000 00:00 0 
+7f9f339fd000-7f9f33afb000 rw-p 00000000 00:00 0 
+7f9f33afb000-7f9f33afe000 ---p 00000000 00:00 0 
+7f9f33afe000-7f9f33bfc000 rw-p 00000000 00:00 0 
+7f9f33bfc000-7f9f33bff000 ---p 00000000 00:00 0 
+7f9f33bff000-7f9f33cfd000 rw-p 00000000 00:00 0 
+7f9f33cfd000-7f9f33d00000 ---p 00000000 00:00 0 
+7f9f33d00000-7f9f33dfe000 rw-p 00000000 00:00 0 
+7f9f33dfe000-7f9f33e01000 ---p 00000000 00:00 0 
+7f9f33e01000-7f9f33eff000 rw-p 00000000 00:00 0 
+7f9f33eff000-7f9f33f02000 ---p 00000000 00:00 0 
+7f9f33f02000-7f9f34000000 rw-p 00000000 00:00 0 
+7f9f34000000-7f9f3416d000 rw-p 00000000 00:00 0 
+7f9f3416d000-7f9f38000000 ---p 00000000 00:00 0 
+7f9f3807c000-7f9f3807d000 r--p 00000000 103:03 6949162                   /usr/lib/x86_64-linux-gnu/libnss_dns-2.31.so
+7f9f3807d000-7f9f38081000 r-xp 00001000 103:03 6949162                   /usr/lib/x86_64-linux-gnu/libnss_dns-2.31.so
+7f9f38081000-7f9f38082000 r--p 00005000 103:03 6949162                   /usr/lib/x86_64-linux-gnu/libnss_dns-2.31.so
+7f9f38082000-7f9f38083000 r--p 00005000 103:03 6949162                   /usr/lib/x86_64-linux-gnu/libnss_dns-2.31.so
+7f9f38083000-7f9f38084000 rw-p 00006000 103:03 6949162                   /usr/lib/x86_64-linux-gnu/libnss_dns-2.31.so
+7f9f38084000-7f9f38088000 r--p 00000000 103:03 6949176                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7f9f38088000-7f9f38098000 r-xp 00004000 103:03 6949176                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7f9f38098000-7f9f3809c000 r--p 00014000 103:03 6949176                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7f9f3809c000-7f9f3809d000 r--p 00017000 103:03 6949176                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7f9f3809d000-7f9f3809e000 rw-p 00018000 103:03 6949176                   /usr/lib/x86_64-linux-gnu/libresolv-2.31.so
+7f9f3809e000-7f9f380a0000 rw-p 00000000 00:00 0 
+7f9f380a0000-7f9f380a1000 r--p 00000000 103:03 6953877                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f9f380a1000-7f9f380a3000 r-xp 00001000 103:03 6953877                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f9f380a3000-7f9f380a4000 r--p 00003000 103:03 6953877                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f9f380a4000-7f9f380a5000 r--p 00003000 103:03 6953877                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f9f380a5000-7f9f380a6000 rw-p 00004000 103:03 6953877                   /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f9f380b7000-7f9f380bb000 r--s 000f7000 103:03 2655946                   /opt/jdk1.7.0_79/jre/lib/ext/localedata.jar
+7f9f380bb000-7f9f380bc000 r--s 00002000 103:03 4101168                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.runtime.compatibility.registry_3.2.200.v20090429-1800/runtime_registry_compatibility.jar
+7f9f380bc000-7f9f380bd000 r--s 00006000 103:03 4101188                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.ibm.informix.dbdefinition_1.0.3.v200906161800.jar
+7f9f380bd000-7f9f380bf000 r--s 00001000 103:03 4101235                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.wpml.config_2.5.1.v20090917.jar
+7f9f380bf000-7f9f380c2000 r--s 00017000 103:03 4101175                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.equinox.preferences_3.2.300.v20090520-1800.jar
+7f9f380c2000-7f9f380c3000 r--s 00002000 103:03 4101258                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.postgresql.dbdefinition_1.0.1.v200906161800.jar
+7f9f380c3000-7f9f380c4000 r--s 00003000 103:03 4101150                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.postgresql_1.0.1.v200906020900.jar
+7f9f380c4000-7f9f380d7000 r--s 0015c000 103:03 4101104                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.chart.engine_2.5.1.v20090902.jar
+7f9f380d7000-7f9f380da000 ---p 00000000 00:00 0 
+7f9f380da000-7f9f381d8000 rw-p 00000000 00:00 0 
+7f9f381d8000-7f9f381db000 ---p 00000000 00:00 0 
+7f9f381db000-7f9f382d9000 rw-p 00000000 00:00 0 
+7f9f382d9000-7f9f382dc000 ---p 00000000 00:00 0 
+7f9f382dc000-7f9f383da000 rw-p 00000000 00:00 0 
+7f9f383da000-7f9f383dd000 ---p 00000000 00:00 0 
+7f9f383dd000-7f9f384db000 rw-p 00000000 00:00 0 
+7f9f384db000-7f9f384de000 ---p 00000000 00:00 0 
+7f9f384de000-7f9f385dc000 rw-p 00000000 00:00 0 
+7f9f385dc000-7f9f385df000 ---p 00000000 00:00 0 
+7f9f385df000-7f9f386dd000 rw-p 00000000 00:00 0 
+7f9f386dd000-7f9f386e0000 ---p 00000000 00:00 0 
+7f9f386e0000-7f9f387de000 rw-p 00000000 00:00 0 
+7f9f387de000-7f9f387e1000 ---p 00000000 00:00 0 
+7f9f387e1000-7f9f388df000 rw-p 00000000 00:00 0 
+7f9f388df000-7f9f388e2000 ---p 00000000 00:00 0 
+7f9f388e2000-7f9f389e0000 rw-p 00000000 00:00 0 
+7f9f389e0000-7f9f389e3000 ---p 00000000 00:00 0 
+7f9f389e3000-7f9f38ae1000 rw-p 00000000 00:00 0 
+7f9f38ae1000-7f9f38ae4000 ---p 00000000 00:00 0 
+7f9f38ae4000-7f9f38be2000 rw-p 00000000 00:00 0 
+7f9f38be2000-7f9f38be5000 ---p 00000000 00:00 0 
+7f9f38be5000-7f9f38ce3000 rw-p 00000000 00:00 0 
+7f9f38ce3000-7f9f38ce6000 ---p 00000000 00:00 0 
+7f9f38ce6000-7f9f38de4000 rw-p 00000000 00:00 0 
+7f9f38de4000-7f9f38de7000 ---p 00000000 00:00 0 
+7f9f38de7000-7f9f38ee5000 rw-p 00000000 00:00 0 
+7f9f38ee5000-7f9f38ee8000 ---p 00000000 00:00 0 
+7f9f38ee8000-7f9f38fe6000 rw-p 00000000 00:00 0 
+7f9f38fe6000-7f9f38fe9000 ---p 00000000 00:00 0 
+7f9f38fe9000-7f9f390e7000 rw-p 00000000 00:00 0 
+7f9f390e7000-7f9f390ea000 ---p 00000000 00:00 0 
+7f9f390ea000-7f9f391e8000 rw-p 00000000 00:00 0 
+7f9f391e8000-7f9f391eb000 ---p 00000000 00:00 0 
+7f9f391eb000-7f9f392e9000 rw-p 00000000 00:00 0 
+7f9f392e9000-7f9f392ec000 ---p 00000000 00:00 0 
+7f9f392ec000-7f9f393ea000 rw-p 00000000 00:00 0 
+7f9f393ea000-7f9f393ed000 ---p 00000000 00:00 0 
+7f9f393ed000-7f9f394eb000 rw-p 00000000 00:00 0 
+7f9f394eb000-7f9f394ee000 ---p 00000000 00:00 0 
+7f9f394ee000-7f9f395ec000 rw-p 00000000 00:00 0 
+7f9f395ec000-7f9f395ef000 ---p 00000000 00:00 0 
+7f9f395ef000-7f9f396ed000 rw-p 00000000 00:00 0 
+7f9f396ed000-7f9f396f0000 ---p 00000000 00:00 0 
+7f9f396f0000-7f9f397ee000 rw-p 00000000 00:00 0 
+7f9f397ee000-7f9f397f1000 ---p 00000000 00:00 0 
+7f9f397f1000-7f9f398ef000 rw-p 00000000 00:00 0 
+7f9f398ef000-7f9f398f2000 ---p 00000000 00:00 0 
+7f9f398f2000-7f9f399f0000 rw-p 00000000 00:00 0 
+7f9f399f0000-7f9f399f3000 ---p 00000000 00:00 0 
+7f9f399f3000-7f9f39af1000 rw-p 00000000 00:00 0 
+7f9f39af1000-7f9f39af4000 ---p 00000000 00:00 0 
+7f9f39af4000-7f9f39bf2000 rw-p 00000000 00:00 0 
+7f9f39bf2000-7f9f39bf5000 ---p 00000000 00:00 0 
+7f9f39bf5000-7f9f39cf3000 rw-p 00000000 00:00 0 
+7f9f39cf3000-7f9f39cf6000 ---p 00000000 00:00 0 
+7f9f39cf6000-7f9f39df4000 rw-p 00000000 00:00 0 
+7f9f39df4000-7f9f39df7000 ---p 00000000 00:00 0 
+7f9f39df7000-7f9f39ef5000 rw-p 00000000 00:00 0 
+7f9f39ef5000-7f9f39ef8000 ---p 00000000 00:00 0 
+7f9f39ef8000-7f9f39ff6000 rw-p 00000000 00:00 0 
+7f9f39ff6000-7f9f39ff9000 ---p 00000000 00:00 0 
+7f9f39ff9000-7f9f3f0f7000 rw-p 00000000 00:00 0 
+7f9f3f0f7000-7f9f3f0fa000 r--s 00020000 103:03 4101170                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.model.adapter.oda_2.5.1.v20090904.jar
+7f9f3f0fa000-7f9f3f0fd000 r--s 00014000 103:03 4101144                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.runtime.compatibility_3.2.0.v20090413.jar
+7f9f3f0fd000-7f9f3f0ff000 r--s 00007000 103:03 4101227                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.ibm.db2.zseries.dbdefinition_1.0.3.v200906161800.jar
+7f9f3f0ff000-7f9f3f100000 r--s 00003000 103:03 4101250                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.sap.maxdb_1.0.0.v200906020900.jar
+7f9f3f100000-7f9f3f102000 r--s 00005000 103:03 4101221                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.ppt_2.5.1.v20090821.jar
+7f9f3f102000-7f9f3f106000 r--s 00027000 103:03 4101240                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.equinox.registry_3.4.100.v20090520-1800.jar
+7f9f3f106000-7f9f3f108000 r--s 00004000 103:03 4101142                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.config_2.5.1.v20090821.jar
+7f9f3f108000-7f9f3f109000 r--s 00002000 103:03 4101153                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.oracle_1.0.0.v200908130544.jar
+7f9f3f109000-7f9f3f10a000 r--s 00004000 103:03 4101239                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.mysql.dbdefinition_1.0.4.v200906161800.jar
+7f9f3f10a000-7f9f3f10b000 r--s 00003000 103:03 4101143                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.w3c.dom.smil_1.0.0.v200806040011.jar
+7f9f3f10b000-7f9f3f10d000 r--s 0000d000 103:03 4101158                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.oda.ws_1.2.1.v200907300941.jar
+7f9f3f10d000-7f9f3f10e000 r--s 00002000 103:03 4101242                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.ppt.config_2.5.1.v20090917.jar
+7f9f3f10e000-7f9f3f110000 r--s 00005000 103:03 4101255                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.pdf_2.5.1.v20090821.jar
+7f9f3f110000-7f9f3f12d000 r--s 00166000 103:03 4101149                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.data_2.5.1.v20090826.jar
+7f9f3f12d000-7f9f3f12e000 r--s 00004000 103:03 4101106                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.data.bidi.utils_2.5.1.v20090917.jar
+7f9f3f12e000-7f9f3f138000 r--s 0007b000 103:03 4101241                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.modelbase.sql_1.0.2.v200906022249.jar
+7f9f3f138000-7f9f3f13a000 r--s 00004000 103:03 4101253                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.script.javascript_2.5.1.v20090917.jar
+7f9f3f13a000-7f9f3f13b000 r--s 00001000 103:03 4101259                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.hsqldb.dbdefinition_1.0.0.v200906161800.jar
+7f9f3f13b000-7f9f3f13d000 r--s 0000c000 103:03 4101249                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.postscript_2.5.1.v20090821.jar
+7f9f3f13d000-7f9f3f13e000 r--s 00002000 103:03 4101264                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.pdf.config_2.5.1.v20090917.jar
+7f9f3f13e000-7f9f3f140000 r--s 0000e000 103:03 4101176                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.chart.device.svg_2.5.1.v20090902.jar
+7f9f3f140000-7f9f3f144000 r--s 0001a000 103:03 4101248                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.data.aggregation_2.5.1.v20090821.jar
+7f9f3f144000-7f9f3f148000 r--s 00044000 103:03 4101185                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.apache.xml.serializer_2.7.1.v200902170519.jar
+7f9f3f148000-7f9f3f14c000 r--s 00022000 103:03 4101119                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.data.adapter_2.5.1.v20090903.jar
+7f9f3f14c000-7f9f3f14e000 r--s 00013000 103:03 4101177                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.expressions_3.4.100.v20090429-1800.jar
+7f9f3f14e000-7f9f3f151000 r--s 00013000 103:03 4101223                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.contenttype_3.4.1.R35x_v20090826-0451.jar
+7f9f3f151000-7f9f3f153000 r--s 00005000 103:03 4101252                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.console.profile_1.0.0.v200906020553.jar
+7f9f3f153000-7f9f3f154000 r--s 00003000 103:03 4101171                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.ibm.db2.iseries.dbdefinition_1.0.3.v200906161800.jar
+7f9f3f154000-7f9f3f156000 r--s 00002000 103:03 4101263                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.postscript.config_2.5.1.v20090917.jar
+7f9f3f156000-7f9f3f157000 r--s 00004000 103:03 4101131                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.sap.maxdb.dbdefinition_1.0.0.v200906161800.jar
+7f9f3f157000-7f9f3f158000 r--s 00002000 103:03 4101226                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.excel.config_2.5.1.v20090917.jar
+7f9f3f158000-7f9f3f15a000 r--s 00018000 103:03 4101229                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.oda.consumer_3.2.1.v200908281118.jar
+7f9f3f15a000-7f9f3f15e000 r--s 0001f000 103:03 4101251                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.core.script.function_2.5.1.v20090917.jar
+7f9f3f15e000-7f9f3f161000 ---p 00000000 00:00 0 
+7f9f3f161000-7f9f3f25f000 rw-p 00000000 00:00 0 
+7f9f3f25f000-7f9f3f261000 r--s 0000c000 103:03 4101190                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.oda.flatfile_3.1.0.v200907061455.jar
+7f9f3f261000-7f9f3f266000 r--s 00045000 103:03 4101107                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.oda.design_3.2.1.v200909020856.jar
+7f9f3f266000-7f9f3f267000 r--s 00002000 103:03 4101155                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.emf_2.5.0.v200906151043.jar
+7f9f3f267000-7f9f3f269000 r--s 00004000 103:03 4101152                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.data.oda.xml_2.5.1.v20090821.jar
+7f9f3f269000-7f9f3f26f000 r--s 00034000 103:03 4101233                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.chart.reportitem_2.5.1.v20090902a.jar
+7f9f3f26f000-7f9f3f271000 r--s 00001000 103:03 4101222                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.dbdefinition.genericJDBC_1.0.1.v200906161815.jar
+7f9f3f271000-7f9f3f273000 r--s 00002000 103:03 4101174                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.ibm.db2.iseries_1.0.1.v200906020900.jar
+7f9f3f273000-7f9f3f276000 r--s 00019000 103:03 4101184                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.oda.xml_1.2.0.v200907061455.jar
+7f9f3f276000-7f9f3f279000 r--s 00024000 103:03 4101238                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.modelbase.dbdefinition_1.0.1.v200906022249.jar
+7f9f3f279000-7f9f3f27d000 r--s 00027000 103:03 4101231                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.oda_3.2.1.v200909031448.jar
+7f9f3f27d000-7f9f3f27f000 r--s 00002000 103:03 4101156                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.data.oda.jdbc.dbprofile.sampledb_2.5.1.v20090821.jar
+7f9f3f27f000-7f9f3f2a8000 r--s 0024a000 103:03 4101103                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine_2.5.1.v20090916.jar
+7f9f3f2a8000-7f9f3f2ab000 ---p 00000000 00:00 0 
+7f9f3f2ab000-7f9f3f3a9000 rw-p 00000000 00:00 0 
+7f9f3f3a9000-7f9f3f3db000 r-xp 00000000 103:03 1347833                   /opt/jdk1.7.0_79/jre/lib/amd64/libsunec.so
+7f9f3f3db000-7f9f3f5da000 ---p 00032000 103:03 1347833                   /opt/jdk1.7.0_79/jre/lib/amd64/libsunec.so
+7f9f3f5da000-7f9f3f5e0000 rw-p 00031000 103:03 1347833                   /opt/jdk1.7.0_79/jre/lib/amd64/libsunec.so
+7f9f3f5e0000-7f9f3f5f0000 rw-p 00000000 00:00 0 
+7f9f3f5f0000-7f9f3f5f3000 ---p 00000000 00:00 0 
+7f9f3f5f3000-7f9f3f6f1000 rw-p 00000000 00:00 0 
+7f9f3f6f1000-7f9f3f6f4000 ---p 00000000 00:00 0 
+7f9f3f6f4000-7f9f3f7f2000 rw-p 00000000 00:00 0 
+7f9f3f7f2000-7f9f3f7f5000 ---p 00000000 00:00 0 
+7f9f3f7f5000-7f9f3f8f3000 rw-p 00000000 00:00 0 
+7f9f3f8f3000-7f9f3f8f6000 ---p 00000000 00:00 0 
+7f9f3f8f6000-7f9f3f9f4000 rw-p 00000000 00:00 0 
+7f9f3f9f4000-7f9f3f9f7000 ---p 00000000 00:00 0 
+7f9f3f9f7000-7f9f3faf5000 rw-p 00000000 00:00 0 
+7f9f3faf5000-7f9f3faf8000 ---p 00000000 00:00 0 
+7f9f3faf8000-7f9f3fbf6000 rw-p 00000000 00:00 0 
+7f9f3fbf6000-7f9f3fbf9000 ---p 00000000 00:00 0 
+7f9f3fbf9000-7f9f3fcf7000 rw-p 00000000 00:00 0 
+7f9f3fcf7000-7f9f3fcff000 r-xp 00000000 103:03 1347830                   /opt/jdk1.7.0_79/jre/lib/amd64/libmanagement.so
+7f9f3fcff000-7f9f3fefe000 ---p 00008000 103:03 1347830                   /opt/jdk1.7.0_79/jre/lib/amd64/libmanagement.so
+7f9f3fefe000-7f9f3feff000 rw-p 00007000 103:03 1347830                   /opt/jdk1.7.0_79/jre/lib/amd64/libmanagement.so
+7f9f3feff000-7f9f3ff02000 ---p 00000000 00:00 0 
+7f9f3ff02000-7f9f40000000 rw-p 00000000 00:00 0 
+7f9f40000000-7f9f40021000 rw-p 00000000 00:00 0 
+7f9f40021000-7f9f44000000 ---p 00000000 00:00 0 
+7f9f44000000-7f9f44001000 r--s 00003000 103:03 4101183                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.apache.derby.dbdefinition_1.0.2.v200906161815.jar
+7f9f44001000-7f9f44003000 r--s 00002000 103:03 4101105                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.dataextraction_2.5.1.v20090917.jar
+7f9f44003000-7f9f44008000 r--s 00039000 103:03 4101130                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.item.crosstab.core_2.5.1.v20090821.jar
+7f9f44008000-7f9f4400a000 r--s 00006000 103:03 4101151                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.oracle.dbdefinition_1.0.100.v200906161800.jar
+7f9f4400a000-7f9f44010000 r--s 00048000 103:03 4101232                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.sqm.core_1.1.0.v200906020553.jar
+7f9f44010000-7f9f44012000 r--s 00002000 103:03 4101157                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.db.generic_1.0.1.v200908130547.jar
+7f9f44012000-7f9f44015000 r--s 0000e000 103:03 4101256                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.osgi.services_3.2.0.v20090520-1800.jar
+7f9f44015000-7f9f44016000 r--s 00004000 103:03 4101196                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.modelbase.derby_1.0.0.v200906020900.jar
+7f9f44016000-7f9f44018000 r--s 0000e000 103:03 4101247                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.wpml_2.5.1.v20090821.jar
+7f9f44018000-7f9f4401a000 r--s 00011000 103:03 4101169                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.apache.derby_1.0.100.v200906020900.jar
+7f9f4401a000-7f9f4401b000 r--s 00002000 103:03 4101121                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.html.config_2.5.1.v20090917.jar
+7f9f4401b000-7f9f4401f000 r--s 00039000 103:03 4101178                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.chart.engine.extension_2.5.1.v20090826.jar
+7f9f4401f000-7f9f44022000 r--s 00010000 103:03 4101186                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.msft.sqlserver_1.0.1.v200906020900.jar
+7f9f44022000-7f9f44024000 r--s 00002000 103:03 4101199                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.ibm.db2.luw_1.0.1.v200906020900.jar
+7f9f44024000-7f9f44025000 r--s 00012000 103:03 4101128                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.html_2.5.1.v20090903.jar
+7f9f44025000-7f9f44027000 r--s 0000e000 103:03 4101172                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.mysql_1.0.2.v200906020900.jar
+7f9f44027000-7f9f44029000 r--s 00012000 103:03 4101244                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.jobs_3.4.100.v20090429-1800.jar
+7f9f44029000-7f9f4402c000 r--s 00011000 103:03 4101187                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.equinox.app_1.2.0.v20090520-1800.jar
+7f9f4402c000-7f9f4402e000 r--s 00002000 103:03 4101224                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.ibm.db2.zseries_1.0.1.v200906020900.jar
+7f9f4402e000-7f9f44030000 r--s 00010000 103:03 4101260                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.runtime_3.5.0.v20090525.jar
+7f9f44030000-7f9f44031000 r--s 00005000 103:03 4101262                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition_1.0.3.v200906161800.jar
+7f9f44031000-7f9f44033000 r--s 00004000 103:03 4101237                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.data.oda.jdbc.dbprofile_2.5.1.v20090821.jar
+7f9f44033000-7f9f4403d000 r--s 000a3000 103:03 4101261                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.resources_3.5.1.R35x_v20090826-0451.jar
+7f9f4403d000-7f9f4403e000 r--s 00002000 103:03 4101246                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.ibm.informix_1.0.0.v200906020900.jar
+7f9f4403e000-7f9f44066000 r--s 00260000 103:03 4101195                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.model_2.5.1.v20090904.jar
+7f9f44066000-7f9f44068000 r--s 00017000 103:03 4101198                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.emitter.prototype.excel_2.5.1.v20090914.jar
+7f9f44068000-7f9f44069000 r--s 00002000 103:03 4101120                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.report.engine.dataextraction.csv_2.5.1.v20090806.jar
+7f9f44069000-7f9f4406b000 r--s 00013000 103:03 4101236                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.emf.ecore.change_2.5.0.v200906151043.jar
+7f9f4406b000-7f9f4406d000 r--s 00009000 103:03 4101154                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.filesystem_1.2.0.v20090507.jar
+7f9f4406d000-7f9f4406f000 r--s 00003000 103:03 4101267                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.hsqldb_1.0.0.v200906020900.jar
+7f9f4406f000-7f9f44071000 r--s 0001f000 103:03 4101129                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.chart.device.extension_2.5.1.v20090902.jar
+7f9f44071000-7f9f44076000 r--s 00011000 103:03 4101225                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.w3c.dom.svg_1.1.0.v200806040011.jar
+7f9f44076000-7f9f44078000 r--s 00016000 103:03 4101243                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.apache.xml.resolver_1.2.0.v200902170519.jar
+7f9f44078000-7f9f4407d000 r--s 00034000 103:03 4101266                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity_1.1.2.v200908180040.jar
+7f9f4407d000-7f9f44084000 r--s 00056000 103:03 4101234                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.core_2.5.1.v20090903.jar
+7f9f44084000-7f9f44094000 r--s 00103000 103:03 4101254                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.osgi_3.5.1.R35x_v20090827.jar
+7f9f44094000-7f9f44097000 r--p 00000000 103:03 6949112                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f9f44097000-7f9f440a9000 r-xp 00003000 103:03 6949112                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f9f440a9000-7f9f440ad000 r--p 00015000 103:03 6949112                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f9f440ad000-7f9f440ae000 r--p 00018000 103:03 6949112                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f9f440ae000-7f9f440af000 rw-p 00019000 103:03 6949112                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f9f440af000-7f9f440b1000 r--s 00005000 103:03 4101189                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.connectivity.oda.profile_3.2.0.v200906020553.jar
+7f9f440b1000-7f9f440b3000 r--s 00004000 103:03 4101137                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.core.runtime.compatibility.auth_3.2.100.v20090413.jar
+7f9f440b3000-7f9f440b5000 r--s 00004000 103:03 4101265                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition_1.0.0.v200906161800.jar
+7f9f440b5000-7f9f440b8000 r--s 00016000 103:03 4101230                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.update.configurator_3.3.0.v20090312.jar
+7f9f440b8000-7f9f440bb000 r--s 00016000 103:03 4101245                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.equinox.common_3.5.1.R35x_v20090807-1100.jar
+7f9f440bb000-7f9f440bc000 r--s 00000000 103:03 4101228                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.birt.api_1.0.0.jar
+7f9f440bc000-7f9f440c0000 r--s 0002d000 103:03 2655945                   /opt/jdk1.7.0_79/jre/lib/ext/sunjce_provider.jar
+7f9f440c0000-7f9f440c1000 r--s 00003000 103:03 2655943                   /opt/jdk1.7.0_79/jre/lib/ext/sunec.jar
+7f9f440c1000-7f9f440c4000 r--s 00019000 103:03 1182734                   /opt/jdk1.7.0_79/jre/lib/jce.jar
+7f9f440c4000-7f9f440c8000 r--s 0008b000 103:03 1182741                   /opt/jdk1.7.0_79/jre/lib/jsse.jar
+7f9f440c8000-7f9f440d2000 r--s 00253000 103:03 1182574                   /opt/jdk1.7.0_79/jre/lib/resources.jar
+7f9f440d2000-7f9f440d4000 r--s 00003000 103:03 4870403                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/activities/build/lib/opentaps-activities.jar (deleted)
+7f9f440d4000-7f9f440d5000 r--s 00013000 103:03 4870406                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/amazon/build/lib/opentaps-amazon.jar (deleted)
+7f9f440d5000-7f9f440d7000 r--s 00007000 103:03 4870405                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/amazon/build/lib/opentapsAmazon_Axis-1.0.jar (deleted)
+7f9f440d7000-7f9f440d8000 r--s 00009000 103:03 4870412                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/search/build/lib/opentaps-search.jar (deleted)
+7f9f440d8000-7f9f440d9000 r--s 00002000 103:03 4870408                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/asterisk/build/lib/opentaps-asterisk.jar (deleted)
+7f9f440d9000-7f9f440e2000 r--s 00044000 103:03 2643047                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/asterisk/lib/asterisk-java-0.3.1.jar
+7f9f440e2000-7f9f440e5000 r--s 00072000 103:03 4870401                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-tests/build/lib/opentaps-tests.jar (deleted)
+7f9f440e5000-7f9f440e7000 r--s 00016000 103:03 4870399                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/dataimport/build/lib/dataimport.jar (deleted)
+7f9f440e7000-7f9f440e9000 r--s 0001f000 103:03 4870397                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/warehouse/build/lib/warehouse.jar (deleted)
+7f9f440e9000-7f9f440ec000 r--s 00016000 103:03 4349360                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/purchasing/build/lib/purchasing.jar (deleted)
+7f9f440ec000-7f9f440f0000 r--s 00064000 103:03 3830933                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/financials/build/lib/opentaps-financials.jar (deleted)
+7f9f440f0000-7f9f440f5000 r--s 0005c000 103:03 3565801                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/crmsfa/build/lib/opentaps-crmsfa.jar (deleted)
+7f9f440f5000-7f9f440f9000 r--s 00021000 103:03 3300616                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/crmsfa/lib/EdenLib-1.5.jar
+7f9f440f9000-7f9f440fd000 r--s 00026000 103:03 3300615                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/crmsfa/lib/JPublish-2.0.2_JakartaBSF.jar
+7f9f440fd000-7f9f44103000 r--s 0006d000 103:03 3299376                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/javassist-3.4.GA.jar
+7f9f44103000-7f9f44105000 r--s 00002000 103:03 3299368                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/jta-1.1.jar
+7f9f44105000-7f9f44107000 r--s 00004000 103:03 3299369                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/slf4j-api-1.5.6.jar
+7f9f44107000-7f9f44109000 r--s 00014000 103:03 3299371                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/solr-common-1.3.0.jar
+7f9f44109000-7f9f4410e000 r--s 00048000 103:03 3299367                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/dom4j-1.6.1.jar
+7f9f4410e000-7f9f44134000 r--s 0022a000 103:03 3299370                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/hibernate-3.3.2.GA.jar
+7f9f44134000-7f9f44141000 r--s 0007c000 103:03 3299361                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/commons-collections-3.1.jar
+7f9f44141000-7f9f44142000 r--s 00001000 103:03 3299372                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/slf4j-nop-1.5.6.jar
+7f9f44142000-7f9f44149000 r--s 00046000 103:03 3299366                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/hibernate-search-3.1.1.GA.jar
+7f9f44149000-7f9f4414c000 r--s 0000a000 103:03 3299365                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/ejb3-persistence.jar
+7f9f4414c000-7f9f44152000 r--s 00067000 103:03 3299373                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/antlr-2.7.6rc1.jar
+7f9f44152000-7f9f44162000 r--s 000d2000 103:03 3299362                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/solr-core-1.3.0.jar
+7f9f44162000-7f9f44166000 r--s 0002f000 103:03 3299364                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/ehcache-1.2.3.jar
+7f9f44166000-7f9f44174000 r--s 000bb000 103:03 3299363                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/lucene-core-2.4.1.jar
+7f9f44174000-7f9f44179000 r--s 00040000 103:03 3299375                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/hibernate-annotations-3.4.0.GA.jar
+7f9f44179000-7f9f4417c000 r--s 0000e000 103:03 3299374                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/hibernate/hibernate-commons-annotations-3.4.0.GA.jar
+7f9f4417c000-7f9f4417d000 r--s 00001000 103:03 3299443                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/aspectwerkz-extensions-2.0.jar
+7f9f4417d000-7f9f4417f000 r--s 00011000 103:03 3299441                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/qdox-1.4.jar
+7f9f4417f000-7f9f44184000 r--s 00020000 103:03 3299446                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/concurrent-1.3.1.jar
+7f9f44184000-7f9f44185000 r--s 00007000 103:03 3299436                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/asm-util-1.5.4-snapshot.jar
+7f9f44185000-7f9f44187000 r--s 00003000 103:03 3299444                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/managementapi-jrockit81.jar
+7f9f44187000-7f9f4418f000 r--s 00051000 103:03 3299439                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/trove-1.0.2.jar
+7f9f4418f000-7f9f44191000 r--s 00003000 103:03 3299440                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/asm-attrs-1.5.4-snapshot.jar
+7f9f44191000-7f9f44194000 r--s 00016000 103:03 3299447                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/jrexx-1.1.1.jar
+7f9f44194000-7f9f44198000 r--s 0001f000 103:03 3299437                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/jarjar-0.3.jar
+7f9f44198000-7f9f4419a000 r--s 00002000 103:03 3299445                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/aspectwerkz-jdk5-2.0.jar
+7f9f4419a000-7f9f441a2000 r--s 0006f000 103:03 3299442                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/dom4j-1.4.jar
+7f9f441a2000-7f9f441a4000 r--s 00012000 103:03 3299438                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/aspectwerkz-core-2.0.jar
+7f9f441a4000-7f9f441b1000 r--s 000a1000 103:03 3299435                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/aspectwerkz/aspectwerkz-2.0.jar
+7f9f441b1000-7f9f441c0000 r--s 0011a000 103:03 3299449                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/jfreechart-1.0.6.jar
+7f9f441c0000-7f9f441d8000 r--s 0011c000 103:03 3299428                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/gwtext.jar
+7f9f441d8000-7f9f441f3000 r--s 00142000 103:03 3299451                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/poi-3.2-FINAL-20081019.jar
+7f9f441f3000-7f9f441f8000 r--s 00034000 103:03 3299432                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/commons-beanutils-1.8.0.jar
+7f9f441f8000-7f9f441fa000 r--s 00005000 103:03 3299431                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/inflector-0.7.0.jar
+7f9f441fa000-7f9f4420c000 r--s 00118000 103:03 3299429                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/gwtextux.jar
+7f9f4420c000-7f9f44217000 r--s 000a5000 103:03 3299325                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/jxl.jar
+7f9f44217000-7f9f442b5000 r--s 006c0000 103:03 3299450                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/gwt-user-2.1.0.jar
+7f9f442b5000-7f9f44316000 r--s 0089d000 103:03 3299452                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/opentaps-common-entities.jar
+7f9f44316000-7f9f4431b000 r--s 00040000 103:03 3299356                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/commons-httpclient-3.0.jar
+7f9f4431b000-7f9f44320000 r--s 00023000 103:03 3299455                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/spring-context-2.0.8.jar
+7f9f44320000-7f9f44323000 r--s 00025000 103:03 3299430                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/opentapsFedEx_RateService_Axis-1.0.jar
+7f9f44323000-7f9f44329000 r--s 00047000 103:03 3299448                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/jcommon-1.0.10.jar
+7f9f44329000-7f9f4432d000 r--s 00020000 103:03 3299454                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/commons-digester-1.8.1.jar
+7f9f4432d000-7f9f44350000 r--s 0019b000 103:03 3299357                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/checkstyle-all-5.0.jar
+7f9f44350000-7f9f44354000 r--s 0001e000 103:03 3299453                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/jetm.jar
+7f9f44354000-7f9f44359000 r--s 00021000 103:03 3299457                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/spring-web-2.0.8.jar
+7f9f44359000-7f9f4445a000 r--s 0123e000 103:03 3299433                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/opentaps-common-services.jar
+7f9f4445a000-7f9f4445f000 r--s 00028000 103:03 3299456                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/spring-core-2.0.8.jar
+7f9f4445f000-7f9f44460000 r--s 00003000 103:03 3286540                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/opentaps-common-aspect.jar (deleted)
+7f9f44460000-7f9f44469000 r--s 00057000 103:03 3299458                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/spring-beans-2.0.8.jar
+7f9f44469000-7f9f4446d000 r--s 0001a000 103:03 3299359                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/lib/ant-contrib.jar
+7f9f4446d000-7f9f44472000 r--s 00035000 103:03 3968910                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/build/lib/opentaps-common-base.jar (deleted)
+7f9f44472000-7f9f44479000 r--s 0001f000 103:03 3968909                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/build/lib/opentaps-common-constants.jar (deleted)
+7f9f44479000-7f9f4448b000 r--s 002d4000 103:03 3968912                   /home/yashwant/opentaps/opentaps-1.5.0/opentaps/opentaps-common/build/lib/opentaps-common.jar (deleted)
+7f9f4448b000-7f9f4448d000 r--s 0001d000 103:03 3968886                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/crowd/build/lib/ofbiz-crowd.jar
+7f9f4448d000-7f9f4448e000 r--s 0000e000 103:03 3968899                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/webpos/build/lib/ofbiz-webpos.jar
+7f9f4448e000-7f9f44490000 r--s 00029000 103:03 1081156                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/ebaystore/build/lib/ofbiz-ebaystore.jar
+7f9f44490000-7f9f444b1000 r--s 00227000 103:03 1347686                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/ebaystore/lib/ebaysdkcore.jar
+7f9f444b1000-7f9f444b3000 r--s 00015000 103:03 1347687                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/ebaystore/lib/helper.jar
+7f9f444b3000-7f9f444b5000 r--s 0000d000 103:03 1347685                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/ebaystore/lib/attributes.jar
+7f9f444b5000-7f9f444ba000 r--s 00037000 103:03 1347688                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/ebaystore/lib/ebaycalls.jar
+7f9f444ba000-7f9f444bb000 r--s 00018000 103:03 1347561                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/ebay/build/lib/ofbiz-ebay.jar
+7f9f444bb000-7f9f444bc000 r--s 00011000 103:03 1081161                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/googlecheckout/build/lib/ofbiz-googlecheckout.jar
+7f9f444bc000-7f9f444c0000 r--s 0001b000 103:03 3301985                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/googlecheckout/lib/checkout-sdk-0.8.8.jar
+7f9f444c0000-7f9f444c1000 r--s 0000e000 103:03 3968806                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/googlebase/build/lib/ofbiz-googlebase.jar
+7f9f444c1000-7f9f444c3000 r--s 00017000 103:03 3968797                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/oagis/build/lib/ofbiz-oagis.jar
+7f9f444c3000-7f9f444c4000 r--s 0000b000 103:03 3968821                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/projectmgr/build/lib/ofbiz-projectmgr.jar
+7f9f444c4000-7f9f444c5000 r--s 0000b000 103:03 951664                    /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/assetmaint/build/lib/ofbiz-assetmaint.jar
+7f9f444c5000-7f9f444c6000 r--s 0000c000 103:03 3968787                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/hhfacility/build/lib/ofbiz-hhfacility.jar
+7f9f444c6000-7f9f444c9000 r--s 00039000 103:03 3968778                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/pos/build/lib/ofbiz-pos.jar
+7f9f444c9000-7f9f444d1000 r--s 00052000 103:03 3300726                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/pos/lib/looks-2.0.2.jar
+7f9f444d1000-7f9f444da000 r--s 00037000 103:03 3300728                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/pos/lib/jpos18-controls.jar
+7f9f444da000-7f9f444de000 r--s 0001b000 103:03 3300727                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/pos/lib/jcl.jar
+7f9f444de000-7f9f444e0000 r--s 0000b000 103:03 3830926                   /home/yashwant/opentaps/opentaps-1.5.0/specialpurpose/ecommerce/build/lib/ofbiz-ecommerce.jar
+7f9f444e0000-7f9f444e1000 r--s 0000f000 103:03 3565803                   /home/yashwant/opentaps/opentaps-1.5.0/applications/marketing/build/lib/ofbiz-marketing.jar
+7f9f444e1000-7f9f444e2000 r--s 0000d000 103:03 3830817                   /home/yashwant/opentaps/opentaps-1.5.0/applications/order/build/lib/ofbiz-order-test.jar
+7f9f444e2000-7f9f444e4000 r--s 00076000 103:03 3830934                   /home/yashwant/opentaps/opentaps-1.5.0/applications/order/build/lib/ofbiz-order.jar (deleted)
+7f9f444e4000-7f9f444e6000 r--s 0000a000 103:03 3830920                   /home/yashwant/opentaps/opentaps-1.5.0/applications/humanres/build/lib/ofbiz-humanres.jar
+7f9f444e6000-7f9f444e7000 r--s 0000b000 103:03 3830902                   /home/yashwant/opentaps/opentaps-1.5.0/applications/accounting/build/lib/ofbiz-accounting-test.jar
+7f9f444e7000-7f9f444e9000 r--s 00051000 103:03 3830901                   /home/yashwant/opentaps/opentaps-1.5.0/applications/accounting/build/lib/ofbiz-accounting.jar
+7f9f444e9000-7f9f444eb000 r--s 00022000 103:03 3830842                   /home/yashwant/opentaps/opentaps-1.5.0/applications/manufacturing/build/lib/ofbiz-manufacturing.jar
+7f9f444eb000-7f9f444ec000 r--s 0000b000 103:03 3711991                   /home/yashwant/opentaps/opentaps-1.5.0/applications/product/build/lib/ofbiz-product-test.jar
+7f9f444ec000-7f9f444f0000 r--s 00078000 103:03 3711990                   /home/yashwant/opentaps/opentaps-1.5.0/applications/product/build/lib/ofbiz-product.jar
+7f9f444f0000-7f9f444f2000 r--s 00023000 103:03 3711964                   /home/yashwant/opentaps/opentaps-1.5.0/applications/workeffort/build/lib/ofbiz-workeffort.jar
+7f9f444f2000-7f9f444f5000 r--s 00057000 103:03 3711900                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/build/lib/ofbiz-content.jar
+7f9f444f5000-7f9f44521000 r--s 000d6000 103:03 3711317                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/unoil.jar
+7f9f44521000-7f9f44522000 r--s 00003000 103:03 3711310                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/XSLTFilter.jar
+7f9f44522000-7f9f44523000 r--s 00001000 103:03 3711314                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/XFlatXml.jar
+7f9f44523000-7f9f44524000 r--s 00005000 103:03 3711320                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/jut.jar
+7f9f44524000-7f9f44525000 r--s 00001000 103:03 3711318                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/XMergeBridge.jar
+7f9f44525000-7f9f44529000 r--s 00021000 103:03 3711321                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/java_uno_accessbridge.jar
+7f9f44529000-7f9f4452a000 r--s 00003000 103:03 3711309                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/officebean.jar
+7f9f4452a000-7f9f4452b000 r--s 00000000 103:03 3711313                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/java_uno.jar
+7f9f4452b000-7f9f4452c000 r--s 00001000 103:03 3711319                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/htmlsoff.jar
+7f9f4452c000-7f9f44530000 r--s 00016000 103:03 3711311                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/jurt.jar
+7f9f44530000-7f9f44532000 r--s 0000a000 103:03 3711322                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/juh.jar
+7f9f44532000-7f9f44533000 r--s 00000000 103:03 3711312                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/XSLTValidate.jar
+7f9f44533000-7f9f4453d000 r--s 00031000 103:03 3711316                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/uno/ridl.jar
+7f9f4453d000-7f9f44558000 r--s 00142000 103:03 3711324                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/poi-3.2-FINAL-20081019.jar
+7f9f44558000-7f9f44565000 r--s 000bb000 103:03 3711325                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/lucene-core-2.4.0.jar
+7f9f44565000-7f9f44573000 r--s 000bb000 103:03 3711323                   /home/yashwant/opentaps/opentaps-1.5.0/applications/content/lib/lucene-core-2.4.1.jar
+7f9f44573000-7f9f44574000 r--s 0000b000 103:03 3830916                   /home/yashwant/opentaps/opentaps-1.5.0/applications/securityext/build/lib/ofbiz-securityext-test.jar
+7f9f44574000-7f9f44575000 r--s 0000d000 103:03 3830915                   /home/yashwant/opentaps/opentaps-1.5.0/applications/securityext/build/lib/ofbiz-securityext.jar
+7f9f44575000-7f9f44576000 r--s 0001e000 103:03 3711922                   /home/yashwant/opentaps/opentaps-1.5.0/applications/party/build/lib/ofbiz-party.jar
+7f9f44576000-7f9f44577000 r--s 0000b000 103:03 3711802                   /home/yashwant/opentaps/opentaps-1.5.0/framework/example/build/lib/ofbiz-example.jar
+7f9f44577000-7f9f44578000 r--s 00011000 103:03 3565470                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/build/lib/ofbiz-webslinger.jar
+7f9f44578000-7f9f4457a000 r--s 00002000 103:03 2645891                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-collections-arrays-20091211-3897-7ab22baea4b6.jar
+7f9f4457a000-7f9f4457c000 r--s 00003000 103:03 2645875                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-javacc-20091211-3897-7ab22baea4b6.jar
+7f9f4457c000-7f9f4457d000 r--s 00001000 103:03 2645895                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-cgi-20091211-3897-7ab22baea4b6.jar
+7f9f4457d000-7f9f4457f000 r--s 00001000 103:03 2645884                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-jython-20091211-3897-7ab22baea4b6.jar
+7f9f4457f000-7f9f44580000 r--s 00002000 103:03 2645881                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-util-20091211-3897-7ab22baea4b6.jar
+7f9f44580000-7f9f44582000 r--s 00005000 103:03 2645870                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-lang-20091211-3897-7ab22baea4b6.jar
+7f9f44582000-7f9f44583000 r--s 00002000 103:03 2645866                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-jruby-20091211-3897-7ab22baea4b6.jar
+7f9f44583000-7f9f44585000 r--s 0000f000 103:03 2645897                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-io-20091211-3897-7ab22baea4b6.jar
+7f9f44585000-7f9f44586000 r--s 00002000 103:03 2645879                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-beanshell-20091211-3897-7ab22baea4b6.jar
+7f9f44586000-7f9f44588000 r--s 00001000 103:03 2645871                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-logging-20091211-3897-7ab22baea4b6.jar
+7f9f44588000-7f9f44589000 r--s 00002000 103:03 2645872                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-directory-20091211-3897-7ab22baea4b6.jar
+7f9f44589000-7f9f4458d000 r--s 00023000 103:03 2645899                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-wiki-20091211-3897-7ab22baea4b6.jar
+7f9f4458d000-7f9f4458e000 r--s 00002000 103:03 2645898                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-embryo-20091211-3897-7ab22baea4b6.jar
+7f9f4458e000-7f9f4458f000 r--s 00004000 103:03 2645886                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-collections-20091211-3897-7ab22baea4b6.jar
+7f9f4458f000-7f9f44590000 r--s 00000000 103:03 2645902                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-html-20091211-3897-7ab22baea4b6.jar
+7f9f44590000-7f9f44591000 r--s 00002000 103:03 2645892                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-code-20091211-3897-7ab22baea4b6.jar
+7f9f44591000-7f9f44592000 r--s 00002000 103:03 2645887                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-rhino-20091211-3897-7ab22baea4b6.jar
+7f9f44592000-7f9f44594000 r--s 00007000 103:03 2645893                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-bsf-20091211-3897-7ab22baea4b6.jar
+7f9f44594000-7f9f44596000 r--s 00001000 103:03 2645888                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-servlet-20091211-3897-7ab22baea4b6.jar
+7f9f44596000-7f9f44597000 r--s 00001000 103:03 2645874                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-commonsvfs-object-20091211-3897-7ab22baea4b6.jar
+7f9f44597000-7f9f445a7000 r--s 000af000 103:03 2645876                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-20091211-3897-7ab22baea4b6.jar
+7f9f445a7000-7f9f445a9000 r--s 00002000 103:03 2645869                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-freemarker-20091211-3897-7ab22baea4b6.jar
+7f9f445a9000-7f9f445ac000 r--s 0000b000 103:03 2645880                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-template-20091211-3897-7ab22baea4b6.jar
+7f9f445ac000-7f9f445ae000 r--s 00005000 103:03 2645878                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-groovy-20091211-3897-7ab22baea4b6.jar
+7f9f445ae000-7f9f445b0000 r--s 00000000 103:03 2645883                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-catalina-20091211-3897-7ab22baea4b6.jar
+7f9f445b0000-7f9f445b1000 r--s 00001000 103:03 2645868                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-nutch-20091211-3897-7ab22baea4b6.jar
+7f9f445b1000-7f9f445b2000 r--s 00003000 103:03 2645867                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-cache-20091211-3897-7ab22baea4b6.jar
+7f9f445b2000-7f9f445b3000 r--s 00003000 103:03 2645894                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-plan9-20091211-3897-7ab22baea4b6.jar
+7f9f445b3000-7f9f445b4000 r--s 00002000 103:03 2645882                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-xml-20091211-3897-7ab22baea4b6.jar
+7f9f445b4000-7f9f445b9000 r--s 0001a000 103:03 2645889                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-resolver-20091211-3897-7ab22baea4b6.jar
+7f9f445b9000-7f9f445ba000 r--s 00005000 103:03 2645890                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-launcher-20091211-3897-7ab22baea4b6.jar
+7f9f445ba000-7f9f445bc000 r--s 0000a000 103:03 2645901                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-concurrent-20091211-3897-7ab22baea4b6.jar
+7f9f445bc000-7f9f445be000 r--s 00006000 103:03 2645900                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-quercus-20091211-3897-7ab22baea4b6.jar
+7f9f445be000-7f9f445bf000 r--s 00002000 103:03 2645896                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-velocity-20091211-3897-7ab22baea4b6.jar
+7f9f445bf000-7f9f445c0000 r--s 00001000 103:03 2645873                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-base-junit-20091211-3897-7ab22baea4b6.jar
+7f9f445c0000-7f9f445c1000 r--s 00005000 103:03 2645885                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-janino-20091211-3897-7ab22baea4b6.jar
+7f9f445c1000-7f9f445c3000 r--s 00007000 103:03 2645877                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webslinger/lib/webslinger-extension-image-20091211-3897-7ab22baea4b6.jar
+7f9f445c3000-7f9f445c4000 r--s 0001e000 103:03 3711794                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webtools/build/lib/ofbiz-webtools.jar
+7f9f445c4000-7f9f445c6000 r--s 00019000 103:03 3711258                   /home/yashwant/opentaps/opentaps-1.5.0/framework/testtools/build/lib/ofbiz-testtools.jar
+7f9f445c6000-7f9f445c8000 r--s 0000c000 103:03 2645730                   /home/yashwant/opentaps/opentaps-1.5.0/framework/testtools/lib/selenium-java-client-driver.jar
+7f9f445c8000-7f9f445c9000 r--s 0000d000 103:03 3711267                   /home/yashwant/opentaps/opentaps-1.5.0/framework/appserver/build/lib/ofbiz-appsvrs.jar
+7f9f445c9000-7f9f445cf000 r--s 0008f000 103:03 4101066                   /home/yashwant/opentaps/opentaps-1.5.0/framework/widget/build/lib/ofbiz-widget.jar
+7f9f445cf000-7f9f445d0000 r--s 0000c000 103:03 4349206                   /home/yashwant/opentaps/opentaps-1.5.0/framework/guiapp/build/lib/ofbiz-guiapp.jar
+7f9f445d0000-7f9f445da000 r--s 00061000 103:03 4778248                   /home/yashwant/opentaps/opentaps-1.5.0/framework/guiapp/lib/XuiCoreSwing-v3.2rc2b.jar
+7f9f445da000-7f9f445df000 r--s 00028000 103:03 4778249                   /home/yashwant/opentaps/opentaps-1.5.0/framework/guiapp/lib/XuiOptional-v3.2rc2b.jar
+7f9f445df000-7f9f445e0000 r--s 0000b000 103:03 4100629                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/build/lib/ofbiz-webapp-test.jar
+7f9f445e0000-7f9f445e4000 r--s 00048000 103:03 4100628                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/build/lib/ofbiz-webapp.jar
+7f9f445e4000-7f9f445e6000 r--s 0000e000 103:03 4101014                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/ezmorph-0.9.1.jar
+7f9f445e6000-7f9f445ea000 r--s 00021000 103:03 4101015                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/json-lib-2.2.3-jdk15.jar
+7f9f445ea000-7f9f445ec000 r--s 00007000 103:03 4101011                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/ws-commons-util-1.0.1.jar
+7f9f445ec000-7f9f445ed000 r--s 00001000 103:03 4101017                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/ws-commons-java5-1.0.1.jar
+7f9f445ed000-7f9f445f1000 r--s 0002f000 103:03 4101010                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/rome-0.9.jar
+7f9f445f1000-7f9f445f3000 r--s 00009000 103:03 4101009                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/xmlrpc-client-3.0.jar
+7f9f445f3000-7f9f445fc000 r--s 00097000 103:03 4101019                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/DataVision-1.0.0.jar
+7f9f445fc000-7f9f44608000 r--s 00108000 103:03 4101013                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/iText-2.1.7.jar
+7f9f44608000-7f9f4460b000 r--s 00015000 103:03 4101016                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/xmlrpc-common-3.0.jar
+7f9f4460b000-7f9f44613000 r--s 0005f000 103:03 4101012                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/velocity-1.6.1.jar
+7f9f44613000-7f9f4463d000 r--s 00230000 103:03 4101008                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/jasperreports-3.5.2.jar
+7f9f4463d000-7f9f4463f000 r--s 0000f000 103:03 4101018                   /home/yashwant/opentaps/opentaps-1.5.0/framework/webapp/lib/xmlrpc-server-3.0.jar
+7f9f4463f000-7f9f44641000 r--s 00010000 103:03 4101313                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/build/lib/ofbiz-birt.jar
+7f9f44641000-7f9f44643000 r--s 00011000 103:03 4101216                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.w3c.sac_1.3.0.v20070710/lib/flute.jar
+7f9f44643000-7f9f4464b000 r--s 000b5000 103:03 4218166                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.mozilla.rhino_1.7.1.v20090521/lib/js.jar
+7f9f4464b000-7f9f4464d000 r--s 00006000 103:03 4101173                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.w3c.css.sac_1.3.0.v200805290154.jar
+7f9f4464d000-7f9f44651000 r--s 00032000 103:03 4101197                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.emf.ecore.xmi_2.5.0.v200906151043.jar
+7f9f44651000-7f9f44660000 r--s 000f3000 103:03 4101257                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.emf.ecore_2.5.0.v200906151043.jar
+7f9f44660000-7f9f44664000 r--s 0002e000 103:03 4101136                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/platform/plugins/org.eclipse.emf.common_2.5.0.v200906151043.jar
+7f9f44664000-7f9f44667000 r--s 0000c000 103:03 4101273                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/odadesignapi.jar
+7f9f44667000-7f9f44669000 r--s 00000000 103:03 4101093                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/dataextraction.jar
+7f9f44669000-7f9f4466b000 r--s 00008000 103:03 4101274                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/dataadapterapi.jar
+7f9f4466b000-7f9f4466c000 r--s 00006000 103:03 4101097                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/chartitemapi.jar
+7f9f4466c000-7f9f4466d000 r--s 00002000 103:03 4101095                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/modelodaapi.jar
+7f9f4466d000-7f9f4466f000 r--s 00017000 103:03 4101092                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/crosstabcoreapi.jar
+7f9f4466f000-7f9f44677000 r--s 0007d000 103:03 4101096                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/viewservlets.jar
+7f9f44677000-7f9f44678000 r--s 00002000 103:03 4101272                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/emitterconfig.jar
+7f9f44678000-7f9f4469d000 r--s 001f8000 103:03 4101091                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/modelapi.jar
+7f9f4469d000-7f9f446a1000 r--s 00019000 103:03 4101094                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/engineapi.jar
+7f9f446a1000-7f9f446a5000 r--s 0000b000 103:03 4101271                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/scriptapi.jar
+7f9f446a5000-7f9f446a7000 r--s 00006000 103:03 4101099                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/jaxrpc.jar
+7f9f446a7000-7f9f446ad000 r--s 0003c000 103:03 4101100                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/coreapi.jar
+7f9f446ad000-7f9f446c0000 r--s 0015c000 103:03 4101098                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/chartengineapi.jar
+7f9f446c0000-7f9f446c1000 r--s 00000000 103:03 4101270                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/dataaggregationapi.jar
+7f9f446c1000-7f9f446c7000 r--s 0001c000 103:03 4101269                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/dteapi.jar
+7f9f446c7000-7f9f446c8000 r--s 00004000 103:03 4101268                   /home/yashwant/opentaps/opentaps-1.5.0/framework/birt/lib/saaj.jar
+7f9f446c8000-7f9f446c9000 r--s 0000b000 103:03 3565479                   /home/yashwant/opentaps/opentaps-1.5.0/framework/bi/build/lib/ofbiz-bi.jar
+7f9f446c9000-7f9f446cb000 r--s 00020000 103:03 3565805                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entityext/build/lib/ofbiz-entityext.jar (deleted)
+7f9f446cb000-7f9f446cf000 r--s 00055000 103:03 4349155                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/build/lib/ofbiz-service.jar
+7f9f446cf000-7f9f446d0000 r--s 0000c000 103:03 4349158                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/build/lib/ofbiz-service-test.jar
+7f9f446d0000-7f9f446d4000 r--s 0001d000 103:03 4349111                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/axiom-impl-1.2.8.jar
+7f9f446d4000-7f9f446d5000 r--s 00002000 103:03 4349112                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/axis2-transport-local-1.5.1.jar
+7f9f446d5000-7f9f446d8000 r--s 0001c000 103:03 4349109                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/wsdl4j.jar
+7f9f446d8000-7f9f446dc000 r--s 0001f000 103:03 4349116                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/XmlSchema-1.4.3.jar
+7f9f446dc000-7f9f446de000 r--s 00007000 103:03 4349114                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/axis-ant.jar
+7f9f446de000-7f9f446eb000 r--s 000e7000 103:03 4349115                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/axis2-kernel-1.5.1.jar
+7f9f446eb000-7f9f446ed000 r--s 00007000 103:03 4349117                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/neethi-2.0.4.jar
+7f9f446ed000-7f9f446f3000 r--s 00037000 103:03 4349113                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/axiom-api-1.2.8.jar
+7f9f446f3000-7f9f44707000 r--s 00173000 103:03 4349107                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/axis.jar
+7f9f44707000-7f9f4470d000 r--s 00045000 103:03 4349108                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/commons-httpclient-3.1.jar
+7f9f4470d000-7f9f44710000 r--s 00021000 103:03 4349110                   /home/yashwant/opentaps/opentaps-1.5.0/framework/service/lib/axis2-transport-http-1.5.1.jar
+7f9f44710000-7f9f44712000 r--s 00024000 103:03 3565807                   /home/yashwant/opentaps/opentaps-1.5.0/framework/common/build/lib/ofbiz-common.jar (deleted)
+7f9f44712000-7f9f44719000 r--s 0005a000 103:03 3565734                   /home/yashwant/opentaps/opentaps-1.5.0/framework/minilang/build/lib/ofbiz-minilang.jar
+7f9f44719000-7f9f4471a000 r--s 00011000 103:03 3710957                   /home/yashwant/opentaps/opentaps-1.5.0/framework/datafile/build/lib/ofbiz-datafile.jar
+7f9f4471a000-7f9f4471b000 r--s 00010000 103:03 4348956                   /home/yashwant/opentaps/opentaps-1.5.0/framework/security/build/lib/ofbiz-security.jar
+7f9f4471b000-7f9f4471d000 r--s 0000f000 103:03 3565403                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/build/lib/ofbiz-catalina.jar
+7f9f4471d000-7f9f44720000 r--s 0001d000 103:03 2645310                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-catalina-ha.jar
+7f9f44720000-7f9f44722000 r--s 0000e000 103:03 2645307                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-tomcat-juli.jar
+7f9f44722000-7f9f44731000 r--s 00113000 103:03 2645315                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-catalina.jar
+7f9f44731000-7f9f4473d000 r--s 0014c000 103:03 2645309                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-jasper-jdt.jar
+7f9f4473d000-7f9f44741000 r--s 00035000 103:03 2645312                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-tomcat-dbcp.jar
+7f9f44741000-7f9f44746000 r--s 00035000 103:03 2645314                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-catalina-tribes.jar
+7f9f44746000-7f9f44751000 r--s 000af000 103:03 2645317                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-tomcat-coyote.jar
+7f9f44751000-7f9f44759000 r--s 00079000 103:03 2645313                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-jasper.jar
+7f9f44759000-7f9f4475c000 r--s 00018000 103:03 2645311                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-jasper-el.jar
+7f9f4475c000-7f9f44763000 r--s 00088000 103:03 2910243                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/build/lib/ofbiz-entity-test.jar
+7f9f44763000-7f9f4476a000 r--s 00084000 103:03 2909862                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/build/lib/ofbiz-entity.jar (deleted)
+7f9f4476a000-7f9f44777000 r--s 000f3000 103:03 2637804                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/lib/jdbc/postgresql-42.5.1.jar
+7f9f44777000-7f9f4477a000 ---p 00000000 00:00 0 
+7f9f4477a000-7f9f44878000 rw-p 00000000 00:00 0 
+7f9f44878000-7f9f44888000 r-xp 00000000 103:03 1347822                   /opt/jdk1.7.0_79/jre/lib/amd64/libnio.so
+7f9f44888000-7f9f44a88000 ---p 00010000 103:03 1347822                   /opt/jdk1.7.0_79/jre/lib/amd64/libnio.so
+7f9f44a88000-7f9f44a89000 rw-p 00010000 103:03 1347822                   /opt/jdk1.7.0_79/jre/lib/amd64/libnio.so
+7f9f44a89000-7f9f48000000 rw-p 00000000 00:00 0 
+7f9f48000000-7f9f48027000 rw-p 00000000 00:00 0 
+7f9f48027000-7f9f4c000000 ---p 00000000 00:00 0 
+7f9f4c000000-7f9f4c001000 r--s 00005000 103:03 2645316                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.26-tomcat-juli-adapters.jar
+7f9f4c001000-7f9f4c002000 r--s 00005000 103:03 2645308                   /home/yashwant/opentaps/opentaps-1.5.0/framework/catalina/lib/tomcat-6.0.16-tomcat-juli-adapters.jar
+7f9f4c002000-7f9f4c008000 r--s 000ab000 103:03 2645258                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/lib/jdbc/old_mysql-connector-java-5.1.10-bin.jar
+7f9f4c008000-7f9f4c00e000 r--s 0006e000 103:03 2645256                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/lib/jdbc/old_postgresql-8.4-701.jdbc3.jar
+7f9f4c00e000-7f9f4c034000 r--s 00240000 103:03 2645257                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/lib/jdbc/derby-10.5.3.0.jar
+7f9f4c034000-7f9f4c041000 r--s 000e4000 103:03 2633623                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/lib/jdbc/java7_postgresql-42.2.27.jre7.jar
+7f9f4c041000-7f9f4c043000 r--s 00019000 103:03 2645254                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/lib/ofbiz-minerva.jar
+7f9f4c043000-7f9f4c045000 r--s 00023000 103:03 2645259                   /home/yashwant/opentaps/opentaps-1.5.0/framework/entity/lib/commons-dbcp-1.3-20091113-r835956.jar
+7f9f4c045000-7f9f4c046000 r--s 0000b000 103:03 2405735                   /home/yashwant/opentaps/opentaps-1.5.0/framework/sql/build/lib/ofbiz-sql-test.jar
+7f9f4c046000-7f9f4c049000 r--s 0001d000 103:03 2405733                   /home/yashwant/opentaps/opentaps-1.5.0/framework/sql/build/lib/ofbiz-sql.jar
+7f9f4c049000-7f9f4c04a000 r--s 0000b000 103:03 4218235                   /home/yashwant/opentaps/opentaps-1.5.0/framework/geronimo/build/lib/ofbiz-geronimo.jar
+7f9f4c04a000-7f9f4c04c000 r--s 0000b000 103:03 4218242                   /home/yashwant/opentaps/opentaps-1.5.0/framework/geronimo/lib/geronimo-transaction-2.1.1.jar
+7f9f4c04c000-7f9f4c050000 r--s 00015000 103:03 4218243                   /home/yashwant/opentaps/opentaps-1.5.0/framework/geronimo/lib/geronimo-connector-2.1.1.jar
+7f9f4c050000-7f9f4c05b000 r--s 00095000 103:03 3968598                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/build/lib/ofbiz-base.jar
+7f9f4c05b000-7f9f4c05d000 r--s 00007000 103:03 4100336                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/jakarta-regexp-1.5.jar
+7f9f4c05d000-7f9f4c06f000 r--s 0019c000 103:03 4100067                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/xalan-2.7.1.jar
+7f9f4c06f000-7f9f4c083000 r--s 0012f000 103:03 4100065                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/ant-1.7.1.jar
+7f9f4c083000-7f9f4c085000 r--s 0001a000 103:03 4100087                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/nekohtml.jar
+7f9f4c085000-7f9f4c088000 r--s 0001b000 103:03 4100379                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/junit.jar
+7f9f4c088000-7f9f4c0a0000 r--s 00115000 103:03 4100048                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/xercesImpl-2.9.1.jar
+7f9f4c0a0000-7f9f4c0a7000 r--s 000b2000 103:03 4100093                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/js.jar
+7f9f4c0a7000-7f9f4c0aa000 r--s 0003e000 103:03 4100104                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/kettle-db-3.2.0.jar
+7f9f4c0aa000-7f9f4c0b0000 r--s 0004b000 103:03 4100094                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/kettle-core-3.2.0.jar
+7f9f4c0b0000-7f9f4c0b3000 r--s 00029000 103:03 4100100                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/libext/jsch-0.1.38.jar
+7f9f4c0b3000-7f9f4c0b9000 r--s 00032000 103:03 4100101                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/libext/jaxen-1.1.1.jar
+7f9f4c0b9000-7f9f4c0be000 r--s 00040000 103:03 4100098                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/libext/commons/commons-httpclient-3.0.1.jar
+7f9f4c0be000-7f9f4c0c3000 r--s 00048000 103:03 4100099                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/libext/dom4j-1.6.1.jar
+7f9f4c0c3000-7f9f4c0c7000 r--s 00028000 103:03 4100103                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/libext/spring/spring-core.jar
+7f9f4c0c7000-7f9f4c0cb000 r--s 0003a000 103:03 4100096                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/libext/trilead-ssh2-build213.jar
+7f9f4c0cb000-7f9f4c116000 r--s 00434000 103:03 4100105                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/kettle-engine-3.2.0.jar
+7f9f4c116000-7f9f4c11a000 r--s 00026000 103:03 4100106                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/etl/ognl-2.6.9.jar
+7f9f4c11a000-7f9f4c11d000 r--s 0001f000 103:03 4100375                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/Tidy.jar
+7f9f4c11d000-7f9f4c120000 r--s 00012000 103:03 4100084                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-io-1.3.1.jar
+7f9f4c120000-7f9f4c122000 r--s 00006000 103:03 4100080                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-cli-1.0.jar
+7f9f4c122000-7f9f4c125000 r--s 0001f000 103:03 4100081                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-validator-1.3.1.jar
+7f9f4c125000-7f9f4c12a000 r--s 0002a000 103:03 4100086                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-beanutils-1.7.0.jar
+7f9f4c12a000-7f9f4c137000 r--s 0007f000 103:03 4100072                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-collections-3.2.jar
+7f9f4c137000-7f9f4c139000 r--s 0000b000 103:03 4100079                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-fileupload-1.2.jar
+7f9f4c139000-7f9f4c13b000 r--s 0000e000 103:03 4100085                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-pool-1.3.jar
+7f9f4c13b000-7f9f4c140000 r--s 00028000 103:03 4100070                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-net-1.4.1.jar
+7f9f4c140000-7f9f4c149000 r--s 00037000 103:03 4100077                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-primitives-1.0.jar
+7f9f4c149000-7f9f4c14c000 r--s 00018000 103:03 4100071                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-modeler-2.0.jar
+7f9f4c14c000-7f9f4c155000 r--s 00053000 103:03 4100076                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-vfs-20070730.jar
+7f9f4c155000-7f9f4c159000 r--s 0003c000 103:03 4100082                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-lang-2.4.jar
+7f9f4c159000-7f9f4c15c000 r--s 00010000 103:03 4100073                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-discovery-0.4.jar
+7f9f4c15c000-7f9f4c15f000 r--s 00019000 103:03 4100075                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-el-1.0.jar
+7f9f4c15f000-7f9f4c160000 r--s 0000c000 103:03 4100074                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-logging-1.1.jar
+7f9f4c160000-7f9f4c164000 r--s 00020000 103:03 4100078                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-digester-1.8.jar
+7f9f4c164000-7f9f4c166000 r--s 0000d000 103:03 4100083                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/commons/commons-codec-1.4.jar
+7f9f4c166000-7f9f4c175000 r--s 000c8000 103:03 4100063                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/freemarker-2.3.15.jar
+7f9f4c175000-7f9f4c178000 r--s 00015000 103:03 4100369                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/jpim-0.1.jar
+7f9f4c178000-7f9f4c17d000 r--s 00026000 103:03 4100058                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/httpcore-4.0.1.jar
+7f9f4c17d000-7f9f4c17e000 r--s 00002000 103:03 4100059                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/junitperf.jar
+7f9f4c17e000-7f9f4c182000 r--s 0001e000 103:03 4100107                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/juel-2.2.1.jar
+7f9f4c182000-7f9f4c18c000 r--s 00064000 103:03 4100370                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/javolution-5.4.3.jar
+7f9f4c18c000-7f9f4c18e000 r--s 00015000 103:03 4100049                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/ant-junit-1.7.1.jar
+7f9f4c18e000-7f9f4c194000 r--s 0003c000 103:03 4100108                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/barcode4j-fop-ext-complete-2.0.jar
+7f9f4c194000-7f9f4c196000 r--s 00013000 103:03 4100376                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/resolver-2.9.1.jar
+7f9f4c196000-7f9f4c1a1000 r--s 00067000 103:03 4100364                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/janino-2.5.15.jar
+7f9f4c1a1000-7f9f4c1a7000 r--s 00067000 103:03 4100366                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/antlr-2.7.6.jar
+7f9f4c1a7000-7f9f4c1ad000 r--s 00040000 103:03 4100360                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/bsh-2.0b4.jar
+7f9f4c1ad000-7f9f4c1af000 r--s 00004000 103:03 4100368                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/asm-tree-3.2.jar
+7f9f4c1af000-7f9f4c1b2000 r--s 00019000 103:03 4100365                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/bsf-2.4.0.jar
+7f9f4c1b2000-7f9f4c1f8000 r--s 003ff000 103:03 4100363                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/groovy-1.7-rc-2.jar
+7f9f4c1f8000-7f9f4c1f9000 r--s 00008000 103:03 4100361                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/asm-util-3.2.jar
+7f9f4c1f9000-7f9f4c1fa000 r--s 0000a000 103:03 4100359                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/asm-3.2.jar
+7f9f4c1fa000-7f9f4c1fc000 r--s 0000e000 103:03 4100367                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/jakarta-oro-2.0.8.jar
+7f9f4c1fc000-7f9f4c204000 r--s 000a1000 103:03 4100362                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/jython-nooro.jar
+7f9f4c204000-7f9f4c205000 r--s 00004000 103:03 4100358                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/scripting/asm-analysis-3.2.jar
+7f9f4c205000-7f9f4c20c000 r--s 00040000 103:03 4100066                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/httpclient-4.0.jar
+7f9f4c20c000-7f9f4c217000 r--s 0005f000 103:03 4100090                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/xstream-1.3.1.jar
+7f9f4c217000-7f9f4c221000 r--s 00075000 103:03 4100371                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/xmlgraphics-commons-1.3.1.jar
+7f9f4c221000-7f9f4c26d000 r--s 002df000 103:03 4100377                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/batik-all-1.7.jar
+7f9f4c26d000-7f9f4c271000 r--s 00011000 103:03 4100122                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/avalon-framework-4.2.0.jar
+7f9f4c271000-7f9f4c293000 r--s 00206000 103:03 4100054                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/fop-0.95.jar
+7f9f4c293000-7f9f4c299000 r--s 0003c000 103:03 4100061                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/memcached-2.5.jar
+7f9f4c299000-7f9f4c29c000 r--s 0001f000 103:03 4100123                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/owasp-esapi-full-java-1.4.jar
+7f9f4c29c000-7f9f4c2a4000 r--s 0005d000 103:03 4100372                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/httpunit.jar
+7f9f4c2a4000-7f9f4c2a5000 r--s 00000000 103:03 4100056                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/jcip-annotations-1.0.jar
+7f9f4c2a5000-7f9f4c2aa000 r--s 00010000 103:03 4100088                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/xml-apis-ext-1.3.04.jar
+7f9f4c2aa000-7f9f4c2ac000 r--s 00005000 103:03 4100127                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/xpp3_min-1.1.4c.jar
+7f9f4c2ac000-7f9f4c2ad000 r--s 00007000 103:03 4100114                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/tomcat-6.0.26-el-api.jar
+7f9f4c2ad000-7f9f4c2af000 r--s 00006000 103:03 4100119                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/geronimo-jaxr_1.0_spec-1.0.jar
+7f9f4c2af000-7f9f4c2b2000 r--s 00006000 103:03 4100111                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/geronimo-j2ee-connector_1.5_spec-1.0.jar
+7f9f4c2b2000-7f9f4c2b4000 r--s 00000000 103:03 4100113                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/geronimo-qname_1.1_spec-1.0.jar
+7f9f4c2b4000-7f9f4c2b6000 r--s 00006000 103:03 4100112                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/geronimo-jaxrpc_1.1_spec-1.0.jar
+7f9f4c2b6000-7f9f4c2b8000 r--s 00005000 103:03 4100115                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/geronimo-jms_1.1_spec-1.0.jar
+7f9f4c2b8000-7f9f4c2ba000 r--s 00011000 103:03 4100116                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/tomcat-6.0.26-jsp-api.jar
+7f9f4c2ba000-7f9f4c2bb000 r--s 00003000 103:03 4100120                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/geronimo-jta_1.1_spec-1.1.1.jar
+7f9f4c2bb000-7f9f4c2bc000 r--s 00003000 103:03 4100110                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/tomcat-6.0.26-annotations-api.jar
+7f9f4c2bc000-7f9f4c2be000 r--s 00004000 103:03 4100118                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/geronimo-saaj_1.1_spec-1.0.jar
+7f9f4c2be000-7f9f4c2c0000 r--s 00014000 103:03 4100121                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/tomcat-6.0.26-servlet-api.jar
+7f9f4c2c0000-7f9f4c2c2000 r--s 00006000 103:03 4100117                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/j2eespecs/geronimo-activation_1.0.2_spec-1.0.jar
+7f9f4c2c2000-7f9f4c2c5000 r--s 00023000 103:03 4100335                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/jdom-1.1.jar
+7f9f4c2c5000-7f9f4c2c6000 r--s 00001000 103:03 4100062                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/avalon-util-exception-1.0.0.jar
+7f9f4c2c6000-7f9f4c2c7000 r--s 00001000 103:03 4100091                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/ant-trax-1.7.1.jar
+7f9f4c2c7000-7f9f4c2cd000 r--s 00058000 103:03 4100380                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/mail.jar
+7f9f4c2cd000-7f9f4c2dc000 r--s 0007c000 103:03 4100381                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/ical4j-1.0-rc2.jar
+7f9f4c2dc000-7f9f4c2e3000 r--s 00059000 103:03 4100089                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/log4j-1.2.15.jar
+7f9f4c2e3000-7f9f4c2e4000 r--s 00002000 103:03 4100055                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/ant-launcher-1.7.1.jar
+7f9f4c2e4000-7f9f4c2e6000 r--s 00006000 103:03 4100373                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/webslinger-base-invoker-20091211-3897-7ab22baea4b6.jar
+7f9f4c2e6000-7f9f4c322000 r--s 005f4000 103:03 4100338                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/icu4j-4_4.jar
+7f9f4c322000-7f9f4c38c000 r--s 00e23000 103:03 1081014                   /opt/jdk1.7.0_79/lib/tools.jar
+7f9f4c38c000-7f9f4c38f000 ---p 00000000 00:00 0 
+7f9f4c38f000-7f9f4c48d000 rw-p 00000000 00:00 0 
+7f9f4c48d000-7f9f4c4a3000 r-xp 00000000 103:03 1347856                   /opt/jdk1.7.0_79/jre/lib/amd64/libnet.so
+7f9f4c4a3000-7f9f4c6a3000 ---p 00016000 103:03 1347856                   /opt/jdk1.7.0_79/jre/lib/amd64/libnet.so
+7f9f4c6a3000-7f9f4c6a4000 rw-p 00016000 103:03 1347856                   /opt/jdk1.7.0_79/jre/lib/amd64/libnet.so
+7f9f4c6a4000-7f9f4c6a5000 ---p 00000000 00:00 0 
+7f9f4c6a5000-7f9f4c7a5000 rw-p 00000000 00:00 0 
+7f9f4c7a5000-7f9f4c7a8000 ---p 00000000 00:00 0 
+7f9f4c7a8000-7f9f4c8a6000 rw-p 00000000 00:00 0 
+7f9f4c8a6000-7f9f4c8a7000 ---p 00000000 00:00 0 
+7f9f4c8a7000-7f9f4c8aa000 ---p 00000000 00:00 0 
+7f9f4c8aa000-7f9f4c9a7000 rw-p 00000000 00:00 0 
+7f9f4c9a7000-7f9f4c9a8000 ---p 00000000 00:00 0 
+7f9f4c9a8000-7f9f4c9ab000 ---p 00000000 00:00 0 
+7f9f4c9ab000-7f9f4caa8000 rw-p 00000000 00:00 0 
+7f9f4caa8000-7f9f4caab000 ---p 00000000 00:00 0 
+7f9f4caab000-7f9f4cba9000 rw-p 00000000 00:00 0 
+7f9f4cba9000-7f9f4d119000 r--p 00000000 103:03 6946844                   /usr/lib/locale/locale-archive
+7f9f4d119000-7f9f4d11c000 ---p 00000000 00:00 0 
+7f9f4d11c000-7f9f4d21a000 rw-p 00000000 00:00 0 
+7f9f4d21a000-7f9f4d21d000 ---p 00000000 00:00 0 
+7f9f4d21d000-7f9f4d31b000 rw-p 00000000 00:00 0 
+7f9f4d31b000-7f9f4d31c000 ---p 00000000 00:00 0 
+7f9f4d31c000-7f9f4ef37000 rw-p 00000000 00:00 0 
+7f9f4ef37000-7f9f4f0f7000 r--s 039f7000 103:03 1182746                   /opt/jdk1.7.0_79/jre/lib/rt.jar
+7f9f4f0f7000-7f9f4f0f8000 ---p 00000000 00:00 0 
+7f9f4f0f8000-7f9f4f1f8000 rw-p 00000000 00:00 0 
+7f9f4f1f8000-7f9f4f1f9000 ---p 00000000 00:00 0 
+7f9f4f1f9000-7f9f4f2f9000 rw-p 00000000 00:00 0 
+7f9f4f2f9000-7f9f4f2fa000 ---p 00000000 00:00 0 
+7f9f4f2fa000-7f9f4f3fa000 rw-p 00000000 00:00 0 
+7f9f4f3fa000-7f9f4f3fb000 ---p 00000000 00:00 0 
+7f9f4f3fb000-7f9f4f4fb000 rw-p 00000000 00:00 0 
+7f9f4f4fb000-7f9f4f4fc000 ---p 00000000 00:00 0 
+7f9f4f4fc000-7f9f4f5fc000 rw-p 00000000 00:00 0 
+7f9f4f5fc000-7f9f4f5fd000 ---p 00000000 00:00 0 
+7f9f4f5fd000-7f9f4f6fd000 rw-p 00000000 00:00 0 
+7f9f4f6fd000-7f9f4f6fe000 ---p 00000000 00:00 0 
+7f9f4f6fe000-7f9f4f7fe000 rw-p 00000000 00:00 0 
+7f9f4f7fe000-7f9f4f7ff000 ---p 00000000 00:00 0 
+7f9f4f7ff000-7f9f4f9d1000 rw-p 00000000 00:00 0 
+7f9f4f9d1000-7f9f4faff000 rw-p 00000000 00:00 0 
+7f9f4faff000-7f9f4fbd1000 rw-p 00000000 00:00 0 
+7f9f4fbd1000-7f9f4fcff000 rw-p 00000000 00:00 0 
+7f9f4fcff000-7f9f4fe9e000 rw-p 00000000 00:00 0 
+7f9f4fe9e000-7f9f4feff000 rw-p 00000000 00:00 0 
+7f9f4feff000-7f9f4ffff000 rw-p 00000000 00:00 0 
+7f9f4ffff000-7f9f50000000 rw-p 00000000 00:00 0 
+7f9f50000000-7f9f525b4000 rw-p 00000000 00:00 0 
+7f9f525b4000-7f9f54000000 ---p 00000000 00:00 0 
+7f9f54000000-7f9f54007000 r--s 0003e000 103:03 4100060                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/hamcrest-all-1.2.jar
+7f9f54007000-7f9f54008000 r--s 00000000 103:03 4100052                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/ant/ant-apache-bsf-1.7.1.jar
+7f9f54008000-7f9f54010000 r--s 00062000 103:03 4100051                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/ant/ant-nodeps-1.7.1.jar
+7f9f54010000-7f9f54015000 r--s 00036000 103:03 4100068                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/jdbm-1.0-SNAPSHOT.jar
+7f9f54015000-7f9f5428c000 rw-p 00000000 00:00 0 
+7f9f5428c000-7f9f542ed000 rw-p 00000000 00:00 0 
+7f9f542ed000-7f9f5431e000 rw-p 00000000 00:00 0 
+7f9f5431e000-7f9f543ad000 rw-p 00000000 00:00 0 
+7f9f543ad000-7f9f54fbd000 rwxp 00000000 00:00 0 
+7f9f54fbd000-7f9f573ad000 rw-p 00000000 00:00 0 
+7f9f573ad000-7f9f573c7000 r-xp 00000000 103:03 1347851                   /opt/jdk1.7.0_79/jre/lib/amd64/libzip.so
+7f9f573c7000-7f9f575c7000 ---p 0001a000 103:03 1347851                   /opt/jdk1.7.0_79/jre/lib/amd64/libzip.so
+7f9f575c7000-7f9f575c8000 rw-p 0001a000 103:03 1347851                   /opt/jdk1.7.0_79/jre/lib/amd64/libzip.so
+7f9f575c8000-7f9f575cb000 r--p 00000000 103:03 6949164                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f9f575cb000-7f9f575d2000 r-xp 00003000 103:03 6949164                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f9f575d2000-7f9f575d4000 r--p 0000a000 103:03 6949164                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f9f575d4000-7f9f575d5000 r--p 0000b000 103:03 6949164                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f9f575d5000-7f9f575d6000 rw-p 0000c000 103:03 6949164                   /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f9f575d6000-7f9f575dc000 rw-p 00000000 00:00 0 
+7f9f575dc000-7f9f575dd000 r--s 00005000 103:03 4100064                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/clhm-20100316.jar
+7f9f575dd000-7f9f575de000 r--s 00009000 103:03 4100374                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/antisamy-bin.1.2.jar
+7f9f575de000-7f9f575e6000 r--s 00028000 103:03 4100053                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/xml-apis-2.9.1.jar
+7f9f575e6000-7f9f575ed000 r--s 0005d000 103:03 4100337                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/mx4j-3.0.1.jar
+7f9f575ed000-7f9f57616000 r-xp 00000000 103:03 1347817                   /opt/jdk1.7.0_79/jre/lib/amd64/libjava.so
+7f9f57616000-7f9f57816000 ---p 00029000 103:03 1347817                   /opt/jdk1.7.0_79/jre/lib/amd64/libjava.so
+7f9f57816000-7f9f57818000 rw-p 00029000 103:03 1347817                   /opt/jdk1.7.0_79/jre/lib/amd64/libjava.so
+7f9f57818000-7f9f57825000 r-xp 00000000 103:03 1347844                   /opt/jdk1.7.0_79/jre/lib/amd64/libverify.so
+7f9f57825000-7f9f57a24000 ---p 0000d000 103:03 1347844                   /opt/jdk1.7.0_79/jre/lib/amd64/libverify.so
+7f9f57a24000-7f9f57a26000 rw-p 0000c000 103:03 1347844                   /opt/jdk1.7.0_79/jre/lib/amd64/libverify.so
+7f9f57a26000-7f9f57a28000 r--p 00000000 103:03 6949178                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f9f57a28000-7f9f57a2c000 r-xp 00002000 103:03 6949178                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f9f57a2c000-7f9f57a2e000 r--p 00006000 103:03 6949178                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f9f57a2e000-7f9f57a2f000 r--p 00007000 103:03 6949178                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f9f57a2f000-7f9f57a30000 rw-p 00008000 103:03 6949178                   /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f9f57a30000-7f9f57a31000 ---p 00000000 00:00 0 
+7f9f57a31000-7f9f57a34000 ---p 00000000 00:00 0 
+7f9f57a34000-7f9f57b31000 rw-p 00000000 00:00 0 
+7f9f57b31000-7f9f57b3e000 r--p 00000000 103:03 6948895                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f9f57b3e000-7f9f57be5000 r-xp 0000d000 103:03 6948895                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f9f57be5000-7f9f57c7e000 r--p 000b4000 103:03 6948895                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f9f57c7e000-7f9f57c7f000 r--p 0014c000 103:03 6948895                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f9f57c7f000-7f9f57c80000 rw-p 0014d000 103:03 6948895                   /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f9f57c80000-7f9f587f5000 r-xp 00000000 103:03 2135148                   /opt/jdk1.7.0_79/jre/lib/amd64/server/libjvm.so
+7f9f587f5000-7f9f589f5000 ---p 00b75000 103:03 2135148                   /opt/jdk1.7.0_79/jre/lib/amd64/server/libjvm.so
+7f9f589f5000-7f9f58ab9000 rw-p 00b75000 103:03 2135148                   /opt/jdk1.7.0_79/jre/lib/amd64/server/libjvm.so
+7f9f58ab9000-7f9f58afc000 rw-p 00000000 00:00 0 
+7f9f58afc000-7f9f58b1e000 r--p 00000000 103:03 6948893                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f9f58b1e000-7f9f58c96000 r-xp 00022000 103:03 6948893                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f9f58c96000-7f9f58ce4000 r--p 0019a000 103:03 6948893                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f9f58ce4000-7f9f58ce8000 r--p 001e7000 103:03 6948893                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f9f58ce8000-7f9f58cea000 rw-p 001eb000 103:03 6948893                   /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f9f58cea000-7f9f58cee000 rw-p 00000000 00:00 0 
+7f9f58cee000-7f9f58cef000 r--p 00000000 103:03 6948894                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f9f58cef000-7f9f58cf1000 r-xp 00001000 103:03 6948894                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f9f58cf1000-7f9f58cf2000 r--p 00003000 103:03 6948894                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f9f58cf2000-7f9f58cf3000 r--p 00003000 103:03 6948894                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f9f58cf3000-7f9f58cf4000 rw-p 00004000 103:03 6948894                   /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f9f58cf4000-7f9f58d0a000 r-xp 00000000 103:03 2656027                   /opt/jdk1.7.0_79/lib/amd64/jli/libjli.so
+7f9f58d0a000-7f9f58f0a000 ---p 00016000 103:03 2656027                   /opt/jdk1.7.0_79/lib/amd64/jli/libjli.so
+7f9f58f0a000-7f9f58f0b000 rw-p 00016000 103:03 2656027                   /opt/jdk1.7.0_79/lib/amd64/jli/libjli.so
+7f9f58f0b000-7f9f58f11000 r--p 00000000 103:03 6949174                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f9f58f11000-7f9f58f22000 r-xp 00006000 103:03 6949174                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f9f58f22000-7f9f58f28000 r--p 00017000 103:03 6949174                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f9f58f28000-7f9f58f29000 r--p 0001c000 103:03 6949174                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f9f58f29000-7f9f58f2a000 rw-p 0001d000 103:03 6949174                   /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f9f58f2a000-7f9f58f2e000 rw-p 00000000 00:00 0 
+7f9f58f2e000-7f9f58f31000 r--s 00027000 103:03 4100057                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/mx4j-remote-3.0.1.jar
+7f9f58f31000-7f9f58f34000 r--s 00041000 103:03 4100378                   /home/yashwant/opentaps/opentaps-1.5.0/framework/base/lib/serializer-2.9.1.jar
+7f9f58f34000-7f9f58f36000 r--s 00013000 103:03 680842                    /home/yashwant/opentaps/opentaps-1.5.0/ofbiz.jar (deleted)
+7f9f58f36000-7f9f58f3e000 rw-s 00000000 103:03 12727466                  /tmp/hsperfdata_yashwant/782542
+7f9f58f3e000-7f9f58f41000 rw-p 00000000 00:00 0 
+7f9f58f41000-7f9f58f42000 r--p 00000000 103:03 6947883                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f9f58f42000-7f9f58f65000 r-xp 00001000 103:03 6947883                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f9f58f65000-7f9f58f6d000 r--p 00024000 103:03 6947883                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f9f58f6d000-7f9f58f6e000 r--p 00000000 00:00 0 
+7f9f58f6e000-7f9f58f6f000 r--p 0002c000 103:03 6947883                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f9f58f6f000-7f9f58f70000 rw-p 0002d000 103:03 6947883                   /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f9f58f70000-7f9f58f71000 rw-p 00000000 00:00 0 
+7ffd8e45c000-7ffd8e47d000 rw-p 00000000 00:00 0                          [stack]
+7ffd8e561000-7ffd8e565000 r--p 00000000 00:00 0                          [vvar]
+7ffd8e565000-7ffd8e567000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xms512M -Xmx1536M -XX:MaxPermSize=1024M -Dofbiz.admin.port=10523 -Dofbiz.admin.key=so3du5kasd5dn 
+java_command: ofbiz.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/opt/jdk1.7.0_79
+PATH=/opt/jdk1.7.0_79/bin:/opt/jdk1.8.0_66/bin:/opt/jdk1.7.0_79/bin:/opt/jdk1.6/bin:/opt/jdk1.7.0_79/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/jdk1.8.0_66/bin
+USERNAME=yashwant
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x9a3bf0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x9a3bf0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x81cb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x81cb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x81cb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x81cb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x81e360], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x81f480], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: SIG_IGN, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: [libjvm.so+0x81f480], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x81f480], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:bullseye/sid
+
+uname:Linux 5.14.0-1005-oem #5-Ubuntu SMP Fri Oct 1 10:57:16 UTC 2021 x86_64
+libc:glibc 2.31 NPTL 2.31 
+rlimit: STACK 8192k, CORE 0k, NPROC 62636, NOFILE 1048576, AS infinity
+load average:5.01 4.55 4.08
+
+/proc/meminfo:
+MemTotal:       16126192 kB
+MemFree:          348160 kB
+MemAvailable:    1980088 kB
+Buffers:          951584 kB
+Cached:          1447712 kB
+SwapCached:      1156044 kB
+Active:          8718532 kB
+Inactive:        5683788 kB
+Active(anon):    8030796 kB
+Inactive(anon):  5053888 kB
+Active(file):     687736 kB
+Inactive(file):   629900 kB
+Unevictable:      108036 kB
+Mlocked:              64 kB
+SwapTotal:      18874364 kB
+SwapFree:        9864152 kB
+Dirty:             11992 kB
+Writeback:             0 kB
+AnonPages:      11535748 kB
+Mapped:           500668 kB
+Shmem:           1081388 kB
+KReclaimable:     656932 kB
+Slab:             918480 kB
+SReclaimable:     656932 kB
+SUnreclaim:       261548 kB
+KernelStack:       32704 kB
+PageTables:       117936 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    26937460 kB
+Committed_AS:   34036128 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       77476 kB
+VmallocChunk:          0 kB
+Percpu:            10016 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:     2421932 kB
+DirectMap2M:    14088192 kB
+DirectMap1G:     1048576 kB
+
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 140 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, erms, ht, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 140
+model name	: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+stepping	: 1
+microcode	: 0xa4
+cpu MHz		: 2108.196
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 27
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_clear flush_l1d arch_capabilities
+vmx flags	: vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple pml ept_mode_based_exec tsc_scaling
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs
+bogomips	: 2764.80
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 140
+model name	: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+stepping	: 1
+microcode	: 0xa4
+cpu MHz		: 2169.051
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 27
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_clear flush_l1d arch_capabilities
+vmx flags	: vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple pml ept_mode_based_exec tsc_scaling
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs
+bogomips	: 2764.80
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 140
+model name	: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+stepping	: 1
+microcode	: 0xa4
+cpu MHz		: 2970.889
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 27
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_clear flush_l1d arch_capabilities
+vmx flags	: vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple pml ept_mode_based_exec tsc_scaling
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs
+bogomips	: 2764.80
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 140
+model name	: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+stepping	: 1
+microcode	: 0xa4
+cpu MHz		: 2184.454
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 27
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_clear flush_l1d arch_capabilities
+vmx flags	: vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple pml ept_mode_based_exec tsc_scaling
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs
+bogomips	: 2764.80
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 140
+model name	: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+stepping	: 1
+microcode	: 0xa4
+cpu MHz		: 2074.865
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 27
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_clear flush_l1d arch_capabilities
+vmx flags	: vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple pml ept_mode_based_exec tsc_scaling
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs
+bogomips	: 2764.80
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 140
+model name	: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+stepping	: 1
+microcode	: 0xa4
+cpu MHz		: 2721.879
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 27
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_clear flush_l1d arch_capabilities
+vmx flags	: vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple pml ept_mode_based_exec tsc_scaling
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs
+bogomips	: 2764.80
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 140
+model name	: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+stepping	: 1
+microcode	: 0xa4
+cpu MHz		: 2942.253
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 27
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_clear flush_l1d arch_capabilities
+vmx flags	: vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple pml ept_mode_based_exec tsc_scaling
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs
+bogomips	: 2764.80
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 140
+model name	: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+stepping	: 1
+microcode	: 0xa4
+cpu MHz		: 2225.698
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 27
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l2 invpcid_single cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves split_lock_detect dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid movdiri movdir64b fsrm avx512_vp2intersect md_clear flush_l1d arch_capabilities
+vmx flags	: vnmi preemption_timer posted_intr invvpid ept_x_only ept_ad ept_1gb flexpriority apicv tsc_offset vtpr mtf vapic ept vpid unrestricted_guest vapic_reg vid ple pml ept_mode_based_exec tsc_scaling
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs
+bogomips	: 2764.80
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 16126192k(348160k free), swap 18874364k(9864152k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.79-b02) for linux-amd64 JRE (1.7.0_79-b15), built on Apr 10 2015 11:34:48 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Mon Jan 16 16:00:18 2023
+elapsed time: 2261 seconds
+
