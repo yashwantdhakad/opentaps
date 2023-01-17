@@ -1808,13 +1808,13 @@ public class ProductionRunTests extends ProductionRunTestCase {
         Map<String, Object> result = runAndAssertServiceSuccess("getBOMTree", UtilMisc.<String, Object>toMap("productId", productId, "type", BomTree.EXPLOSION, "bomType", "MANUF_COMPONENT", "quantity", new BigDecimal("1.0"), "userLogin", demowarehouse1));
         BomTree tree = (BomTree) result.get("tree");
         // check the result correspond the to the default BOM components
-        assertBomTreeCorrect(tree, UtilMisc.toMap(productId, new BigDecimal("1.0"), productComp1Id, new BigDecimal("7.0"), productComp2Id, new BigDecimal("3.0")));
+        assertBomTreeCorrect(tree, UtilMisc.<String, BigDecimal>toMap(productId, new BigDecimal("1.0"), productComp1Id, new BigDecimal("7.0"), productComp2Id, new BigDecimal("3.0")));
 
         // Run a BOM simulation for the alternative BOM (calling getBOMTree service)
         result = runAndAssertServiceSuccess("getBOMTree", UtilMisc.<String, Object>toMap("productId", productId, "type", BomTree.EXPLOSION, "bomType", "MANUF_COMPONENT", "quantity", new BigDecimal("1.0"), "routingId", alternateRoutingId, "userLogin", demowarehouse1));
         tree = (BomTree) result.get("tree");
         // check the result correspond the to the alternative BOM components
-        assertBomTreeCorrect(tree, UtilMisc.toMap(productId, new BigDecimal("1.0"), productComp3Id, new BigDecimal("1.0"), productComp4Id, new BigDecimal("2.0"), productComp5Id, new BigDecimal("5.0")));
+        assertBomTreeCorrect(tree, UtilMisc.<String, BigDecimal>toMap(productId, new BigDecimal("1.0"), productComp3Id, new BigDecimal("1.0"), productComp4Id, new BigDecimal("2.0"), productComp5Id, new BigDecimal("5.0")));
     }
 
     /**
@@ -2035,7 +2035,7 @@ public class ProductionRunTests extends ProductionRunTestCase {
         // get the one and only task, and starts it
         String taskId = startOnlyTask(prunIdComp);
         // check the WEGS for the materials to issue (5x7x1 x productComp11Id, 5x14x1 x productComp12Id)
-        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.toMap(productComp11Id, new BigDecimal("35.0"), productComp12Id, new BigDecimal("70.0")));
+        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.<String, BigDecimal>toMap(productComp11Id, new BigDecimal("35.0"), productComp12Id, new BigDecimal("70.0")));
         // receive the material components into the warehouse
         receiveMaterial(productComp11Id, 35, 2.5);
         receiveMaterial(productComp12Id, 70, 2.5);
@@ -2062,7 +2062,7 @@ public class ProductionRunTests extends ProductionRunTestCase {
         // get the one and only task, and starts it
         taskId = startOnlyTask(prunIdComp);
         // check the WEGS for the materials to issue (5x3x3 x productComp21Id, 5x3x4 x productComp22Id)
-        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.toMap(productComp21Id, new BigDecimal("45.0"), productComp22Id, new BigDecimal("60.0")));
+        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.<String, BigDecimal>toMap(productComp21Id, new BigDecimal("45.0"), productComp22Id, new BigDecimal("60.0")));
         // receive the material components into the warehouse
         receiveMaterial(productComp21Id, 45, 2.5);
         receiveMaterial(productComp22Id, 60, 2.5);
@@ -2087,7 +2087,7 @@ public class ProductionRunTests extends ProductionRunTestCase {
         // get the one and only task, and starts it
         taskId = startOnlyTask(prunId);
         // check the WEGS for the materials to issue (5x7 x productComp1Id, 5x3 x productComp2Id)
-        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.toMap(productComp1Id, new BigDecimal("35.0"), productComp2Id, new BigDecimal("15.0")));
+        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.<String, BigDecimal>toMap(productComp1Id, new BigDecimal("35.0"), productComp2Id, new BigDecimal("15.0")));
         // issue required quantities of components
         runAndAssertServiceSuccess("issueProductionRunTask", UtilMisc.toMap("userLogin", demowarehouse1, "workEffortId", taskId));
         // complete the task
@@ -2117,7 +2117,7 @@ public class ProductionRunTests extends ProductionRunTestCase {
         // get the one and only task, and starts it
         taskId = startOnlyTask(prunIdComp);
         // check the WEGS for the materials to issue (10x8x12 x productComp13Id, 10x8x15 x productComp14Id)
-        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.toMap(productComp13Id, new BigDecimal("960.0"), productComp14Id, new BigDecimal("1200.0")));
+        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.<String, BigDecimal>toMap(productComp13Id, new BigDecimal("960.0"), productComp14Id, new BigDecimal("1200.0")));
         // receive the material components into the warehouse (for the alternate BOM of this component)
         receiveMaterial(productComp13Id, 960, 2.5);
         receiveMaterial(productComp14Id, 1200, 2.5);
@@ -2144,7 +2144,7 @@ public class ProductionRunTests extends ProductionRunTestCase {
         // get the one and only task, and starts it
         taskId = startOnlyTask(prunIdComp);
         // check the WEGS for the materials to issue (10x9x3 x productComp21Id, 10x9x4 x productComp22Id)
-        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.toMap(productComp21Id, new BigDecimal("270.0"), productComp22Id, new BigDecimal("360.0")));
+        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.<String, BigDecimal>toMap(productComp21Id, new BigDecimal("270.0"), productComp22Id, new BigDecimal("360.0")));
         // receive the material components into the warehouse
         receiveMaterial(productComp21Id, 270, 2.5);
         receiveMaterial(productComp22Id, 360, 2.5);
@@ -2169,7 +2169,7 @@ public class ProductionRunTests extends ProductionRunTestCase {
         // get the one and only task, and starts it
         taskId = startOnlyTask(prunId);
         // check the WEGS for the materials to issue (10x8 x productComp1Id, 10x9 x productComp2Id, 10x5 x productComp3Id)
-        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.toMap(productComp1Id, new BigDecimal("80.0"), productComp2Id, new BigDecimal("90.0"), productComp3Id, new BigDecimal("50.0")));
+        assertWorkEffortHasWegs(taskId, "PRUNT_PROD_NEEDED", UtilMisc.<String, BigDecimal>toMap(productComp1Id, new BigDecimal("80.0"), productComp2Id, new BigDecimal("90.0"), productComp3Id, new BigDecimal("50.0")));
         // receive the material components into the warehouse
         receiveMaterial(productComp3Id, 50, 2.5);
         inventoryAsserts.assertInventoriesChange(productComp3Id,  new BigDecimal("50.0"),   origProductInventories);

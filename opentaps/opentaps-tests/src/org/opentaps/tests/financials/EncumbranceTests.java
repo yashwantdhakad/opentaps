@@ -89,14 +89,14 @@ public class EncumbranceTests extends FinancialsTestCase {
         // this is used to a CREATED PO
         // Create a PO #1 for 10 physical item @ $100 each and 1 supplies item for $200 with division tag=ENTERPRISE
         PurchaseOrderFactory pof1 = createDefaultPurchaseOrderFactory(organizationPartyId, "PO1 for testComplexEncumbranceProcess tests");
-        pof1.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("10.0"), "00001", UtilMisc.toMap("price", new BigDecimal("100.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
-        pof1.addProduct(supplyProduct, "SUPPLIES_ORDER_ITEM", new BigDecimal("1.0"), "00001", UtilMisc.toMap("price", new BigDecimal("200.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
+        pof1.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("10.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("100.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
+        pof1.addProduct(supplyProduct, "SUPPLIES_ORDER_ITEM", new BigDecimal("1.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("200.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
         pof1.storeOrder();
 
         // this is used to test a CANCELLED PO
         // Create a PO #2 for 5 physical item @ $100 each with division tag=ENTERPRISE
         PurchaseOrderFactory pof2 = createDefaultPurchaseOrderFactory(organizationPartyId, "PO2 for testComplexEncumbranceProcess tests");
-        pof2.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("5.0"), "00001", UtilMisc.toMap("price", new BigDecimal("100.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
+        pof2.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("5.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("100.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
         pof2.storeOrder();
         // Cancel PO #2
         pof2.cancelOrder();
@@ -104,7 +104,7 @@ public class EncumbranceTests extends FinancialsTestCase {
         // this is used to test a COMPLETED PO
         // Create a PO #3 for 7 physical item @ $300 each with division tag=CONSUMER
         PurchaseOrderFactory pof3 = createDefaultPurchaseOrderFactory(organizationPartyId, "PO3 for testComplexEncumbranceProcess tests");
-        pof3.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("7.0"), "00001", UtilMisc.toMap("price", new BigDecimal("300.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
+        pof3.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("7.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("300.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
         pof3.storeOrder();
         // Add a shipping charge order adjustment of $19.95
         runAndAssertServiceSuccess("createOrderAdjustment", UtilMisc.toMap("orderId", pof3.getOrderId(), "orderAdjustmentTypeId", "SHIPPING_CHARGES", "amount", new BigDecimal("19.95"), "userLogin", demopurch1));
@@ -119,7 +119,7 @@ public class EncumbranceTests extends FinancialsTestCase {
         // Add a shipping charge order adjustment of $19.95
         // Create PO #4 for 3 supplies item for $500 each with division tag=SMALL_BUSINESS
         PurchaseOrderFactory pof4 = createDefaultPurchaseOrderFactory(organizationPartyId, "PO4 for testComplexEncumbranceProcess tests");
-        pof4.addProduct(supplyProduct, "SUPPLIES_ORDER_ITEM", new BigDecimal("3.0"), "00001", UtilMisc.toMap("price", new BigDecimal("500.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_SMALL_BIZ"));
+        pof4.addProduct(supplyProduct, "SUPPLIES_ORDER_ITEM", new BigDecimal("3.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("500.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_SMALL_BIZ"));
         pof4.storeOrder();
         // Approve PO #4
         pof4.approveOrder();
@@ -135,8 +135,8 @@ public class EncumbranceTests extends FinancialsTestCase {
         // This is to test a partially
         // Create PO #5 for 1000 physical item for $10 each with division tag=GOVERNMENT and 1000 supplies item for $1.5 each with division tag=SMALL_BUSINESS
         PurchaseOrderFactory pof5 = createDefaultPurchaseOrderFactory(organizationPartyId, "PO5 for testComplexEncumbranceProcess tests");
-        pof5.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("1000.0"), "00001", UtilMisc.toMap("price", new BigDecimal("10.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_GOV"));
-        pof5.addProduct(supplyProduct, "SUPPLIES_ORDER_ITEM", new BigDecimal("1000.0"), "00001", UtilMisc.toMap("price", new BigDecimal("1.5")), UtilMisc.toMap("acctgTagEnumId1", "DIV_SMALL_BIZ"));
+        pof5.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("1000.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("10.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_GOV"));
+        pof5.addProduct(supplyProduct, "SUPPLIES_ORDER_ITEM", new BigDecimal("1000.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("1.5")), UtilMisc.toMap("acctgTagEnumId1", "DIV_SMALL_BIZ"));
         pof5.storeOrder();
         String orderId5 = pof5.getOrderId();
 
@@ -161,7 +161,7 @@ public class EncumbranceTests extends FinancialsTestCase {
         runAndAssertServiceSuccess("createOrderAdjustment", UtilMisc.toMap("orderId", orderId5, "orderAdjustmentTypeId", "SHIPPING_CHARGES", "amount", new BigDecimal("19.95"), "userLogin", demopurch1));
         // Receive 1000 of the physical item, but do not close the PO -- keep it open
         GenericValue orderHeader5 = delegator.findByPrimaryKey("OrderHeader", UtilMisc.toMap("orderId", orderId5));
-        ctxt = createTestInputParametersForReceiveInventoryAgainstPurchaseOrder(orderHeader5, UtilMisc.toMap(physicalOrderItemSeqId, "1000.0"), false, demopurch1);
+        ctxt = createTestInputParametersForReceiveInventoryAgainstPurchaseOrder(orderHeader5, UtilMisc.<String, String>toMap(physicalOrderItemSeqId, "1000.0"), false, demopurch1);
         runAndAssertServiceSuccess("warehouse.issueOrderItemToShipmentAndReceiveAgainstPO", ctxt);
         // Invoice 1000 of the supplies item
         orderData.clear();
@@ -170,7 +170,7 @@ public class EncumbranceTests extends FinancialsTestCase {
 
         // Create PO #6 for 5000 physical item for $9 each with division tag=CONSUMER
         PurchaseOrderFactory pof6 = createDefaultPurchaseOrderFactory(organizationPartyId, "PO6 for testComplexEncumbranceProcess tests");
-        pof6.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("5000.0"), "00001", UtilMisc.toMap("price", new BigDecimal("9.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
+        pof6.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("5000.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("9.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
         pof6.storeOrder();
         pof6.approveOrder();
         String orderId6 = pof6.getOrderId();
@@ -266,27 +266,27 @@ public class EncumbranceTests extends FinancialsTestCase {
         assertEquals("Wrong encumbered value for all accounting tags", new BigDecimal("51788.43"), encumberedValue);
 
         // for all tag=CONSUMER, verify value is $33000
-        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"), moment);
+        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_CONSUMER"), moment);
         assertEquals("Wrong encumbered value for CUSTOMER tag", new BigDecimal("33000.0"), encumberedValue);
 
         // for all tag=ENTERPRISE, verify value is $5200
-        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"), moment);
+        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_ENTERPRISE"), moment);
         assertEquals("Wrong encumbered value for ENTERPRISE tag", new BigDecimal("5200.0"), encumberedValue);
 
         // for all tag=GOVERNMENT, verify value is $12000
-        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.toMap("acctgTagEnumId1", "DIV_GOV"), moment);
+        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_GOV"), moment);
         assertEquals("Wrong encumbered value for GOVERNMENT tag", new BigDecimal("12000.0"), encumberedValue);
 
         // for all tag=SMALL_BUSINESS, verify value is $750
-        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.toMap("acctgTagEnumId1", "DIV_SMALL_BIZ"), moment);
+        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_SMALL_BIZ"), moment);
         assertEquals("Wrong encumbered value for SMALL_BUSINESS tag", new BigDecimal("750.0"), encumberedValue);
 
         // for all tag=EDUCATION, verify value is 0
-        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.toMap("acctgTagEnumId1", "DIV_EDU"), moment);
+        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_EDU"), moment);
         assertEquals("Wrong encumbered value for EDUCATION tag", BigDecimal.ZERO, encumberedValue);
 
         // for all tag=untagged, verify value is $838.43
-        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.toMap("acctgTagEnumId1", "NULL_TAG"), moment);
+        encumberedValue = encumbranceMethods.getTotalEncumberedValue(organizationPartyId, UtilMisc.<String, String>toMap("acctgTagEnumId1", "NULL_TAG"), moment);
         assertEquals("Wrong encumbered value for untagged case", new BigDecimal("838.43"), encumberedValue);
 
     }
@@ -413,14 +413,14 @@ public class EncumbranceTests extends FinancialsTestCase {
         String customerPartyId = createPartyFromTemplate("DemoAccount1", "Customer for testIncomeBudgetEncumbrancesBalancesReport");
         // create a sales order for 750 of physicalProduct at $100, tag DIV_ENTERPRISE
         SalesOrderFactory salesOrder = new SalesOrderFactory(delegator, dispatcher, admin, organizationPartyId, customerPartyId, productStoreId);
-        salesOrder.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("750.0"), salesOrder.getFirstShipGroup(), UtilMisc.toMap("price", new BigDecimal("100.0"), "listPrice", new BigDecimal("100.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
+        salesOrder.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("750.0"), salesOrder.getFirstShipGroup(), UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("100.0"), "listPrice", new BigDecimal("100.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
         // approve sales order and ship it
         salesOrder.approveOrder();
         runAndAssertServiceSuccess("testShipOrder", UtilMisc.toMap("orderId", salesOrder.getOrderId(), "facilityId", "WebStoreWarehouse", "userLogin", admin));
 
         // create a sales order for 4000 of physicalProduct2 at $25, tag DIV_CONSUMER
         salesOrder = new SalesOrderFactory(delegator, dispatcher, admin, organizationPartyId, customerPartyId, productStoreId);
-        salesOrder.addProduct(physicalProduct2, "PRODUCT_ORDER_ITEM", new BigDecimal("4000.0"), salesOrder.getFirstShipGroup(), UtilMisc.toMap("price", new BigDecimal("25.0"), "listPrice", new BigDecimal("25.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
+        salesOrder.addProduct(physicalProduct2, "PRODUCT_ORDER_ITEM", new BigDecimal("4000.0"), salesOrder.getFirstShipGroup(), UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("25.0"), "listPrice", new BigDecimal("25.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
         // approve sales order and ship it
         salesOrder.approveOrder();
         runAndAssertServiceSuccess("testShipOrder", UtilMisc.toMap("orderId", salesOrder.getOrderId(), "facilityId", "WebStoreWarehouse", "userLogin", admin));
@@ -477,14 +477,14 @@ public class EncumbranceTests extends FinancialsTestCase {
 
         // Create a PO (po1) for 2000 of physicalProduct at 50 tag DIV_ENTERPRISE and 5000 of physicalProduct2 at 10 tag DIV_CONSUMER
         PurchaseOrderFactory po = createDefaultPurchaseOrderFactory(organizationPartyId, "PO 1 for testIncomeBudgetEncumbrancesBalancesReport");
-        po.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("2000.0"), "00001", UtilMisc.toMap("price", new BigDecimal("50.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
-        po.addProduct(physicalProduct2, "PRODUCT_ORDER_ITEM", new BigDecimal("5000.0"), "00001", UtilMisc.toMap("price", new BigDecimal("10.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
+        po.addProduct(physicalProduct, "PRODUCT_ORDER_ITEM", new BigDecimal("2000.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("50.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_ENTERPRISE"));
+        po.addProduct(physicalProduct2, "PRODUCT_ORDER_ITEM", new BigDecimal("5000.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("10.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
         po.storeOrder();
         po.approveOrder();
 
         // Create a PO (po2) for 5000 of suppliesProduct at 10 tag DIV_CONSUMER
         PurchaseOrderFactory po2 = createDefaultPurchaseOrderFactory(organizationPartyId, "PO 2 for testIncomeBudgetEncumbrancesBalancesReport");
-        po2.addProduct(suppliesProduct, "SUPPLIES_ORDER_ITEM", new BigDecimal("5000.0"), "00001", UtilMisc.toMap("price", new BigDecimal("10.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
+        po2.addProduct(suppliesProduct, "SUPPLIES_ORDER_ITEM", new BigDecimal("5000.0"), "00001", UtilMisc.<String, BigDecimal>toMap("price", new BigDecimal("10.0")), UtilMisc.toMap("acctgTagEnumId1", "DIV_CONSUMER"));
         po2.storeOrder();
         // approve the PO
         po2.approveOrder();

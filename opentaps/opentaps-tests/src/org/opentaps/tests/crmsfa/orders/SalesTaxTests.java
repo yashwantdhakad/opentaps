@@ -956,7 +956,7 @@ public class SalesTaxTests extends OrderTestCase {
 
         // now ship 3 items
         Map<String, Map<String, BigDecimal>> itemsToPack = FastMap.newInstance();
-        itemsToPack.put("00001", UtilMisc.toMap(orderItem1.getOrderItemSeqId(), new BigDecimal("3.0")));
+        itemsToPack.put("00001", UtilMisc.<String, BigDecimal>toMap(orderItem1.getOrderItemSeqId(), new BigDecimal("3.0")));
         TestShipOrderManualService ship = new TestShipOrderManualService();
         ship.setInUserLogin(admin);
         ship.setInOrderId(order.getOrderId());
@@ -1005,7 +1005,7 @@ public class SalesTaxTests extends OrderTestCase {
 
         // complete the order
         itemsToPack = FastMap.newInstance();
-        itemsToPack.put("00001", UtilMisc.toMap(orderItem1.getOrderItemSeqId(), new BigDecimal("2.0")));
+        itemsToPack.put("00001", UtilMisc.<String, BigDecimal>toMap(orderItem1.getOrderItemSeqId(), new BigDecimal("2.0")));
         ship = new TestShipOrderManualService();
         ship.setInUserLogin(admin);
         ship.setInOrderId(order.getOrderId());
@@ -1116,7 +1116,7 @@ public class SalesTaxTests extends OrderTestCase {
 
         // now ship 3 items
         Map<String, Map<String, BigDecimal>> itemsToPack = FastMap.newInstance();
-        itemsToPack.put("00001", UtilMisc.toMap(orderItem1.getOrderItemSeqId(), new BigDecimal("3.0")));
+        itemsToPack.put("00001", UtilMisc.<String, BigDecimal>toMap(orderItem1.getOrderItemSeqId(), new BigDecimal("3.0")));
         TestShipOrderManualService ship = new TestShipOrderManualService();
         ship.setInUserLogin(admin);
         ship.setInOrderId(order.getOrderId());
@@ -1163,7 +1163,7 @@ public class SalesTaxTests extends OrderTestCase {
 
         // complete the order
         itemsToPack = FastMap.newInstance();
-        itemsToPack.put("00001", UtilMisc.toMap(orderItem1.getOrderItemSeqId(), new BigDecimal("2.0")));
+        itemsToPack.put("00001", UtilMisc.<String, BigDecimal>toMap(orderItem1.getOrderItemSeqId(), new BigDecimal("2.0")));
         ship = new TestShipOrderManualService();
         ship.setInUserLogin(admin);
         ship.setInOrderId(order.getOrderId());

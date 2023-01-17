@@ -794,26 +794,26 @@ public class PurchasingOrderTests extends OpentapsTestCase {
         // for initial balances, turn off the check balances flag (the last false)
         // because the ledger may not balance for all combinations of tags
         // get initial financial balances for Company with tags DIV_GOV
-        Map initialBalances_GOV = fa.getFinancialBalances(start, UtilMisc.toMap("tag1", "DIV_GOV"), false);
+        Map initialBalances_GOV = fa.getFinancialBalances(start, UtilMisc.<String, String>toMap("tag1", "DIV_GOV"), false);
 
         // get initial financial balances for Company with tags DIV_SMALL_BIZ
-        Map initialBalances_SMALL_BIZ = fa.getFinancialBalances(start, UtilMisc.toMap("tag1", "DIV_SMALL_BIZ"), false);
+        Map initialBalances_SMALL_BIZ = fa.getFinancialBalances(start, UtilMisc.<String, String>toMap("tag1", "DIV_SMALL_BIZ"), false);
 
         // get initial financial balances for Company with tags DPT_SALES
-        Map initialBalances_SALES = fa.getFinancialBalances(start, UtilMisc.toMap("tag2", "DPT_SALES"), false);
+        Map initialBalances_SALES = fa.getFinancialBalances(start, UtilMisc.<String, String>toMap("tag2", "DPT_SALES"), false);
 
         // get initial financial balances for Company with tags ACTI_MARKETING
-        Map initialBalances_MARKETING = fa.getFinancialBalances(start, UtilMisc.toMap("tag3", "ACTI_MARKETING"), false);
+        Map initialBalances_MARKETING = fa.getFinancialBalances(start, UtilMisc.<String, String>toMap("tag3", "ACTI_MARKETING"), false);
 
         // get initial financial balances for Company with tags DIV_GOV,
         // DPT_SALES, ACTI_MARKETING
-        Map initialBalances_GOV_SALES_MARKETING = fa.getFinancialBalances(start, UtilMisc.toMap("tag1", "DIV_GOV", "tag2", "DPT_SALES", "tag3", "ACTI_MARKETING"), false);
+        Map initialBalances_GOV_SALES_MARKETING = fa.getFinancialBalances(start, UtilMisc.<String, String>toMap("tag1", "DIV_GOV", "tag2", "DPT_SALES", "tag3", "ACTI_MARKETING"), false);
 
         // get initial financial balances for Company with tags ACTI_RESEARCH
-        Map initialBalances_RESEARCH = fa.getFinancialBalances(start, UtilMisc.toMap("tag1", "ACTI_RESEARCH"), false);
+        Map initialBalances_RESEARCH = fa.getFinancialBalances(start, UtilMisc.<String, String>toMap("tag1", "ACTI_RESEARCH"), false);
 
         // get initial financial balances for Company with tags DIV_ENTERPRISE
-        Map initialBalances_ENTERPRISE = fa.getFinancialBalances(start, UtilMisc.toMap("tag1", "DIV_ENTERPRISE"), false);
+        Map initialBalances_ENTERPRISE = fa.getFinancialBalances(start, UtilMisc.<String, String>toMap("tag1", "DIV_ENTERPRISE"), false);
 
         // create a supplier based on DemoSupplier
         String supplierPartyId = createPartyFromTemplate("DemoSupplier", "Supplier for testPurchasingInvoicingWithPayment");
@@ -876,44 +876,44 @@ public class PurchasingOrderTests extends OpentapsTestCase {
         // PINV_SHIP_CHARGES 22.77 with tags DIV_GOV, DPT_CORPORATE
         // PINV_SHIP_CHARGES 29.86 with tags DIV_SMALL_BIZ, DPT_SALES,
         // ACTI_MARKETING
-        fa.createInvoiceItem(invoiceId, "PINV_SHIP_CHARGES", null, new BigDecimal("1.0"), new BigDecimal("15.86"), null, UtilMisc.toMap("acctgTagEnumId1", "DIV_GOV", "acctgTagEnumId2", "DPT_SALES", "acctgTagEnumId3", "ACTI_MARKETING"));
-        fa.createInvoiceItem(invoiceId, "PINV_SHIP_CHARGES", null, new BigDecimal("1.0"), new BigDecimal("22.77"), null, UtilMisc.toMap("acctgTagEnumId1", "DIV_GOV", "acctgTagEnumId2", "DPT_CORPORATE"));
-        fa.createInvoiceItem(invoiceId, "PINV_SHIP_CHARGES", null, new BigDecimal("1.0"), new BigDecimal("29.86"), null, UtilMisc.toMap("acctgTagEnumId1", "DIV_SMALL_BIZ", "acctgTagEnumId2", "DPT_SALES", "acctgTagEnumId3", "ACTI_MARKETING"));
+        fa.createInvoiceItem(invoiceId, "PINV_SHIP_CHARGES", null, new BigDecimal("1.0"), new BigDecimal("15.86"), null, UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_GOV", "acctgTagEnumId2", "DPT_SALES", "acctgTagEnumId3", "ACTI_MARKETING"));
+        fa.createInvoiceItem(invoiceId, "PINV_SHIP_CHARGES", null, new BigDecimal("1.0"), new BigDecimal("22.77"), null, UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_GOV", "acctgTagEnumId2", "DPT_CORPORATE"));
+        fa.createInvoiceItem(invoiceId, "PINV_SHIP_CHARGES", null, new BigDecimal("1.0"), new BigDecimal("29.86"), null, UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_SMALL_BIZ", "acctgTagEnumId2", "DPT_SALES", "acctgTagEnumId3", "ACTI_MARKETING"));
         // Set invoice to READY
         fa.updateInvoiceStatus(invoiceId, "INVOICE_READY");
 
         // Create a payment of $338.63 from Company with payment method
         // COCHECKING to supplier with tag DIV_GOV
-        String paymentId1 = fa.createPaymentAndApplication(new BigDecimal("338.63"), organizationPartyId, supplierPartyId, "VENDOR_PAYMENT", "COMPANY_CHECK", "COCHECKING", null, "PMNT_NOT_PAID", UtilMisc.toMap("acctgTagEnumId1", "DIV_GOV"));
+        String paymentId1 = fa.createPaymentAndApplication(new BigDecimal("338.63"), organizationPartyId, supplierPartyId, "VENDOR_PAYMENT", "COMPANY_CHECK", "COCHECKING", null, "PMNT_NOT_PAID", UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_GOV"));
         fa.updatePaymentStatus(paymentId1, "PMNT_SENT");
         // Create a payment of $300 from Company with payment method COCHECKING
         // to supplier with tag DIV_SMALL_BIZ
-        String paymentId2 = fa.createPaymentAndApplication(new BigDecimal("300.0"), organizationPartyId, supplierPartyId, "VENDOR_PAYMENT", "COMPANY_CHECK", "COCHECKING", null, "PMNT_NOT_PAID", UtilMisc.toMap("acctgTagEnumId1", "DIV_SMALL_BIZ"));
+        String paymentId2 = fa.createPaymentAndApplication(new BigDecimal("300.0"), organizationPartyId, supplierPartyId, "VENDOR_PAYMENT", "COMPANY_CHECK", "COCHECKING", null, "PMNT_NOT_PAID", UtilMisc.<String, String>toMap("acctgTagEnumId1", "DIV_SMALL_BIZ"));
         fa.updatePaymentStatus(paymentId2, "PMNT_SENT");
 
         // also turn off the check balances flag (the last false) for final balances
         // get final financial balances for Company with tags DIV_GOV
         Timestamp finish = UtilDateTime.nowTimestamp();
-        Map finalBalances_GOV = fa.getFinancialBalances(finish, UtilMisc.toMap( "tag1", "DIV_GOV"), false);
+        Map finalBalances_GOV = fa.getFinancialBalances(finish, UtilMisc.<String, String>toMap( "tag1", "DIV_GOV"), false);
 
         // get final financial balances for Company with tags DIV_SMALL_BIZ
-        Map finalBalances_SMALL_BIZ = fa.getFinancialBalances(finish, UtilMisc.toMap("tag1", "DIV_SMALL_BIZ"), false);
+        Map finalBalances_SMALL_BIZ = fa.getFinancialBalances(finish, UtilMisc.<String, String>toMap("tag1", "DIV_SMALL_BIZ"), false);
 
         // get final financial balances for Company with tags DPT_SALES
-        Map finalBalances_SALES = fa.getFinancialBalances(finish, UtilMisc.toMap("tag2", "DPT_SALES"), false);
+        Map finalBalances_SALES = fa.getFinancialBalances(finish, UtilMisc.<String, String>toMap("tag2", "DPT_SALES"), false);
 
         // get final financial balances for Company with tags ACTI_MARKETING
-        Map finalBalances_MARKETING = fa.getFinancialBalances(finish, UtilMisc.toMap("tag3", "ACTI_MARKETING"), false);
+        Map finalBalances_MARKETING = fa.getFinancialBalances(finish, UtilMisc.<String, String>toMap("tag3", "ACTI_MARKETING"), false);
 
         // get final financial balances for Company with tags DIV_GOV,
         // DPT_SALES, ACTI_MARKETING
-        Map finalBalances_GOV_SALES_MARKETING = fa.getFinancialBalances(finish, UtilMisc.toMap("tag1", "DIV_GOV", "tag2", "DPT_SALES", "tag3", "ACTI_MARKETING"), false);
+        Map finalBalances_GOV_SALES_MARKETING = fa.getFinancialBalances(finish, UtilMisc.<String, String>toMap("tag1", "DIV_GOV", "tag2", "DPT_SALES", "tag3", "ACTI_MARKETING"), false);
 
         // get final financial balances for Company with tags ACTI_RESEARCH
-        Map finalBalances_RESEARCH = fa.getFinancialBalances(finish, UtilMisc.toMap("tag1", "ACTI_RESEARCH"), false);
+        Map finalBalances_RESEARCH = fa.getFinancialBalances(finish, UtilMisc.<String, String>toMap("tag1", "ACTI_RESEARCH"), false);
 
         // get final financial balances for Company with tags DIV_ENTERPRISE
-        Map finalBalances_ENTERPRISE = fa.getFinancialBalances(finish, UtilMisc.toMap("tag1", "DIV_ENTERPRISE"), false);
+        Map finalBalances_ENTERPRISE = fa.getFinancialBalances(finish, UtilMisc.<String, String>toMap("tag1", "DIV_ENTERPRISE"), false);
 
         // Verify change in financial balances for
         // note that Accounts Payable, Checking account should only have
@@ -1028,7 +1028,7 @@ public class PurchasingOrderTests extends OpentapsTestCase {
 
         // receive 5 of the physical item
         GenericValue pOrder = delegator.findByPrimaryKey("OrderHeader", UtilMisc.toMap("orderId", orderId));
-        Map inputParameters = createTestInputParametersForReceiveInventoryAgainstPurchaseOrder(pOrder, UtilMisc.toMap(physicalOrderItemSeqId, "5.0"), false, admin);
+        Map inputParameters = createTestInputParametersForReceiveInventoryAgainstPurchaseOrder(pOrder, UtilMisc.<String, String>toMap(physicalOrderItemSeqId, "5.0"), false, admin);
         runAndAssertServiceSuccess("warehouse.issueOrderItemToShipmentAndReceiveAgainstPO", inputParameters);
 
         // invoice 6 of the supplies item
@@ -1255,7 +1255,7 @@ public class PurchasingOrderTests extends OpentapsTestCase {
         runAndAssertServiceSuccess("createOrderAdjustment", UtilMisc.toMap("orderId", orderId, "orderAdjustmentTypeId", "SHIPPING_CHARGES", "amount", new BigDecimal(25.99), "description", "example of shipping adjustment at order level", "userLogin", admin));
         // receive 5 of the physical item
 
-        Map inputParameters = createTestInputParametersForReceiveInventoryAgainstPurchaseOrder(pOrder, UtilMisc.toMap("00001", "5.0"), false, admin);
+        Map inputParameters = createTestInputParametersForReceiveInventoryAgainstPurchaseOrder(pOrder, UtilMisc.<String, String>toMap("00001", "5.0"), false, admin);
         runAndAssertServiceSuccess("warehouse.issueOrderItemToShipmentAndReceiveAgainstPO", inputParameters);
 
         // update physical order item to 20x at $20 each

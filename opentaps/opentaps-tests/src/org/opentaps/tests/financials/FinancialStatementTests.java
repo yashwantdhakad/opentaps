@@ -288,7 +288,7 @@ public class FinancialStatementTests extends FinancialsTestCase {
     @SuppressWarnings("unchecked")
     public void testFinancialAssertsByTag() throws Exception {
         FinancialAsserts fa = new FinancialAsserts(this, STATEMENT_DETAILS_TEST_ORG, demofinadmin);
-        Map financialBalancesByTag = fa.getFinancialBalances(UtilDateTime.nowTimestamp(), UtilMisc.toMap("tag1", "TEST_STDTL_TAG1_A"));
+        Map financialBalancesByTag = fa.getFinancialBalances(UtilDateTime.nowTimestamp(), UtilMisc.<String, String>toMap("tag1", "TEST_STDTL_TAG1_A"));
         assertEquals("GL account balance for account 110000 TEST_STDTL_TAG1_A is not correct",  (BigDecimal) financialBalancesByTag.get("110000"), new BigDecimal("-25100.00"));
         assertEquals("GL account balance for account 111400 TEST_STDTL_TAG1_A is not correct", (BigDecimal) financialBalancesByTag.get("111400"), new BigDecimal("300000.00"));
         assertEquals("GL account balance for account 680000 TEST_STDTL_TAG1_A is not correct", (BigDecimal) financialBalancesByTag.get("680000"), new BigDecimal("6070.00"));

@@ -319,7 +319,7 @@ public class OrderPickingTests  extends OrderTestCase {
         String picklistId  = (String) results.get("picklistId");
 
         // check the picklist contains items with correct quantities
-        assertPicklistItems(picklistId, UtilMisc.toMap(productAId, new BigDecimal("2.0"), productBId, new BigDecimal("3.0")));
+        assertPicklistItems(picklistId, UtilMisc.<String, BigDecimal>toMap(productAId, new BigDecimal("2.0"), productBId, new BigDecimal("3.0")));
 
         // at this point the order should not appear as ready to ship, as it is on an active picklist
         assertOrderNotReadyToShip(order, facilityId);
@@ -332,7 +332,7 @@ public class OrderPickingTests  extends OrderTestCase {
 
         // pack the partial order
         Map<String, Map<String, BigDecimal>> toPackItems = new HashMap<String, Map<String, BigDecimal>>();
-        toPackItems.put("00001", UtilMisc.toMap(itemA.getOrderItemSeqId(), new BigDecimal("2.0"), itemB.getOrderItemSeqId(), new BigDecimal("3.0")));
+        toPackItems.put("00001", UtilMisc.<String, BigDecimal>toMap(itemA.getOrderItemSeqId(), new BigDecimal("2.0"), itemB.getOrderItemSeqId(), new BigDecimal("3.0")));
         runAndAssertServiceSuccess("testShipOrderManual", UtilMisc.toMap("orderId", order.getOrderId(), "facilityId", facilityId, "items", toPackItems, "userLogin", admin));
 
         // check it packed all the picklist items
@@ -364,14 +364,14 @@ public class OrderPickingTests  extends OrderTestCase {
         String picklistId2  = (String) results.get("picklistId");
 
         // check the picklist only contains an item for productB and with correct quantity
-        assertPicklistItems(picklistId2, UtilMisc.toMap(productBId, new BigDecimal("3.0")));
+        assertPicklistItems(picklistId2, UtilMisc.<String, BigDecimal>toMap(productBId, new BigDecimal("3.0")));
 
         // set the picklist as picked
         runAndAssertServiceSuccess("updatePicklist", UtilMisc.toMap("picklistId", picklistId2, "statusId", "PICKLIST_PICKED", "userLogin", admin));
 
         // pack the partial order
         toPackItems = new HashMap<String, Map<String, BigDecimal>>();
-        toPackItems.put("00001", UtilMisc.toMap(itemB.getOrderItemSeqId(), new BigDecimal("3.0")));
+        toPackItems.put("00001", UtilMisc.<String, BigDecimal>toMap(itemB.getOrderItemSeqId(), new BigDecimal("3.0")));
         runAndAssertServiceSuccess("testShipOrderManual", UtilMisc.toMap("orderId", order.getOrderId(), "facilityId", facilityId, "items", toPackItems, "userLogin", admin));
 
         // check it packed all the picklist items
@@ -400,11 +400,11 @@ public class OrderPickingTests  extends OrderTestCase {
         String picklistId3  = (String) results.get("picklistId");
 
         // check the picklist contains items correct quantities
-        assertPicklistItems(picklistId3, UtilMisc.toMap(productAId, new BigDecimal("3.0"), productBId, new BigDecimal("2.0")));
+        assertPicklistItems(picklistId3, UtilMisc.<String, BigDecimal>toMap(productAId, new BigDecimal("3.0"), productBId, new BigDecimal("2.0")));
 
         // pack the partial order
         toPackItems = new HashMap<String, Map<String, BigDecimal>>();
-        toPackItems.put("00001", UtilMisc.toMap(itemA.getOrderItemSeqId(), new BigDecimal("3.0"), itemB.getOrderItemSeqId(), new BigDecimal("2.0")));
+        toPackItems.put("00001", UtilMisc.<String, BigDecimal>toMap(itemA.getOrderItemSeqId(), new BigDecimal("3.0"), itemB.getOrderItemSeqId(), new BigDecimal("2.0")));
         runAndAssertServiceSuccess("testShipOrderManual", UtilMisc.toMap("orderId", order.getOrderId(), "facilityId", facilityId, "items", toPackItems, "userLogin", admin));
 
         // check it packed all the picklist items

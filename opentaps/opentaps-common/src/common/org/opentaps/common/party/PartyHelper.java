@@ -350,7 +350,7 @@ public final class PartyHelper {
     public static List<Map<String, String>> getPartyNames(List<String> partyIds, Delegator delegator, boolean lastNameFirst) throws GenericEntityException {
         List<Map<String, String>> partyNames = new ArrayList<Map<String, String>>();
         for (String partyId : partyIds) {
-            partyNames.add(UtilMisc.toMap(partyId, org.ofbiz.party.party.PartyHelper.getPartyName(delegator, partyId, lastNameFirst)));
+            partyNames.add(UtilMisc.<String, String>toMap(partyId, org.ofbiz.party.party.PartyHelper.getPartyName(delegator, partyId, lastNameFirst)));
         }
         return partyNames;
     }

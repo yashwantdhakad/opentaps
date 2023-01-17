@@ -546,7 +546,7 @@ public class AccountsHelper {
                 BigDecimal daysPastDue = new BigDecimal(daysOutstanding.intValue() - gracePeriod).setScale(0, BigDecimal.ROUND_UNNECESSARY);
                 BigDecimal interestAmount = dailyInterestRate.multiply(daysPastDue).multiply(outstandingAmount).subtract(interestCharged).setScale(2, BigDecimal.ROUND_HALF_UP);
 
-                invoiceData.put(invoice, UtilMisc.toMap("daysOutstanding", daysOutstanding, "outstandingAmount", outstandingAmount, "interestCharged", interestCharged, "interestAmount", interestAmount));
+                invoiceData.put(invoice, UtilMisc.<String, BigDecimal>toMap("daysOutstanding", daysOutstanding, "outstandingAmount", outstandingAmount, "interestCharged", interestCharged, "interestAmount", interestAmount));
             }
         }
 

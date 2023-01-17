@@ -23,8 +23,10 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.Name;
@@ -93,6 +95,11 @@ public class DataSourceImpl implements Referenceable, DataSource, Serializable, 
     /** {@inheritDoc} */
     public int getLoginTimeout() {
         return 0;
+    }
+
+    @Override
+    public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+        return null;
     }
 
     /** {@inheritDoc} */

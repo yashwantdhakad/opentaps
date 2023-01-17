@@ -218,7 +218,7 @@ public class LockboxService extends DomainService implements LockboxServiceInter
                 }
             }
 
-            setSuccessMessage("FinancialsUploadLockboxFileSuccessful", UtilMisc.toMap("fileName", fileName));
+            setSuccessMessage("FinancialsUploadLockboxFileSuccessful", UtilMisc.<String, String>toMap("fileName", fileName));
 
         } catch (GeneralException ex) {
             throw new ServiceException(ex);
@@ -428,7 +428,7 @@ public class LockboxService extends DomainService implements LockboxServiceInter
                     service.setInEffectiveDate(batch.getDatetimeEntered());
                     // add some references
                     service.setInPaymentRefNum(item.getCheckNumber());
-                    service.setInComments(expandLabel("FinancialsLockboxCommentPayment", UtilMisc.toMap("batchId", batch.getBatchId())));
+                    service.setInComments(expandLabel("FinancialsLockboxCommentPayment", UtilMisc.<String, String>toMap("batchId", batch.getBatchId())));
                     // set the payment method, so that when the payment is posted, it will debit directly to the checking account and not the undeposited receipts account
                     if (item.getAccountNumber() != null) {
                         PaymentMethodAndEftAccount targetPaymentMethod = repository.getPaymentMethod(item.getAccountNumber(), item.getRoutingNumber());
@@ -458,7 +458,7 @@ public class LockboxService extends DomainService implements LockboxServiceInter
                             // $10 means a cash discount of $10, so that's InvoiceAdjustment.adjustmentAmount = -10
                             invoiceService.setAdjustmentAmount(detail.getCashDiscount().negate());
                             invoiceService.setPaymentId(paymentId);
-                            invoiceService.setComment(expandLabel("FinancialsLockboxCommentCashDiscount", UtilMisc.toMap("batchId", batch.getBatchId())));
+                            invoiceService.setComment(expandLabel("FinancialsLockboxCommentCashDiscount", UtilMisc.<String, String>toMap("batchId", batch.getBatchId())));
                             invoiceService.createInvoiceAdjustment();
                         }
 

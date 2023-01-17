@@ -65,7 +65,6 @@ public class WebappTests extends OpentapsTestCase {
      *
      * @param groups List of <code>ShortcutGroup</code>
      * @param expectedGroups List of the expected Groups Id
-     * @param tabId an <code>Tab</code> Id
      */
     private void checkGroups(List<ShortcutGroup> groups, List<String> expectedGroups) {
         if (expectedGroups == null) {
@@ -83,7 +82,6 @@ public class WebappTests extends OpentapsTestCase {
      *
      * @param tabs List of <code>Tab</code>
      * @param expectedTabs List of the expected Tabs Id
-     * @param appId an <code>Webapp</code> Id
      */
     private void checkTabs(List<? extends Tab> tabs, List<String> expectedTabs) {
         if (expectedTabs == null) {
@@ -101,7 +99,6 @@ public class WebappTests extends OpentapsTestCase {
      *
      * @param groups List of <code>ShortcutGroup</code>
      * @param expectedShortcuts Map of the <code>ShortcutGroup</code> Id and List of the expected Shortcuts Id
-     * @param appId an <code>Webapp</code> Id
      */
     private void checkShortcuts(List<ShortcutGroup> groups, Map<String, List<String>> expectedShortcuts) {
         if (expectedShortcuts == null) {
@@ -197,7 +194,7 @@ public class WebappTests extends OpentapsTestCase {
 
         // check that the groups for testtab22 are: group1 and group2, and check the shortcuts of each group
         checkGroups(groups, Arrays.asList("group2-22-1", "group2-22-2"));
-        checkShortcuts(groups, UtilMisc.toMap("group2-22-1", Arrays.asList("shortcut1", "shortcut2"),
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group2-22-1", Arrays.asList("shortcut1", "shortcut2"),
                                               "group2-22-2", Arrays.asList("shortcut1", "shortcut2", "shortcut3")));
     }
 
@@ -236,7 +233,7 @@ public class WebappTests extends OpentapsTestCase {
         Tab tab1 = webappRepository.getTabById("testapp3", "testtab31");
         List<ShortcutGroup> groups = webappRepository.getShortcutGroups(tab1, context);
         checkGroups(groups, Arrays.asList("group3-31-1", "group3-31-2"));
-        checkShortcuts(groups, UtilMisc.toMap("group3-31-1", Arrays.asList("shortcut1"),
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group3-31-1", Arrays.asList("shortcut1"),
                                               "group3-31-2", Arrays.asList("shortcut1")));
 
         // test groups for testuser1 tab2, should be empty since this user does not have permission for testtab32
@@ -248,7 +245,7 @@ public class WebappTests extends OpentapsTestCase {
         Tab tab3 = webappRepository.getTabById("testapp3", "testtab33");
         groups = webappRepository.getShortcutGroups(tab3, context);
         checkGroups(groups, Arrays.asList("group3-33-1"));
-        checkShortcuts(groups, UtilMisc.toMap("group3-33-1", Arrays.asList("shortcut1")));
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group3-33-1", Arrays.asList("shortcut1")));
 
         // 2. testuser2
         webappRepository = getWebappRepository("testuser2");
@@ -264,13 +261,13 @@ public class WebappTests extends OpentapsTestCase {
         tab1 = webappRepository.getTabById("testapp3", "testtab31");
         groups = webappRepository.getShortcutGroups(tab1, context);
         checkGroups(groups, Arrays.asList("group3-31-1"));
-        checkShortcuts(groups, UtilMisc.toMap("group3-31-1", Arrays.asList("shortcut1")));
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group3-31-1", Arrays.asList("shortcut1")));
 
         // test groups for testuser2 tab2, all groups are visible
         tab2 = webappRepository.getTabById("testapp3", "testtab32");
         groups = webappRepository.getShortcutGroups(tab2, context);
         checkGroups(groups, Arrays.asList("group3-32-1", "group3-32-2"));
-        checkShortcuts(groups, UtilMisc.toMap("group3-32-1", Arrays.asList("shortcut1"),
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group3-32-1", Arrays.asList("shortcut1"),
                                               "group3-32-2", Arrays.asList("shortcut1")));
 
         // test groups for testuser2 tab3, empty since this user does not have permission
@@ -292,7 +289,7 @@ public class WebappTests extends OpentapsTestCase {
         tab1 = webappRepository.getTabById("testapp3", "testtab31");
         groups = webappRepository.getShortcutGroups(tab1, context);
         checkGroups(groups, Arrays.asList("group3-31-1"));
-        checkShortcuts(groups, UtilMisc.toMap("group3-31-1", Arrays.asList("shortcut1")));
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group3-31-1", Arrays.asList("shortcut1")));
 
         // test groups for testuser3 tab2, empty since the user has not permission for this tab
         tab2 = webappRepository.getTabById("testapp3", "testtab32");
@@ -352,7 +349,7 @@ public class WebappTests extends OpentapsTestCase {
         // includes group1 and group2
         checkGroups(groups, Arrays.asList("group4-41-1", "group4-41-2"));
         // in group 2, shortcut 1 should not appear (needs a cart)
-        checkShortcuts(groups, UtilMisc.toMap("group4-41-1", Arrays.asList("shortcut1"),
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group4-41-1", Arrays.asList("shortcut1"),
                                               "group4-41-2", Arrays.asList("shortcut2")));
 
         // testtab42
@@ -361,7 +358,7 @@ public class WebappTests extends OpentapsTestCase {
         // group1 should not appear (needs a hasGroup1 context value)
         checkGroups(groups, Arrays.asList("group4-42-2"));
         // in group2 / shortcut3 should not appear as it needs a view pref value, and shortcut2 needs a UserLogin in context
-        checkShortcuts(groups, UtilMisc.toMap("group4-42-2", Arrays.asList("shortcut1")));
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group4-42-2", Arrays.asList("shortcut1")));
 
         // 2. Not empty context map:
 
@@ -374,7 +371,7 @@ public class WebappTests extends OpentapsTestCase {
         groups = webappRepository.getShortcutGroups(tab, context);
 
         // this changed the group 2, now shortcut 1 is visible and shortcut 2 is hidden
-        checkShortcuts(groups, UtilMisc.toMap("group4-41-1", Arrays.asList("shortcut1"),
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group4-41-1", Arrays.asList("shortcut1"),
                                               "group4-41-2", Arrays.asList("shortcut1")));
 
         // setting the context hasGroup1 to "Y"
@@ -388,7 +385,7 @@ public class WebappTests extends OpentapsTestCase {
         // now group 1 and 2 are present
         checkGroups(groups, Arrays.asList("group4-42-1", "group4-42-2"));
         // the shortcuts list for group4-42-1 should be empty, group 2 contains shortcuts 1
-        checkShortcuts(groups, UtilMisc.toMap("group4-42-1", EMPTY_SHORTCUTS_LIST,
+        checkShortcuts(groups, UtilMisc.<String, List<String>>toMap("group4-42-1", EMPTY_SHORTCUTS_LIST,
                                               "group4-42-2", Arrays.asList("shortcut1")));
 
         // setting the context hasGroup1 to "Y" and hasShortcut2 to Boolean.TRUE
@@ -400,7 +397,7 @@ public class WebappTests extends OpentapsTestCase {
         tab = webappRepository.getTabById("testapp4", "testtab42");
         groups = webappRepository.getShortcutGroups(tab, context);
         checkGroups(groups, Arrays.asList("group4-42-1", "group4-42-2"));
-        checkShortcuts(groups,  UtilMisc.toMap("group4-42-1", Arrays.asList("shortcut2"),
+        checkShortcuts(groups,  UtilMisc.<String, List<String>>toMap("group4-42-1", Arrays.asList("shortcut2"),
                                                "group4-42-2", Arrays.asList("shortcut1", "shortcut2")));
 
         // setting the context opentapsApplicationName "test" sectionName to "test" to allow the view preference to take effect with the test value
@@ -419,7 +416,7 @@ public class WebappTests extends OpentapsTestCase {
         checkGroups(groups, Arrays.asList("group4-42-2"));
 
         // the shortcuts list for group4-42-2 includes shortcut1 and shortcut3
-        checkShortcuts(groups,  UtilMisc.toMap("group4-42-2", Arrays.asList("shortcut1", "shortcut3")));
+        checkShortcuts(groups,  UtilMisc.<String, List<String>>toMap("group4-42-2", Arrays.asList("shortcut1", "shortcut3")));
     }
 
     /**

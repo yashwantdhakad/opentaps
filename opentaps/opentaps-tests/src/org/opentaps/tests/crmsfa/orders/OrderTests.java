@@ -915,7 +915,7 @@ public class OrderTests extends OrderTestCase {
         assertPromoItemExists(orderId, "WG-1111", new BigDecimal("1.0"), "9000", "ITEM_CREATED");
 
         // check items total quantities
-        assertNormalOrderItems(orderId, UtilMisc.toMap("GZ-1005", new BigDecimal("1.0"), "WG-1111", new BigDecimal("10.0")));
+        assertNormalOrderItems(orderId, UtilMisc.<String, BigDecimal>toMap("GZ-1005", new BigDecimal("1.0"), "WG-1111", new BigDecimal("10.0")));
         // verify if a variant of GZ-1006 and WG-1111 are still on the order
         assertPromoItemExists(orderId, "GZ-1006", new BigDecimal("1.0"), "9018", "ITEM_CREATED");
         assertPromoItemExists(orderId, "WG-1111", new BigDecimal("1.0"), "9000", "ITEM_CREATED");
@@ -946,7 +946,7 @@ public class OrderTests extends OrderTestCase {
         // 4. check order items 1x GZ-1005, 2x WG-1111, 1x WG-1111 (Promo) + 1x GZ-1006 (Promo)
         // note: promotions adjustments  do not follow the newly created items and stays associated to the previously canceled promo items instead.
         // check items total quantities
-        assertNormalOrderItems(orderId, UtilMisc.toMap("GZ-1005", new BigDecimal("1.0"), "WG-1111", new BigDecimal("2.0")));
+        assertNormalOrderItems(orderId, UtilMisc.<String, BigDecimal>toMap("GZ-1005", new BigDecimal("1.0"), "WG-1111", new BigDecimal("2.0")));
         assertPromoItemExists(orderId, "GZ-1006", new BigDecimal("1.0"), "9018", "ITEM_CREATED");
         assertPromoItemExists(orderId, "WG-1111", new BigDecimal("1.0"), "9000", "ITEM_CREATED");
 
@@ -976,8 +976,8 @@ public class OrderTests extends OrderTestCase {
 
         // 6. check order items 2x WG-1111 + 1x WG-1111 (Promo)
         // check items total quantities
-        assertNormalOrderItems(orderId, UtilMisc.toMap("WG-1111", new BigDecimal("2.0")));
-        assertPromoOrderItems(orderId, UtilMisc.toMap("WG-1111", new BigDecimal("1.0")));
+        assertNormalOrderItems(orderId, UtilMisc.<String, BigDecimal>toMap("WG-1111", new BigDecimal("2.0")));
+        assertPromoOrderItems(orderId, UtilMisc.<String, BigDecimal>toMap("WG-1111", new BigDecimal("1.0")));
 
         // check new order totals
         order = repository.getOrderById(salesOrder.getOrderId());
@@ -1124,7 +1124,7 @@ public class OrderTests extends OrderTestCase {
 
         // pack and ship 2 out of 5
         Map<String, Map<String, BigDecimal>> toPackItems = new HashMap<String, Map<String, BigDecimal>>();
-        toPackItems.put("00001", UtilMisc.toMap("00001", new BigDecimal("2.0")));
+        toPackItems.put("00001", UtilMisc.<String, BigDecimal>toMap("00001", new BigDecimal("2.0")));
         TestShipOrderManualService ship = new TestShipOrderManualService();
         ship.setInUserLogin(admin);
         ship.setInOrderId(orderId);
@@ -3336,7 +3336,7 @@ public class OrderTests extends OrderTestCase {
         updateItems.setInOverridePriceMap(new HashMap());
         runAndAssertServiceSuccess(updateItems);
 
-        assertNormalOrderItems(orderId, UtilMisc.toMap("WG-5569", new BigDecimal("10.0"), "WG-1111", new BigDecimal("10.0")));
+        assertNormalOrderItems(orderId, UtilMisc.<String, BigDecimal>toMap("WG-5569", new BigDecimal("10.0"), "WG-1111", new BigDecimal("10.0")));
         assertPromoItemExists(orderId, "WG-1111", new BigDecimal("1.0"), "9000", "ITEM_CREATED");
 
         // Find the order items
@@ -3382,7 +3382,7 @@ public class OrderTests extends OrderTestCase {
 
         // 2. ship 1x WG-1111
         Map<String, Map<String, BigDecimal>> itemsToPack = FastMap.newInstance();
-        itemsToPack.put("00001", UtilMisc.toMap(WG1111Item.getOrderItemSeqId(), new BigDecimal("1.0")));
+        itemsToPack.put("00001", UtilMisc.<String, BigDecimal>toMap(WG1111Item.getOrderItemSeqId(), new BigDecimal("1.0")));
         TestShipOrderManualService ship = new TestShipOrderManualService();
         ship.setInUserLogin(admin);
         ship.setInOrderId(order.getOrderId());
@@ -3586,7 +3586,7 @@ public class OrderTests extends OrderTestCase {
         updateItems.setInOverridePriceMap(new HashMap());
         runAndAssertServiceSuccess(updateItems);
 
-        assertNormalOrderItems(orderId, UtilMisc.toMap("WG-1111", new BigDecimal("10.0")));
+        assertNormalOrderItems(orderId, UtilMisc.<String, BigDecimal>toMap("WG-1111", new BigDecimal("10.0")));
         assertPromoItemExists(orderId, "WG-1111", new BigDecimal("1.0"), "9000", "ITEM_CREATED");
 
         // Find the order items
@@ -3607,7 +3607,7 @@ public class OrderTests extends OrderTestCase {
 
         // 2. ship 1x WG-1111
         Map<String, Map<String, BigDecimal>> itemsToPack = FastMap.newInstance();
-        itemsToPack.put("00001", UtilMisc.toMap(WG1111Item.getOrderItemSeqId(), new BigDecimal("1.0")));
+        itemsToPack.put("00001", UtilMisc.<String, BigDecimal>toMap(WG1111Item.getOrderItemSeqId(), new BigDecimal("1.0")));
         TestShipOrderManualService ship = new TestShipOrderManualService();
         ship.setInUserLogin(admin);
         ship.setInOrderId(order.getOrderId());

@@ -240,21 +240,21 @@ public final class InvoiceEvents {
             for (InvoiceTerm invoiceTerm : invoiceTermList) {
                 TermType termType = invoiceTerm.getTermType();
                 if (UtilValidate.isNotEmpty(termType) && "FINANCIAL_TERM".equals(termType.getParentTypeId())) {
-                    extraDetails.add(UtilMisc.toMap("title", UtilMessage.expandLabel("FinancialPaymentTerm", locale), "message", UtilMessage.expandLabel("TermType_" + invoiceTerm.getTermTypeId(), locale, invoiceTerm.toMap())));
+                    extraDetails.add(UtilMisc.<String, String>toMap("title", UtilMessage.expandLabel("FinancialPaymentTerm", locale), "message", UtilMessage.expandLabel("TermType_" + invoiceTerm.getTermTypeId(), locale, invoiceTerm.toMap())));
                 }
             }
 
             // dueDate
             Timestamp dueDate = invoice.getDueDate();
             if (dueDate != null) {
-                extraDetails.add(UtilMisc.toMap("title", UtilMessage.expandLabel("AccountingDueDate", locale), "message", UtilDateTime.timeStampToString(dueDate, UtilDateTime.getDateFormat(locale), timeZone, locale)));
+                extraDetails.add(UtilMisc.<String, String>toMap("title", UtilMessage.expandLabel("AccountingDueDate", locale), "message", UtilDateTime.timeStampToString(dueDate, UtilDateTime.getDateFormat(locale), timeZone, locale)));
             }
 
             // tracking codes
             List<String> trackingCodes = (List<String>) firstLine.get("trackingCodes");
             if (UtilValidate.isNotEmpty(trackingCodes) && UtilValidate.isNotEmpty(extraInfo.get("shipmentId"))) {
                 for (String trackingCode : trackingCodes) {
-                    extraDetails.add(UtilMisc.toMap("title", UtilMessage.expandLabel("OpentapsTrackingCodes", locale), "message", trackingCode));
+                    extraDetails.add(UtilMisc.<String, String>toMap("title", UtilMessage.expandLabel("OpentapsTrackingCodes", locale), "message", trackingCode));
                 }
             }
 

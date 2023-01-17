@@ -119,10 +119,10 @@ public class PartyMergeService extends DomainService implements PartyMergeServic
             }
 
             // merge the party objects
-            mergeTwoValues("PartySupplementalData", UtilMisc.toMap("partyId", partyIdFrom), UtilMisc.toMap("partyId", partyIdTo), delegator);
-            mergeTwoValues("Person", UtilMisc.toMap("partyId", partyIdFrom), UtilMisc.toMap("partyId", partyIdTo), delegator);
-            mergeTwoValues("PartyGroup", UtilMisc.toMap("partyId", partyIdFrom), UtilMisc.toMap("partyId", partyIdTo), delegator);
-            mergeTwoValues("Party", UtilMisc.toMap("partyId", partyIdFrom), UtilMisc.toMap("partyId", partyIdTo), delegator);
+            mergeTwoValues("PartySupplementalData", UtilMisc.<String, String>toMap("partyId", partyIdFrom), UtilMisc.<String, String>toMap("partyId", partyIdTo), delegator);
+            mergeTwoValues("Person", UtilMisc.<String, String>toMap("partyId", partyIdFrom), UtilMisc.<String, String>toMap("partyId", partyIdTo), delegator);
+            mergeTwoValues("PartyGroup", UtilMisc.<String, String>toMap("partyId", partyIdFrom), UtilMisc.<String, String>toMap("partyId", partyIdTo), delegator);
+            mergeTwoValues("Party", UtilMisc.<String, String>toMap("partyId", partyIdFrom), UtilMisc.<String, String>toMap("partyId", partyIdTo), delegator);
 
             List<GenericValue> toRemove = new ArrayList<GenericValue>();
 
