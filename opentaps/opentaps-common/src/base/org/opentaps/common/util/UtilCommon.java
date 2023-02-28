@@ -787,7 +787,11 @@ public abstract class UtilCommon {
         recurseGetEntityChildrenSet(parent, ids, pkFieldName);
 
         // make a WHERE paymentTypeId IN (list of ids) expression or NOT_IN for complement search
-        return EntityCondition.makeCondition(pkFieldName, (isComplement ? EntityOperator.NOT_IN : EntityOperator.IN), ids);
+        if (isComplement) {
+            return EntityCondition.makeCondition(pkFieldName, EntityOperator.NOT_IN, ids);
+        } else {
+            return EntityCondition.makeCondition(pkFieldName, EntityOperator.IN, ids);
+        }
     }
 
     /**

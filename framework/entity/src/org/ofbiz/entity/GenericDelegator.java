@@ -335,7 +335,7 @@ public class GenericDelegator implements Delegator {
             String entityEcaHandlerClassName = getDelegatorInfo().entityEcaHandlerClassName;
 
             try {
-                Class<?> eecahClass = loader.loadClass(entityEcaHandlerClassName);
+                Class eecahClass = loader.loadClass(entityEcaHandlerClassName);
                 this.entityEcaHandler = UtilGenerics.cast(eecahClass.newInstance());
                 this.entityEcaHandler.setDelegator(this);
             } catch (ClassNotFoundException e) {
